@@ -22,10 +22,10 @@ const Header = () => {
             </span>
           </div>
           <div className="flex lg:hidden ">
-            <p className="text-xl text-green-700 cursor-pointer hover:border-b border-green-700">
+            <p className="text-md text-green-700 cursor-pointer hover:border-b border-green-700">
               Login{" "}
             </p>
-            <span className="text-xl text-green-700 cursor-pointer hover:border-b border-green-700">
+            <span className="text-md text-green-700 cursor-pointer hover:border-b border-green-700">
               /Register
             </span>
           </div>
@@ -63,7 +63,7 @@ const Header = () => {
           Pass<span className="text-white">Easy</span>
         </motion.p>
         <div className=" md:pr-14 md:block hidden">
-          <ul className="md:flex md:text-center justify-center md:space-x-7 text-green-700  cursor-pointer md:text-xl   ">
+          <ul className="md:flex md:text-center justify-center md:space-x-7 text-green-700  cursor-pointer md:text-md   ">
             <Link to="/">
               <li className="hover:text-white">HOME</li>
             </Link>
@@ -89,7 +89,7 @@ const Header = () => {
               : "absolute top-20 left-[-0.01rem] w-full right-4  h-44  md:hidden"
           }  `}
         >
-          <ul className="flex flex-col  bg-green-300  py-4 px-6  mx-0 justify-center items-start space-y-4 text-green-700 cursor-pointer w-full text-xl  ">
+          <ul className="flex flex-col  bg-green-300  py-4 px-6  mx-0 justify-center items-start space-y-4 text-green-700 cursor-pointer w-full text-lg  ">
             <li className="hover:text-white">HOME</li>
             <li className="hover:text-white">QUIZ</li>
             <li className="hover:text-white">DICTIONARY</li>

@@ -10,7 +10,7 @@ const Search = () => {
         placeholder="Practice a subject?"
         required
       />
-      <span className="bg-green-500 h-full w-16 flex justify-center items-center text-white text-2xl">
+      <span className="bg-green-500 h-full w-16 flex justify-center items-center text-white text-3xl">
         <BiSearchAlt2 />
       </span>
     </div>
