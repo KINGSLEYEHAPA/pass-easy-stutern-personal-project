@@ -4,12 +4,13 @@ import { motion } from "framer-motion";
 import { MdClose } from "react-icons/md";
 import { RiMailFill } from "react-icons/ri";
 import { BsTelephoneFill } from "react-icons/bs";
+import Search from "./Search";
 
 const Header = () => {
   const [subMenu, setSubMenu] = useState(true);
   return (
     <div>
-      <div className="w-full h-32 lg:h-16 bg-white/30 flex flex-col lg:flex-row justify-center items-center  gap-1 lg:gap-0 ">
+      <div className="w-full h-32 lg:h-14 bg-white/30 flex flex-col lg:flex-row justify-center items-center lg:gap-0 ">
         <div className="bg-green-100/30 h-full w-full lg:w-80 flex justify-start items-center gap-2 p-4 hover:cursor-pointer border-r-2 border-gray-100">
           <span className="text-xl text-green-300">
             {" "}
@@ -24,10 +25,19 @@ const Header = () => {
           </span>
           <span className="text-lg text-green-300">+2348156171958</span>
         </div>
-        <div className="bg-green-500 h-full w-full lg:w-80"></div>
-        <div className="bg-green-500 h-full w-80 hidden lg:block"></div>
+        <div className="bg-green-100/30 h-full w-full lg:w-80 flex justify-center items-center hover:cursor-pointer border-l-2 border-gray-100">
+          <Search />
+        </div>
+        <div className="bg-green-100/30 h-full w-80 hidden lg:flex justify-center items-center">
+          <p className="text-xl text-green-700 cursor-pointer hover:border-b border-green-700">
+            Login{" "}
+          </p>
+          <span className="text-xl text-green-700 cursor-pointer hover:border-b border-green-700">
+            /Register
+          </span>
+        </div>
       </div>
-      <div className="flex justify-between items-center w-full h-20 bg-green-300 px-5 sticky z-20 top-0 shadow-lg border-b-2 border-white ">
+      <div className="flex justify-between items-center w-full h-20 bg-green-300 px-5 sticky z-20 top-0 shadow-lg  ">
         <motion.p
           initial={{ x: -200, opacity: 0 }}
           animate={{ opacity: 1, x: 0 }}
