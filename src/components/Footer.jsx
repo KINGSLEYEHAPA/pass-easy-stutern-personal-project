@@ -11,7 +11,7 @@ const Footer = () => {
         <p className="mt-6 text-green-100">
           PassEasy is a web application that prepares student for entrance exam
           into the university.PassEasy has a quiz platform for student to master
-          past questions in previous exams in UTME,WASSCE and POST-UTME
+          past questions in previous exams in UTME,WASSCE and POST-UTME.
         </p>
         <p className="mt-5 text-green-700"> Copyright &copy;2022</p>
       </div>
@@ -23,7 +23,7 @@ const Footer = () => {
       </div>
       <div className="md:mb-12">
         <h2 className="text-2xl text-green-700">Follow Us</h2>
-        <div className="flex gap-2 mt-6 text-green-100 text-2xl">
+        <div className="flex gap-4 mt-6 text-green-100 text-2xl">
           <span className="hover:text-green-700">
             <BsTwitter />
           </span>

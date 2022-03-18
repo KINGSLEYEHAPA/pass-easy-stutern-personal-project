@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { MdClose } from "react-icons/md";
 import { RiMailFill } from "react-icons/ri";
 import { BsTelephoneFill } from "react-icons/bs";
@@ -97,36 +97,43 @@ const Header = () => {
             <li className="hover:text-white">ABOUT</li>
           </ul>{" "}
         </div>
-
-        {subMenu && (
-          <svg
-            onClick={() => {
-              setSubMenu(false);
-            }}
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-8 w-8 md:hidden block text-green-700 "
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        )}
-        {!subMenu && (
-          <span
-            className="text-3xl md:hidden block text-green-700 "
-            onClick={() => {
-              setSubMenu(true);
-            }}
-          >
-            <MdClose />
-          </span>
-        )}
+        <AnimatePresence>
+          {subMenu && (
+            <motion.svg
+              initial={{ opacity: 0, rotate: 0 }}
+              animate={{ opacity: 1, rotate: 180 }}
+              transition={{ duration: 1.5 }}
+              onClick={() => {
+                setSubMenu(false);
+              }}
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-8 w-8 md:hidden block text-green-700 "
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </motion.svg>
+          )}
+          {!subMenu && (
+            <motion.span
+              initial={{ opacity: 0, rotate: 0 }}
+              animate={{ opacity: 1, rotate: 180 }}
+              transition={{ duration: 1.5 }}
+              className="text-3xl md:hidden block text-green-700 "
+              onClick={() => {
+                setSubMenu(true);
+              }}
+            >
+              <MdClose />
+            </motion.span>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );

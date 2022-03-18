@@ -5,7 +5,7 @@ const Search = () => {
   return (
     <div className="flex justify-center items-center h-full w-full ">
       <input
-        className="w-full h-full outline-none px-3  text-xl bg-gray-100 text-green-700 placeholder:text-green-500  "
+        className="w-full h-full outline-none px-3  text-xl bg-gray-100 text-green-700 placeholder:text-green-300  "
         type="text"
         placeholder="Practice a subject?"
         required
