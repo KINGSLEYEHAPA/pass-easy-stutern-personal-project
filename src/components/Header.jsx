@@ -58,7 +58,7 @@ const Header = () => {
             type: "spring",
             stiffness: 120,
           }}
-          className=" text-green-700 font-bold text-3xl ml-10"
+          className=" text-green-700 font-bold text-3xl lg:ml-10"
         >
           Pass<span className="text-white">Easy</span>
         </motion.p>
@@ -81,6 +81,7 @@ const Header = () => {
             </Link>
           </ul>{" "}
         </div>
+
         <div
           className={` ${
             subMenu
@@ -96,6 +97,7 @@ const Header = () => {
             <li className="hover:text-white">ABOUT</li>
           </ul>{" "}
         </div>
+
         {subMenu && (
           <svg
             onClick={() => {
