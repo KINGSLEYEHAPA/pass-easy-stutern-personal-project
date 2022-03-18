@@ -11,12 +11,24 @@ const Header = () => {
   return (
     <div>
       <div className="w-full h-32 lg:h-14 bg-white/30 flex flex-col lg:flex-row justify-center items-center lg:gap-0 ">
-        <div className="bg-green-100/30 h-full w-full lg:w-80 flex justify-start items-center gap-2 p-4 hover:cursor-pointer border-r-2 border-gray-100">
-          <span className="text-xl text-green-300">
-            {" "}
-            <RiMailFill />
-          </span>
-          <span className="text-lg text-green-300">kessity09@gmail.com</span>
+        <div className="bg-green-100/30 h-full w-full lg:w-80 flex justify-between items-center  p-4 hover:cursor-pointer border-r-2 border-gray-100">
+          <div className="flex justify-center items-center gap-2">
+            <span className="text-xl text-green-300">
+              {" "}
+              <RiMailFill />
+            </span>
+            <span className="text-lg text-green-300">
+              <a href="mailto:kessity09@gmail.com">kessity09@gmail.com</a>
+            </span>
+          </div>
+          <div className="flex lg:hidden ">
+            <p className="text-xl text-green-700 cursor-pointer hover:border-b border-green-700">
+              Login{" "}
+            </p>
+            <span className="text-xl text-green-700 cursor-pointer hover:border-b border-green-700">
+              /Register
+            </span>
+          </div>
         </div>
         <div className="bg-green-100/30 h-full w-96 hidden lg:flex justify-start items-center gap-3 p-4 hover:cursor-pointer">
           <span className="text-xl text-green-300">
