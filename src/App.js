@@ -1,5 +1,11 @@
+import Header from "./components/Header";
+
 function App() {
-  return <div className="text-green-200 text-2xl">Passeasy Project Start</div>;
+  return (
+    <div className="">
+      <Header />
+    </div>
+  );
 }
 
 export default App;
