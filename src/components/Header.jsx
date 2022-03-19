@@ -12,12 +12,12 @@ const Header = () => {
     <div>
       <div className="w-full h-32 lg:h-14 bg-white/30 flex flex-col lg:flex-row justify-center items-center lg:gap-0 ">
         <div className="bg-green-100/30 h-full w-full lg:w-80 flex justify-between items-center  p-4 hover:cursor-pointer border-r-2 border-gray-100">
-          <div className="flex justify-center items-center gap-2">
-            <span className="text-xl text-green-300">
+          <div className="flex justify-center items-center gap-2 hover:text-green-700">
+            <span className="text-xl text-green-300 ">
               {" "}
               <RiMailFill />
             </span>
-            <span className="text-lg text-green-300">
+            <span className="text-lg text-green-300 hover:text-green-500">
               <a href="mailto:kessity09@gmail.com">kessity09@gmail.com</a>
             </span>
           </div>
@@ -58,7 +58,7 @@ const Header = () => {
             type: "spring",
             stiffness: 120,
           }}
-          className=" text-green-700 font-bold text-3xl lg:ml-10"
+          className=" text-green-700 font-bold text-3xl"
         >
           Pass<span className="text-white">Easy</span>
         </motion.p>
@@ -100,8 +100,8 @@ const Header = () => {
         <AnimatePresence>
           {subMenu && (
             <motion.svg
-              initial={{ opacity: 0, rotate: 0 }}
-              animate={{ opacity: 1, rotate: 180 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [1, 0, 1] }}
               transition={{ duration: 1.5 }}
               onClick={() => {
                 setSubMenu(false);
@@ -122,8 +122,8 @@ const Header = () => {
           )}
           {!subMenu && (
             <motion.span
-              initial={{ opacity: 0, rotate: 0 }}
-              animate={{ opacity: 1, rotate: 180 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: [1, 0, 1] }}
               transition={{ duration: 1.5 }}
               className="text-3xl md:hidden block text-green-700 "
               onClick={() => {
