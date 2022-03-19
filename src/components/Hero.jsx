@@ -7,31 +7,29 @@ import { motion, AnimatePresence } from "framer-motion";
 const Hero = () => {
   const [changeImage, setChangeImage] = useState(true);
   const heroImageVariants = {
-    hidden: { opacity: 0, x: -500, scale: 1 },
+    hidden: { opacity: 0, x: -500 },
     visible: {
       opacity: 1,
       x: 0,
-      scale: 1,
       transition: {
-        duration: 2,
+        duration: 0.35,
       },
     },
     exit: {
       x: 1000,
-      scale: 1.2,
       opacity: 0,
       transition: {
-        duration: 2,
+        duration: 0.35,
       },
     },
   };
   useEffect(() => {
     setTimeout(() => {
       setChangeImage(!changeImage);
-    }, 7000);
+    }, 10000);
   }, [changeImage]);
   return (
-    <div className="w-full h-96 ssm:h-[28rem] md:h-[40rem] lg:h-[55rem]">
+    <div className="w-full h-96 ssm:h-[28rem] md:h-[40rem] lg:h-[45rem]">
       <div className="h-full w-full bg-green-100/50 relative">
         <AnimatePresence>
           <motion.img
@@ -45,14 +43,14 @@ const Hero = () => {
           />
         </AnimatePresence>
         <div className="absolute top-0 left-0 w-full h-full bg-white/30 z-10 flex justify-start pl-12 items-center">
-          <div className="w-72 sm:w-80 ssm:w-96 md:w-[30rem] lg:w-[50rem] px-0">
+          <div className="w-72 sm:w-80 ssm:w-96 md:w-[30rem] lg:w-[50rem] px-0 md:mb-12">
             <h4 className="text-xs text-green-800 font-bold ssm:text-md lg:text-lg">
               GET STARTED WITH UP TO SEVENTEEN SUBJECTS
             </h4>
-            <h1 className="text-lg text-white ssm:text-2xl md:text-4xl lg:text-7xl">
+            <h1 className="text-lg text-white ssm:text-2xl md:text-3xl lg:text-5xl">
               BEST ONLINE EXAM PREPARATION PLATFORM
             </h1>
-            <p className="mt-6 text-green-300 ssm:text-lg  lg:text-2xl ">
+            <p className="mt-6 text-green-300 ssm:text-md  lg:text-xl ">
               Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
               officia deserunt mollit anim id est laborum. Sed ut perspiciatis
               unde omnis iste natus error sit voluptatem accusantium doloremque
