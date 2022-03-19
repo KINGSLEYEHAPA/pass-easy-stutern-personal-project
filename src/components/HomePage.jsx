@@ -12,7 +12,7 @@ const HomePage = () => {
     <div className="bg-green-100/80  w-full min-h-100rem ">
       <Hero />
       <div className="w-full min-h-96 lg:h-[30rem] xl:h-64 py-2 px-0 lg:flex flex flex-wrap lg:flex-row gap-0 items-center justify-center  lg:justify-start lg:pl-12 xl:pl-2">
-        <div className="bg-green-200/80 h-56 w-full ssm:w-[20.8rem] md:w-96 lg:h-56 lg:w-80 border-2 lg:border-r-2 border-gray-300/50 p-2">
+        <div className="bg-green-200/80 h-56 w-full ssm:w-[20.8rem] md:w-96 lg:h-56 lg:w-80 border-2 lg:border-r-2 border-gray-300/50 p-2 cursor-pointer">
           <p className="h-14 p-1">
             <img className="h-full w-20 rounded-md" src={jambLogo} alt="Jamb" />{" "}
           </p>
@@ -26,14 +26,14 @@ const HomePage = () => {
           <Link to="/">
             <div className="flex justify-start items-center gap-2 mt-3">
               {" "}
-              <p className="text-gray-700 font-bold">Practice Now</p>{" "}
-              <span className=" text-green-900 font-bold text-2xl">
+              <p className="text-green-500 font-bold">Practice Now</p>{" "}
+              <span className=" text-green-600 font-bold text-2xl">
                 <BsArrowRight />
               </span>
             </div>
           </Link>
         </div>
-        <div className="bg-green-200/80 h-56 w-full ssm:w-[20.8rem] md:w-96 lg:h-56 lg:w-80 border-2   lg:border-r-2 border-gray-300/50 p-2">
+        <div className="bg-green-200/80 h-56 w-full ssm:w-[20.8rem] md:w-96 lg:h-56 lg:w-80 border-2   lg:border-r-2 border-gray-300/50 p-2 cursor-pointer">
           <p className="h-14 p-1">
             <img className="h-full w-20 rounded-md" src={waecLogo} alt="Jamb" />{" "}
           </p>
@@ -47,14 +47,14 @@ const HomePage = () => {
           <Link to="/">
             <div className="flex justify-start items-center gap-2 mt-3">
               {" "}
-              <p className="text-gray-700 font-bold">Practice Now</p>{" "}
-              <span className=" text-green-900 font-bold text-2xl">
+              <p className="text-green-500 font-bold">Practice Now</p>{" "}
+              <span className=" text-green-600 font-bold text-2xl">
                 <BsArrowRight />
               </span>
             </div>
           </Link>
         </div>
-        <div className="bg-green-200/80 h-56 w-full ssm:w-[20.8rem] md:w-96 lg:h-56 lg:w-80 border-2  lg:border-r-2 border-gray-300/50 p-2">
+        <div className="bg-green-200/80 h-56 w-full ssm:w-[20.8rem] md:w-96 lg:h-56 lg:w-80 border-2  lg:border-r-2 border-gray-300/50 p-2 cursor-pointer">
           <p className="h-14 p-1">
             <img className="h-full w-20 rounded-md" src={postUtme} alt="Jamb" />{" "}
           </p>
@@ -68,14 +68,14 @@ const HomePage = () => {
           <Link to="/">
             <div className="flex justify-start items-center gap-2 mt-3">
               {" "}
-              <p className="text-gray-700 font-bold">Practice Now</p>{" "}
-              <span className=" text-green-900 font-bold text-2xl">
+              <p className="text-green-500 font-bold">Practice Now</p>{" "}
+              <span className=" text-green-600 font-bold text-2xl">
                 <BsArrowRight />
               </span>
             </div>
           </Link>
         </div>
-        <div className="bg-green-200/80  h-56 w-full ssm:w-[20.8rem] md:w-96 lg:h-56 border-2 border-gray-300/50  lg:w-80 p-2">
+        <div className="bg-green-200/80  h-56 w-full ssm:w-[20.8rem] md:w-96 lg:h-56 border-2 border-gray-300/50  lg:w-80 p-2 cursor-pointer">
           <p className="h-14 p-1">
             <img
               className="h-full w-20 rounded-md"
@@ -93,8 +93,8 @@ const HomePage = () => {
           <Link to="/">
             <div className="flex justify-start items-center gap-2 mt-9">
               {" "}
-              <p className="text-gray-700 font-bold">Practice Now</p>{" "}
-              <span className=" text-green-900 font-bold text-2xl">
+              <p className="text-green-500 font-bold">Practice Now</p>{" "}
+              <span className=" text-green-600 font-bold text-2xl">
                 <BsArrowRight />
               </span>
             </div>
