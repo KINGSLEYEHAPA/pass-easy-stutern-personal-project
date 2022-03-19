@@ -46,10 +46,10 @@ const HomePage = () => {
             </p>
           </div>
           <Link to="/">
-            <div className="flex justify-start items-center gap-2 mt-3">
+            <div className="flex justify-start items-center gap-2 mt-3 hover:gap-4">
               {" "}
               <p className="text-green-500 font-bold">Practice Now</p>{" "}
-              <span className=" text-green-600 font-bold text-2xl">
+              <span className=" text-green-600 font-bold text-2xl ">
                 <BsArrowRight />
               </span>
             </div>
@@ -79,7 +79,7 @@ const HomePage = () => {
             </p>
           </div>
           <Link to="/">
-            <div className="flex justify-start items-center gap-2 mt-3">
+            <div className="flex justify-start items-center gap-2 mt-3 hover:gap-4">
               {" "}
               <p className="text-green-500 font-bold">Practice Now</p>{" "}
               <span className=" text-green-600 font-bold text-2xl">
@@ -112,7 +112,7 @@ const HomePage = () => {
             </p>
           </div>
           <Link to="/">
-            <div className="flex justify-start items-center gap-2 mt-3">
+            <div className="flex justify-start items-center gap-2 mt-3 hover:gap-4">
               {" "}
               <p className="text-green-500 font-bold">Practice Now</p>{" "}
               <span className=" text-green-600 font-bold text-2xl">
@@ -149,7 +149,7 @@ const HomePage = () => {
             </p>
           </div>
           <Link to="/">
-            <div className="flex justify-start items-center gap-2 mt-9">
+            <div className="flex justify-start items-center gap-2 mt-9 hover:gap-4">
               {" "}
               <p className="text-green-500 font-bold">Practice Now</p>{" "}
               <span className=" text-green-600 font-bold text-2xl">
