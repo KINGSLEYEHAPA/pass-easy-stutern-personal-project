@@ -8,6 +8,7 @@ import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import News from "./News";
 
 const HomePage = () => {
   const controls = useAnimation();
@@ -159,18 +160,26 @@ const HomePage = () => {
           </Link>
         </motion.div>
       </div>
-      <div className="h-[40rem] ssm:h-[30rem] w-full p-2 flex flex-col ">
+
+      <div className="h-[40rem] ssm:h-[30rem] w-full flex flex-col border-b-2 border-green-100">
         <div className="h-14 bg-green-200/40 flex justify-center items-center">
           <h2 className="text-2xl md:text-4xl text-green-500">
             Word of the day
           </h2>
         </div>
         <div className="flex h-full  ">
-          <div className="bg-green-500 w-1/2 ssm:w-1/3 h-full p-2 flex flex-col justify-start items-start">
-            <span className="text-2xl text-green-100">
+          <div className="bg-green-500 w-1/2 ssm:w-1/3 h-full p-4 flex flex-col justify-start items-start">
+            <motion.span
+              variants={featureVariants}
+              initial="hidden"
+              animate={controls}
+              ref={ref}
+              transition={{ duration: 2, type: "spring", stiffness: 120 }}
+              className="text-2xl text-green-100"
+            >
               {" "}
               Annoy- <span className="text-2xl">/əˈnɔɪ/</span>
-            </span>
+            </motion.span>
 
             <div className="mt-4 text-white text-sm">
               <p className="text-xl text-green-700">Synonyms</p>
@@ -221,6 +230,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      <News />
     </div>
   );
 };
