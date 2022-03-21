@@ -5,7 +5,7 @@ const NewsItem = () => {
     <div className="mt-52 lg:mt-[8.5rem] flex justify-center items-center bg-green-100">
       <div className="flex flex-col justify-start items-start p-4 pb-20">
         <img
-          className="w-full"
+          className="w-full lg:w-4/5"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3BsnxtyM161gr7oMXaII2SVx0qYLaO3siFw&usqp=CAU"
           alt="Main News"
         />
