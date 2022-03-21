@@ -92,10 +92,27 @@ const Header = () => {
           }  `}
         >
           <ul className="flex flex-col  bg-green-300  py-4 px-6  mx-0 justify-center items-start space-y-4 text-green-700 cursor-pointer w-full text-lg  ">
-            <li className="hover:text-white">HOME</li>
-            <li className="hover:text-white">QUIZ</li>
-            <li className="hover:text-white">DICTIONARY</li>
-            <li className="hover:text-white">PERFORMANCE</li>
+            <li className="hover:text-white">
+              <Link onClick={() => setSubMenu(true)} to="/">
+                HOME
+              </Link>
+            </li>
+            <li className="hover:text-white">
+              {" "}
+              <Link onClick={() => setSubMenu(true)} to="/quiz">
+                QUIZ
+              </Link>
+            </li>
+            <li className="hover:text-white">
+              <Link onClick={() => setSubMenu(true)} to="/dictionary">
+                DICTIONARY
+              </Link>
+            </li>
+            <li className="hover:text-white">
+              <Link onClick={() => setSubMenu(true)} to="/performance">
+                PERFORMANCE
+              </Link>
+            </li>
             <li className="hover:text-white">ABOUT</li>
           </ul>{" "}
         </div>

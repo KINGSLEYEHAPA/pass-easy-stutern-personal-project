@@ -22,7 +22,7 @@ const News = () => {
         dragConstraints={{ right: 0, left: -width }}
         className=" bg-green-100 p-2 w-full flex gap-1 mt-2 px-2"
       >
-        <div className="bg-gray-300 h-72 min-w-[20rem] ">
+        <div className="bg-gray-100 h-72 min-w-[20rem] ">
           <img
             className="w-full h-2/3 pointer-events-none"
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3BsnxtyM161gr7oMXaII2SVx0qYLaO3siFw&usqp=CAU"

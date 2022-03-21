@@ -3,7 +3,7 @@ import { BiSearchAlt2 } from "react-icons/bi";
 
 const Dictionary = () => {
   return (
-    <div className="mt-52 lg:mt-[8.5rem] flex flex-col justify-start items-center min-h-[30rem]">
+    <div className="mt-52 lg:mt-[8.5rem] flex flex-col justify-start items-center min-h-[30rem] bg-green-100">
       <div className="h-14 w-96 flex justify-start items-center mt-8">
         <div className="flex justify-center items-center h-full w-full ">
           <input

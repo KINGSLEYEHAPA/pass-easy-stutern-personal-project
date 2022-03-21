@@ -232,7 +232,7 @@ const HomePage = () => {
         </div>
       </div>
       <News />
-      <div className="flex flex-col h-[60rem] sm:h-[55rem] ssm:h-[35rem] ssm:flex ssm:flex-row  bg-gray-300 mt-8">
+      <div className="flex flex-col h-[60rem] sm:h-[55rem] ssm:h-[35rem] ssm:flex ssm:flex-row  bg-gray-100 mt-8">
         <aside className=" h-2/3 ssm:h-full sm:h-[25rem] ssm:w-1/2  flex flex-col p-4 ">
           <div className="p-4">
             <h2 className="text-3xl md:text-5xl text-green-500">
