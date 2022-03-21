@@ -9,7 +9,7 @@ const NewsItem = () => {
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3BsnxtyM161gr7oMXaII2SVx0qYLaO3siFw&usqp=CAU"
           alt="Main News"
         />
-        <h1 className="text-xl ssm:text-2xl md:text-4xl lg:text-6xl mb-4 mt-2 text-green-500">
+        <h1 className="text-xl ssm:text-2xl md:text-4xl mb-4 mt-2 text-green-500">
           The Main Headline for the News
         </h1>
 
