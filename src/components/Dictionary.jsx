@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiSearchAlt2 } from "react-icons/bi";
 
 const Dictionary = () => {
+  const [wordSearched, setWordSearched] = useState(true);
   return (
     <div className="mt-52 lg:mt-[8.5rem] flex flex-col justify-start items-center min-h-[30rem] bg-green-100 p-4 gap-6">
       <div className="h-14 w-96 flex justify-start items-center mt-8">
@@ -17,15 +18,20 @@ const Dictionary = () => {
           </span>
         </div>
       </div>
-      <div className=" w-full h-[40rem] ssm:w-full ssm:h-80 bg-green-300 p-4 ">
-        <div className="w-full h-full bg-green-100 flex flex-col justify-start items-center gap-8">
+      <div className=" w-full h-[40rem] ssm:w-full ssm:h-80 bg-green-300 p-4 rounded-lg">
+        <div className="w-full h-full bg-green-100 flex flex-col justify-start items-center gap-2">
           <div className="flex  justify-start items-center h-16 bg-green-700 w-full p-2">
             <h1 className="text-green-100 text-xl ssm:text-2xl">Dictionary</h1>
           </div>
-          <div>
-            {" "}
-            <h2 className="text-green-500 text-4xl">Learn New Words</h2>
-          </div>
+          {!wordSearched && (
+            <div>
+              {" "}
+              <h2 className="text-green-500 text-4xl mt-10">Learn New Words</h2>
+            </div>
+          )}
+          {wordSearched && (
+            <div className="bg-white w-full h-[33rem] ssm:h-56"></div>
+          )}
         </div>
       </div>
     </div>
