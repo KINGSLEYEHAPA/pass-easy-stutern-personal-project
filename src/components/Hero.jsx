@@ -29,7 +29,7 @@ const Hero = () => {
     }, 10000);
   }, [changeImage]);
   return (
-    <div className="w-full h-96 ssm:h-[28rem] md:h-[40rem] lg:h-[45rem]">
+    <div className="w-full h-96 ssm:h-[28rem] md:h-[40rem] lg:h-[45rem] mt-52 lg:mt-[8.5rem]">
       <div className="h-full w-full bg-green-100/50 relative">
         <AnimatePresence>
           <motion.img
