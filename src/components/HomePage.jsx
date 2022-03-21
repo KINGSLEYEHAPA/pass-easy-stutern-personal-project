@@ -162,8 +162,8 @@ const HomePage = () => {
       </div>
 
       <div className="h-[40rem] ssm:h-[30rem] w-full flex flex-col border-b-2 border-green-100">
-        <div className="h-14 bg-green-200/40 flex justify-center items-center">
-          <h2 className="text-2xl md:text-4xl text-green-500">
+        <div className="h-14 bg-green-200/40 flex justify-start items-center">
+          <h2 className="text-2xl md:text-4xl text-green-500 ml-4">
             Word of the day
           </h2>
         </div>
