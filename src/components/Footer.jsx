@@ -13,7 +13,9 @@ const Footer = () => {
           into the university.PassEasy has a quiz platform for student to master
           past questions in previous exams in UTME,WASSCE and POST-UTME.
         </p>
-        <p className="mt-5 text-green-700"> Copyright &copy;2022</p>
+        <p className="mt-5 text-green-700">
+          Kingsley Omozogie Ehapa -Copyright &copy;2022
+        </p>
       </div>
       <div className="md:w-80">
         <h2 className="text-2xl text-green-700">Contact Us</h2>

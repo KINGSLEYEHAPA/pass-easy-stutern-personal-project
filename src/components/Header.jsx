@@ -79,7 +79,7 @@ const Header = () => {
               <li className="hover:text-white">PERFORMANCE</li>
             </Link>
             <Link to="/">
-              <li className="hover:text-white">ABOUT</li>
+              <li className="hover:text-white">NEWS</li>
             </Link>
           </ul>{" "}
         </div>
@@ -113,7 +113,7 @@ const Header = () => {
                 PERFORMANCE
               </Link>
             </li>
-            <li className="hover:text-white">ABOUT</li>
+            <li className="hover:text-white">NEWS</li>
           </ul>{" "}
         </div>
         <AnimatePresence>

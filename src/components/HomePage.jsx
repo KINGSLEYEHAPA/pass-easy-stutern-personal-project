@@ -172,7 +172,7 @@ const HomePage = () => {
       <div className="h-[40rem] ssm:h-[30rem] w-full flex flex-col border-b-2 border-green-100">
         <div className="h-14 bg-green-200/40 flex justify-start items-center">
           <h2 className="text-2xl md:text-4xl text-green-500 ml-4">
-            Word of the day
+            Learn a New Word
           </h2>
         </div>
         <div className="flex h-full  ">
@@ -279,7 +279,7 @@ const HomePage = () => {
         </aside>
         <aside className=" h-[18rem] sm:h-[35rem] ssm:h-full ssm:w-1/2">
           <img
-            className="w-full h-full ssm:h-[21rem] lg:h-4/5"
+            className="w-full h-full ssm:h-[21rem] lg:h-4/5 shadow-xl"
             src={pastQuestions}
             alt="Student"
           />
