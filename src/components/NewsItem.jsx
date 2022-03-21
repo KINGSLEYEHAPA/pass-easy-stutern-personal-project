@@ -3,7 +3,7 @@ import React from "react";
 const NewsItem = () => {
   return (
     <div className="mt-52 lg:mt-[8.5rem] flex justify-center items-center bg-green-100">
-      <div className="flex flex-col justify-start items-start p-4">
+      <div className="flex flex-col justify-start items-start p-4 pb-20">
         <img
           className="w-full"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3BsnxtyM161gr7oMXaII2SVx0qYLaO3siFw&usqp=CAU"
@@ -12,6 +12,7 @@ const NewsItem = () => {
         <h1 className="text-xl ssm:text-2xl md:text-4xl lg:text-6xl mb-4 mt-2 text-green-500">
           The Main Headline for the News
         </h1>
+
         <div className="flex flex-col justify-start">
           {" "}
           <p className="text-sm ssm:text-md md:text-lg lg:text-xl mb-4 mt-2 text-green-700">
