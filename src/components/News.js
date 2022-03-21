@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const News = () => {
   const [width, setWidth] = useState(0);
@@ -27,14 +28,16 @@ const News = () => {
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3BsnxtyM161gr7oMXaII2SVx0qYLaO3siFw&usqp=CAU"
             alt="News"
           />
-          <div className="flex flex-col justify-start items-center space-y-2 px-4">
-            {" "}
-            <h3 className="text-xl text-green-500">The Headline</h3>{" "}
-            <p className="text-md text-green-800">
-              l;ksfk lkdfsf jkfhs jhsfs jjfss kjsfdsj jksdfs jksfhfs jsff
-              jkhsfsj jnbsfsh
-            </p>
-          </div>
+          <Link to="/news">
+            <div className="flex flex-col justify-start items-center space-y-2 px-4">
+              {" "}
+              <h3 className="text-xl text-green-500">The Headline</h3>{" "}
+              <p className="text-md text-green-800">
+                l;ksfk lkdfsf jkfhs jhsfs jjfss kjsfdsj jksdfs jksfhfs jsff
+                jkhsfsj jnbsfsh
+              </p>
+            </div>
+          </Link>
         </div>
         <div className="bg-gray-600 h-72 min-w-[20rem]  text-white">2</div>
         <div className="bg-gray-600 h-72 min-w-[20rem]  text-white">3</div>
