@@ -235,7 +235,7 @@ const HomePage = () => {
       <div className="flex flex-col h-[60rem] sm:h-[55rem] ssm:h-[35rem] ssm:flex ssm:flex-row  bg-gray-200">
         <aside className=" h-2/3 ssm:h-full sm:h-[25rem] ssm:w-1/2  flex flex-col p-4 ">
           <div className="p-4">
-            <h2 className="text-2xl md:text-4xl text-green-500">
+            <h2 className="text-3xl md:text-5xl text-green-500">
               About PassEasy
             </h2>
             <p className="text-sm ssm:text-lg text-green-700 mt-5">
