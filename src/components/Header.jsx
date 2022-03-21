@@ -50,18 +50,20 @@ const Header = () => {
         </div>
       </div>
       <div className="flex justify-between items-center w-full h-20 bg-green-300 px-5 sticky z-20 top-0 shadow-lg  ">
-        <motion.p
-          initial={{ x: -200, opacity: 0 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{
-            duration: 1,
-            type: "spring",
-            stiffness: 120,
-          }}
-          className=" text-green-700 font-bold text-3xl"
-        >
-          Pass<span className="text-white">Easy</span>
-        </motion.p>
+        <Link to="/">
+          <motion.p
+            initial={{ x: -200, opacity: 0 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              duration: 1,
+              type: "spring",
+              stiffness: 120,
+            }}
+            className=" text-green-700 font-bold text-3xl"
+          >
+            Pass<span className="text-white">Easy</span>
+          </motion.p>
+        </Link>
         <div className=" md:pr-14 md:block hidden">
           <ul className="md:flex md:text-center justify-center md:space-x-7 text-green-700  cursor-pointer md:text-md   ">
             <Link to="/">

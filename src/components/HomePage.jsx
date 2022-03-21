@@ -4,6 +4,7 @@ import jambLogo from "../assets/img/Jamb.jpg";
 import waecLogo from "../assets/img/WAEC.webp";
 import postUtme from "../assets/img/post-utme.jfif";
 import dictionaryLogo from "../assets/img/dictionary.jfif";
+import pastQuestions from "../assets/img/pastquestions.jpg";
 import { BsArrowRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { motion, useAnimation } from "framer-motion";
@@ -231,6 +232,53 @@ const HomePage = () => {
         </div>
       </div>
       <News />
+      <div className="flex flex-col h-[60rem] sm:h-[55rem] ssm:h-[35rem] ssm:flex ssm:flex-row  bg-gray-200">
+        <aside className=" h-2/3 ssm:h-full sm:h-[25rem] ssm:w-1/2  flex flex-col p-4 ">
+          <div className="p-4">
+            <h2 className="text-2xl md:text-4xl text-green-500">
+              About PassEasy
+            </h2>
+            <p className="text-sm ssm:text-lg text-green-700 mt-5">
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+              officia deserunt mollit anim id est laborum. Sed ut perspiciatis
+              unde omnis iste natus error sit voluptatem accusantium.
+            </p>
+          </div>
+          <div className="flex flex-col gap-1">
+            <div className="flex gap-28 p-4">
+              <div className="w-56 space-y-2">
+                {" "}
+                <p className="text-4xl text-green-500">50M+</p>{" "}
+                <p className="text-md text-gray-500">STUDENTS LEARNING</p>
+              </div>
+              <div className="w-56 space-y-2">
+                {" "}
+                <p className="text-4xl text-green-500">16+</p>{" "}
+                <p className="text-md text-gray-500">SUBJECTS</p>
+              </div>
+            </div>
+            <div className="flex gap-28 p-4">
+              <div className="w-56 space-y-2">
+                {" "}
+                <p className="text-4xl text-green-500">6K+</p>{" "}
+                <p className="text-md text-gray-500">QUESTIONS</p>
+              </div>
+              <div className="w-56 space-y-2">
+                {" "}
+                <p className="text-4xl text-green-500">1M+</p>{" "}
+                <p className="text-md text-gray-500">MONTHLY VISIT</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+        <aside className=" h-[18rem] sm:h-[35rem] ssm:h-full ssm:w-1/2">
+          <img
+            className="w-full h-full ssm:h-[21rem] lg:h-4/5"
+            src={pastQuestions}
+            alt="Student"
+          />
+        </aside>
+      </div>
     </div>
   );
 };
