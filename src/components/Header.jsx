@@ -35,7 +35,7 @@ const Header = () => {
             {" "}
             <BsTelephoneFill />
           </span>
-          <span className="text-lg text-green-300">+2348156171958</span>
+          <span className="text-lg text-green-300">+234800000000</span>
         </div>
         <div className="bg-green-100/30 h-full w-full lg:w-80 flex justify-center items-center hover:cursor-pointer border-l-2 border-gray-100">
           <Search />
