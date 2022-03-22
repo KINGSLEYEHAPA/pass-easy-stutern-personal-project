@@ -23,7 +23,7 @@ const PerformanceStats = () => {
             <h1 className="text-green-100 text-xl ssm:text-2xl">Performance</h1>
           </div>
           <div className=" h-full w-96 md:w-[40rem] flex justify-end items-center pr-6 ">
-            <div className=" flex flex-col md:flex md:flex-row gap-0 md:gap-2 justify-end items-start">
+            <div className=" flex flex-col md:flex md:flex-row gap-1 md:gap-3 justify-end items-start">
               <AnimateSharedLayout>
                 {statsTab.map((el, index) => {
                   return (
@@ -72,15 +72,55 @@ const PerformanceStats = () => {
                   4minutes 59seconds
                 </h2>
               </div>
-              <div className="flex gap-2 bg-white/30 shadow-lg w-full h-28  md:w-[18rem] lg:w-[26rem] md:h-full items-center justify-center">
-                <span className="text-6xl text-green-500 lg:text-8xl">
+              <div className="flex flex-col gap-4 bg-white/30 shadow-lg w-full h-28  md:w-[20rem] lg:w-[26rem] md:h-full items-center justify-center">
+                <span className="text-6xl text-green-700 lg:text-8xl">
                   <BsTrophyFill />
                 </span>
+                <p className="text-green-500">Tuesday 22 Mar 2022</p>
               </div>
             </div>
           )}
-          {selected === 1 && <div>The second section</div>}
-          {selected === 2 && <div>The third section</div>}
+          {selected === 1 && (
+            <div className="bg-green-100 w-full h-[20.5rem] md:h-[22rem] flex flex-col md:flex md:flex-row items-center justify-center gap-2 md:gap-10 p-4">
+              <div className="flex gap-2 bg-white/30 shadow-lg w-full h-20 md:w-[22rem] md:h-full items-center justify-center">
+                <h2 className="text-md md:text-lg xl:text-3xl text-green-500">
+                  Mathematics
+                </h2>{" "}
+                <div className="flex items-center gap-1 pt-1 md:pt-1 xl:pt-2">
+                  <span className="text-green-700 md:text-lg xl:text-xl ">
+                    <BsFillStarFill />
+                  </span>
+                  <span className="text-green-700 md:text-lg xl:text-xl">
+                    <BsFillStarFill />
+                  </span>
+                  <span className="text-green-700 md:text-lg xl:text-xl">
+                    <BsFillStarFill />
+                  </span>
+                  <span className="text-green-700 md:text-lg xl:text-xl">
+                    <BsFillStarFill />
+                  </span>
+                  <span className="text-green-700 md:text-lg xl:text-xl">
+                    <BsFillStarFill />
+                  </span>
+                </div>
+              </div>
+              <div className="flex flex-col gap-2 bg-white/30 shadow-lg w-full h-20 md:w-[24rem] md:h-full items-center justify-center p-2 md:space-y-4">
+                <h2 className="text-md md:text-lg xl:text-2xl text-green-500">
+                  Score
+                </h2>
+                <h2 className="text-lg md:text-3xl xl:text-6xl text-green-700">
+                  87%
+                </h2>
+              </div>
+              <div className="flex flex-col gap-4 bg-white/30 shadow-lg w-full h-28  md:w-[20rem] lg:w-[26rem] md:h-full items-center justify-center">
+                <span className="text-6xl text-green-700 lg:text-8xl">
+                  <BsTrophyFill />
+                </span>
+                <p className="text-green-500">Tuesday 22 Mar 2022</p>
+              </div>
+            </div>
+          )}
+          {selected === 2 && <div className="">The third section</div>}
         </AnimatePresence>
       </div>
     </div>
