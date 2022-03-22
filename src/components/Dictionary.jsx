@@ -89,7 +89,7 @@ const Dictionary = () => {
                   </div>
                 </div>
                 <div className=" w-full h-[20rem] ssm:w-[30rem] ssm:h-full flex flex-row ssm:flex ssm:flex-col">
-                  <div className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl">
+                  <div className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl ">
                     <p className="px-2 py-1 bg-green-700 inline-block rounded-md text-white mb-2">
                       Noun
                     </p>
@@ -124,7 +124,7 @@ const Dictionary = () => {
                     </p>
                   </div>
                 </div>
-                <div className=" w-full h-[20rem] ssm:w-[30rem] ssm:h-full flex  ssm:flex ssm:flex-col">
+                <div className=" w-full h-[20rem] ssm:w-[30rem] ssm:h-full flex  ssm:flex ssm:flex-col mr-2">
                   <div className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl">
                     <p className="px-2 py-1 bg-green-700 inline-block rounded-md text-white mb-2">
                       Noun
