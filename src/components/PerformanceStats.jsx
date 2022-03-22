@@ -3,10 +3,11 @@ import React, { useState } from "react";
 import perfLogo from "../assets/img/performance.jfif";
 import MenuItem from "./MenuItem";
 import { BsFillStarFill, BsTrophyFill } from "react-icons/bs";
+import { BiTimer } from "react-icons/bi";
 
 const PerformanceStats = () => {
   const [selected, setSelected] = useState(0);
-  const statsTab = ["Best Quiz Time", "Best Score", "Absolute Best"];
+  const statsTab = ["Best Quiz Time", "Best Score", "Rankings"];
   return (
     <div className="mt-52 lg:mt-[8.5rem] bg-green-100 min-h-[30rem] w-full p-4">
       <div className="bg-green-300 h-full w-full rounded-xl p-2 flex flex-col gap-1">
@@ -44,12 +45,12 @@ const PerformanceStats = () => {
             <motion.div
               initial={{ opacity: 0, x: -1000, scale: 0 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{ duration: 1.2, type: "spring", stiffness: 120 }}
+              transition={{ duration: 1.5, type: "spring", stiffness: 120 }}
               exit={{
                 x: -1000,
                 scale: 0,
                 opacity: 0,
-                transition: { duration: 0.25 },
+                transition: { duration: 0.5 },
               }}
               className="bg-green-100 w-full h-[20.5rem] md:h-[22rem] flex flex-col md:flex md:flex-row items-center justify-center gap-2 md:gap-10 p-4"
             >
@@ -85,7 +86,7 @@ const PerformanceStats = () => {
               </div>
               <div className="flex flex-col gap-4 bg-white/30 shadow-lg w-full h-28  md:w-[20rem] lg:w-[26rem] md:h-full items-center justify-center">
                 <span className="text-6xl text-green-700 lg:text-8xl">
-                  <BsTrophyFill />
+                  <BiTimer />
                 </span>
                 <p className="text-green-500">Tuesday 22 Mar 2022</p>
               </div>
@@ -97,12 +98,12 @@ const PerformanceStats = () => {
             <motion.div
               initial={{ opacity: 0, x: -1000, scale: 0 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{ duration: 1.2, type: "spring", stiffness: 120 }}
+              transition={{ duration: 1.5, type: "spring", stiffness: 120 }}
               exit={{
                 x: -1000,
                 scale: 0,
                 opacity: 0,
-                transition: { duration: 0.25 },
+                transition: { duration: 0.5 },
               }}
               className="bg-green-100 w-full h-[20.5rem] md:h-[22rem] flex flex-col md:flex md:flex-row items-center justify-center gap-2 md:gap-10 p-4"
             >

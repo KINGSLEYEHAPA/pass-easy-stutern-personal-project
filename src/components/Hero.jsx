@@ -26,7 +26,7 @@ const Hero = () => {
   useEffect(() => {
     setTimeout(() => {
       setChangeImage(!changeImage);
-    }, 10000);
+    }, 8000);
   }, [changeImage]);
   return (
     <div className="w-full h-96 ssm:h-[28rem] md:h-[40rem] lg:h-[45rem] mt-52 lg:mt-[8.5rem]">

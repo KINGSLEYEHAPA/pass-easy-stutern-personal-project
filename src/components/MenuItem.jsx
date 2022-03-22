@@ -5,7 +5,6 @@ const MenuItem = ({ text, selected, onClick }) => (
     className="cursor-pointer relative text-md md:text-lg text-green-100"
     onClick={onClick}
     animate={{ opacity: selected ? 1 : 0.5 }}
-    transition={{ delay: 1.2 }}
   >
     {text}
     {selected && (
