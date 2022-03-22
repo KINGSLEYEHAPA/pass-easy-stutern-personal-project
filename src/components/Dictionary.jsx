@@ -12,28 +12,28 @@ const Dictionary = () => {
   };
   return (
     <div className="mt-52 lg:mt-[8.5rem] flex flex-col justify-start items-center min-h-[30rem] bg-green-100 px-0 py-4 gap-6">
-      <div className="h-14 w-72 ssm:w-96 lg:w-[32rem] flex justify-start items-center mt-8">
-        <div className="flex justify-center items-center h-full w-full ">
-          <input
-            className="w-full h-full outline-none px-3  text-xl bg-gray-100 text-green-700 placeholder:text-green-300 rounded-tl-lg rounded-bl-lg  "
-            type="text"
-            placeholder="Search for a Word..."
-            required
-          />
-          <span className="bg-green-500 h-full w-16 flex justify-center items-center text-white text-3xl rounded-tr-lg rounded-br-lg">
-            <BiSearchAlt2 />
-          </span>
-        </div>
-      </div>
       <AnimatePresence>
-        <div className=" w-full h-[62rem] ssm:w-full ssm:h-[38rem] bg-green-300 p-2 rounded-lg">
+        <div className=" w-full h-[62rem] ssm:w-full ssm:h-[42rem] bg-green-300 p-2 rounded-lg">
           <div className="w-full h-full bg-green-100 flex flex-col justify-start items-center gap-2 ">
-            <div className="flex  justify-start items-center h-16 bg-green-700 w-full p-2">
+            <div className="flex  justify-between items-center h-20 bg-green-700 w-full p-2">
               <div className="flex gap-2">
                 <img className="w-5" src={dictionarySvg} alt="dictionary" />
                 <h1 className="text-green-100 text-xl ssm:text-2xl">
                   Dictionary
                 </h1>
+              </div>
+              <div className="h-10 ssm:h-12 w-72 ssm:w-96 lg:w-[32rem] flex justify-start items-center">
+                <div className="flex justify-center items-center h-full w-full ">
+                  <input
+                    className="w-full h-full outline-none px-3  text-xl bg-gray-100 text-green-700 placeholder:text-green-300 rounded-tl-lg rounded-bl-lg  "
+                    type="text"
+                    placeholder="Search for a Word..."
+                    required
+                  />
+                  <span className="bg-green-500 h-full w-16 flex justify-center items-center text-white text-3xl rounded-tr-lg rounded-br-lg">
+                    <BiSearchAlt2 />
+                  </span>
+                </div>
               </div>
             </div>
             {!wordSearched && (

@@ -5,6 +5,7 @@ import Dictionary from "./Dictionary";
 import ErrorPage from "./ErrorPage";
 import HomePage from "./HomePage";
 import NewsItem from "./NewsItem";
+import PerformanceStats from "./PerformanceStats";
 
 const ApplicationRoutes = () => {
   return (
@@ -15,6 +16,7 @@ const ApplicationRoutes = () => {
             <Route index element={<HomePage />} />
             <Route path="/news" element={<NewsItem />} />
             <Route path="/dictionary" element={<Dictionary />} />
+            <Route path="/performance" element={<PerformanceStats />} />
             <Route path="*" element={<ErrorPage />} />
           </Route>
         </Routes>
