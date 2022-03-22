@@ -1,4 +1,4 @@
-import { AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import { AnimatePresence, AnimateSharedLayout, motion } from "framer-motion";
 import React, { useState } from "react";
 import perfLogo from "../assets/img/performance.jfif";
 import MenuItem from "./MenuItem";
@@ -8,7 +8,7 @@ const PerformanceStats = () => {
   const [selected, setSelected] = useState(0);
   const statsTab = ["Best Quiz Time", "Best Score", "Absolute Best"];
   return (
-    <div className="mt-52 lg:mt-[8.5rem] bg-green-100 h-[30rem] w-full p-4">
+    <div className="mt-52 lg:mt-[8.5rem] bg-green-100 min-h-[30rem] w-full p-4">
       <div className="bg-green-300 h-full w-full rounded-xl p-2 flex flex-col gap-1">
         <div className="h-24 md:h-20 md:w-full bg-green-700 flex justify-between">
           <div className="w-56 h-full flex gap-2 justify-start items-start md:items-center mt-6 md:mt-0 px-2">
@@ -39,9 +39,20 @@ const PerformanceStats = () => {
             </div>
           </div>
         </div>
-        <AnimatePresence>
+        <AnimatePresence exitBeforeEnter>
           {selected === 0 && (
-            <div className="bg-green-100 w-full h-[20.5rem] md:h-[22rem] flex flex-col md:flex md:flex-row items-center justify-center gap-2 md:gap-10 p-4">
+            <motion.div
+              initial={{ opacity: 0, x: -1000, scale: 0 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ duration: 1.2, type: "spring" }}
+              exit={{
+                x: -1000,
+                scale: 0,
+                opacity: 0,
+                transition: { duration: 0.25 },
+              }}
+              className="bg-green-100 w-full h-[20.5rem] md:h-[22rem] flex flex-col md:flex md:flex-row items-center justify-center gap-2 md:gap-10 p-4"
+            >
               <div className="flex gap-2 bg-white/30 shadow-lg w-full h-20 md:w-[22rem] md:h-full items-center justify-center">
                 <h2 className="text-md md:text-lg xl:text-3xl text-green-500">
                   Chemistry
@@ -78,10 +89,23 @@ const PerformanceStats = () => {
                 </span>
                 <p className="text-green-500">Tuesday 22 Mar 2022</p>
               </div>
-            </div>
+            </motion.div>
           )}
+        </AnimatePresence>
+        <AnimatePresence exitBeforeEnter>
           {selected === 1 && (
-            <div className="bg-green-100 w-full h-[20.5rem] md:h-[22rem] flex flex-col md:flex md:flex-row items-center justify-center gap-2 md:gap-10 p-4">
+            <motion.div
+              initial={{ opacity: 0, x: -1000, scale: 0 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ duration: 1.2, type: "spring" }}
+              exit={{
+                x: -1000,
+                scale: 0,
+                opacity: 0,
+                transition: { duration: 0.25 },
+              }}
+              className="bg-green-100 w-full h-[20.5rem] md:h-[22rem] flex flex-col md:flex md:flex-row items-center justify-center gap-2 md:gap-10 p-4"
+            >
               <div className="flex gap-2 bg-white/30 shadow-lg w-full h-20 md:w-[22rem] md:h-full items-center justify-center">
                 <h2 className="text-md md:text-lg xl:text-3xl text-green-500">
                   Mathematics
@@ -118,8 +142,10 @@ const PerformanceStats = () => {
                 </span>
                 <p className="text-green-500">Tuesday 22 Mar 2022</p>
               </div>
-            </div>
+            </motion.div>
           )}
+        </AnimatePresence>
+        <AnimatePresence exitBeforeEnter>
           {selected === 2 && <div className="">The third section</div>}
         </AnimatePresence>
       </div>
