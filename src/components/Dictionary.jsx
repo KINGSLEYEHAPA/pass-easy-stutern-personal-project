@@ -22,7 +22,7 @@ const Dictionary = () => {
                   Dictionary
                 </h1>
               </div>
-              <div className="h-10 ssm:h-12 w-72 ssm:w-96 lg:w-[32rem] flex justify-start items-center">
+              <div className="h-10 ssm:h-12 w-72 ssm:w-96 lg:w-[28rem] flex justify-start items-center">
                 <div className="flex justify-center items-center h-full w-full ">
                   <input
                     className="w-full h-full outline-none px-3  text-xl bg-gray-100 text-green-700 placeholder:text-green-300 rounded-tl-lg rounded-bl-lg  "
