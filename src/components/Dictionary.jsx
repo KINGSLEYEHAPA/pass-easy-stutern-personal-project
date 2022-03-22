@@ -37,7 +37,7 @@ const Dictionary = () => {
               </div>
             </div>
             {!wordSearched && (
-              <div>
+              <div className="mt-20">
                 {" "}
                 <h2 className="text-green-500 text-4xl mt-10">
                   Learn New Words
@@ -64,7 +64,12 @@ const Dictionary = () => {
                       </p>
                       <span className="text-md text-gray-500">/ˈwɛlkəm/</span>
                     </motion.div>
-                    <motion.div className="bg-green-500 w-1/3 h-full ssm:w-full ssm:h-1/3 p-2 rounded-lg shadow-2xl">
+                    <motion.div
+                      initial={{ opacity: 0, x: -500 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 1 }}
+                      className="bg-green-500 w-1/3 h-full ssm:w-full ssm:h-1/3 p-2 rounded-lg shadow-2xl"
+                    >
                       <p className="text-sm ssm:text-lg text-white border-b-2 border-white py-0 px-0 inline-block mb-2">
                         Synonyms
                       </p>
@@ -75,7 +80,12 @@ const Dictionary = () => {
                         Welcome
                       </p>
                     </motion.div>
-                    <motion.div className="bg-green-300 w-1/3 h-full ssm:w-full ssm:h-1/3 p-2 rounded-lg shadow-2xl">
+                    <motion.div
+                      initial={{ opacity: 0, x: 500 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 1, delay: 1 }}
+                      className="bg-green-300 w-1/3 h-full ssm:w-full ssm:h-1/3 p-2 rounded-lg shadow-2xl"
+                    >
                       <p className="text-sm ssm:text-lg text-white border-b-2 border-white py-0 px-0 inline-block mb-2">
                         Antonyms
                       </p>
@@ -89,7 +99,12 @@ const Dictionary = () => {
                   </div>
                 </div>
                 <div className=" w-full h-[20rem] ssm:w-[30rem] ssm:h-full flex flex-row ssm:flex ssm:flex-col">
-                  <div className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl ">
+                  <motion.div
+                    initial={{ opacity: 0, x: -500, scale: 0 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    transition={{ duration: 1.5 }}
+                    className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl "
+                  >
                     <p className="px-2 py-1 bg-green-700 inline-block rounded-md text-white mb-2">
                       Noun
                     </p>
@@ -106,8 +121,13 @@ const Dictionary = () => {
                         We entered the house and found a ready welcome.
                       </span>
                     </p>
-                  </div>
-                  <div className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl">
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, x: -500, scale: 0 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    transition={{ duration: 1.5 }}
+                    className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl"
+                  >
                     <p className="px-2 py-1 bg-green-700 inline-block rounded-md text-white mb-2">
                       Adjective
                     </p>
@@ -122,10 +142,15 @@ const Dictionary = () => {
                     <p className="text-green-700">
                       Example: <span>Refugees welcome in London!</span>
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className=" w-full h-[20rem] ssm:w-[30rem] ssm:h-full flex  ssm:flex ssm:flex-col mr-2">
-                  <div className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl">
+                  <motion.div
+                    initial={{ opacity: 0, x: 500, scale: 0 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    transition={{ duration: 1.5 }}
+                    className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl"
+                  >
                     <p className="px-2 py-1 bg-green-700 inline-block rounded-md text-white mb-2">
                       Noun
                     </p>
@@ -142,8 +167,13 @@ const Dictionary = () => {
                         We entered the house and found a ready welcome.
                       </span>
                     </p>
-                  </div>
-                  <div className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl">
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, x: 500, scale: 0 }}
+                    animate={{ opacity: 1, x: 0, scale: 1 }}
+                    transition={{ duration: 1.5 }}
+                    className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl"
+                  >
                     <p className="px-2 py-1 bg-green-700 inline-block rounded-md text-white mb-2">
                       Adjective
                     </p>
@@ -158,7 +188,7 @@ const Dictionary = () => {
                     <p className="text-green-700  ">
                       Example: <span>Refugees welcome in London!</span>
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             )}
