@@ -38,6 +38,9 @@ const PerformanceStats = () => {
             </div>
           </div>
         </div>
+        {selected === 0 && <div>The First section</div>}
+        {selected === 1 && <div>The second section</div>}
+        {selected === 2 && <div>The third section</div>}
       </div>
     </div>
   );
