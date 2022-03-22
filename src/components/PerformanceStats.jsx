@@ -44,7 +44,7 @@ const PerformanceStats = () => {
             <motion.div
               initial={{ opacity: 0, x: -1000, scale: 0 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{ duration: 1.2, type: "spring" }}
+              transition={{ duration: 1.2, type: "spring", stiffness: 120 }}
               exit={{
                 x: -1000,
                 scale: 0,
@@ -97,7 +97,7 @@ const PerformanceStats = () => {
             <motion.div
               initial={{ opacity: 0, x: -1000, scale: 0 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
-              transition={{ duration: 1.2, type: "spring" }}
+              transition={{ duration: 1.2, type: "spring", stiffness: 120 }}
               exit={{
                 x: -1000,
                 scale: 0,
