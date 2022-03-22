@@ -26,7 +26,7 @@ const Dictionary = () => {
         </div>
       </div>
       <AnimatePresence>
-        <div className=" w-full h-[62rem] ssm:w-full ssm:h-[36rem] bg-green-300 p-2 rounded-lg">
+        <div className=" w-full h-[62rem] ssm:w-full ssm:h-[38rem] bg-green-300 p-2 rounded-lg">
           <div className="w-full h-full bg-green-100 flex flex-col justify-start items-center gap-2 ">
             <div className="flex  justify-start items-center h-16 bg-green-700 w-full p-2">
               <div className="flex gap-2">
@@ -45,7 +45,7 @@ const Dictionary = () => {
               </div>
             )}
             {wordSearched && (
-              <div className="bg-green-100 w-full h-[56rem] ssm:h-[30rem] flex flex-col gap-2 ssm:flex ssm:flex-row">
+              <div className="bg-green-100 w-full h-[56rem] ssm:h-[32rem] flex flex-col gap-2 ssm:flex ssm:flex-row">
                 <div className=" w-full h-[13rem] ssm:w-[30rem] ssm:h-full">
                   <div className="flex gap-1 h-full w-full p-2 justify-center items-center ssm:flex ssm:flex-col">
                     <motion.div
@@ -98,12 +98,12 @@ const Dictionary = () => {
                     </motion.div>
                   </div>
                 </div>
-                <div className=" w-full h-[20rem] ssm:w-[30rem] ssm:h-full flex flex-row ssm:flex ssm:flex-col">
+                <div className=" w-full h-[20rem] ssm:w-[30rem] ssm:h-full flex flex-row ssm:flex ssm:flex-col gap-2">
                   <motion.div
                     initial={{ opacity: 0, x: -500, scale: 0 }}
                     animate={{ opacity: 1, x: 0, scale: 1 }}
                     transition={{ duration: 1.5 }}
-                    className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl "
+                    className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl rounded-lg "
                   >
                     <p className="px-2 py-1 bg-green-700 inline-block rounded-md text-white mb-2">
                       Noun
@@ -126,7 +126,7 @@ const Dictionary = () => {
                     initial={{ opacity: 0, x: -500, scale: 0 }}
                     animate={{ opacity: 1, x: 0, scale: 1 }}
                     transition={{ duration: 1.5 }}
-                    className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl"
+                    className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl rounded-lg"
                   >
                     <p className="px-2 py-1 bg-green-700 inline-block rounded-md text-white mb-2">
                       Adjective
@@ -144,12 +144,12 @@ const Dictionary = () => {
                     </p>
                   </motion.div>
                 </div>
-                <div className=" w-full h-[20rem] ssm:w-[30rem] ssm:h-full flex  ssm:flex ssm:flex-col mr-2">
+                <div className=" w-full h-[20rem] ssm:w-[30rem] ssm:h-full flex  ssm:flex ssm:flex-col mr-2 gap-2">
                   <motion.div
                     initial={{ opacity: 0, x: 500, scale: 0 }}
                     animate={{ opacity: 1, x: 0, scale: 1 }}
                     transition={{ duration: 1.5 }}
-                    className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl"
+                    className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl rounded-lg"
                   >
                     <p className="px-2 py-1 bg-green-700 inline-block rounded-md text-white mb-2">
                       Noun
@@ -172,7 +172,7 @@ const Dictionary = () => {
                     initial={{ opacity: 0, x: 500, scale: 0 }}
                     animate={{ opacity: 1, x: 0, scale: 1 }}
                     transition={{ duration: 1.5 }}
-                    className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl"
+                    className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl rounded-lg"
                   >
                     <p className="px-2 py-1 bg-green-700 inline-block rounded-md text-white mb-2">
                       Adjective
