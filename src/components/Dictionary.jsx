@@ -11,8 +11,9 @@ import {
 } from "../redux/actions/actionFunctions";
 
 const Dictionary = () => {
-  const [wordSearched, setWordSearched] = useState(false);
+  const [wordSearched, setWordSearched] = useState(true);
   const [word, setWord] = useState("");
+  const [wordForSearch, setWordForSearch] = useState("");
 
   const wordVariants = {
     hidden: { opacity: 0, y: 800 },
@@ -20,6 +21,15 @@ const Dictionary = () => {
     exit: { opacity: 0, y: 800 },
   };
   const dispatch = useDispatch();
+  const handleSearch = (e) => {
+    setWordSearched(false);
+    setWord(e.target.value);
+  };
+  const wordMeaning = (e) => {
+    e.preventDefault();
+    setWordForSearch(word);
+    setWordSearched(true);
+  };
 
   useEffect(() => {
     const getMeaningOfWord = async (dispatch) => {
@@ -27,7 +37,7 @@ const Dictionary = () => {
         dispatch(fetchWordStart());
 
         const randomWordMeaning = await axios.get(
-          `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
+          `https://api.dictionaryapi.dev/api/v2/entries/en/${wordForSearch}`
         );
 
         console.log(randomWordMeaning?.data[0]);
@@ -52,13 +62,23 @@ const Dictionary = () => {
               </div>
               <div className="h-10 ssm:h-12 w-72 ssm:w-96 lg:w-[28rem] flex justify-start items-center">
                 <div className="flex justify-center items-center h-full w-full ">
-                  <input
-                    className="w-full h-full outline-none px-3  text-xl bg-gray-100 text-green-700 placeholder:text-green-300 rounded-tl-lg rounded-bl-lg  "
-                    type="text"
-                    placeholder="Search for a Word..."
-                    required
-                  />
-                  <span className="bg-green-500 h-full w-16 flex justify-center items-center text-white text-3xl rounded-tr-lg rounded-br-lg">
+                  <form
+                    onSubmit={wordMeaning}
+                    className="flex justify-center items-center h-full w-full"
+                  >
+                    <input
+                      value={word}
+                      onChange={handleSearch}
+                      className="w-full h-full outline-none px-3  text-xl bg-gray-100 text-green-700 placeholder:text-green-300 rounded-tl-lg rounded-bl-lg  "
+                      type="text"
+                      placeholder="Search for a Word..."
+                      required
+                    />
+                  </form>
+                  <span
+                    onClick={wordMeaning}
+                    className="bg-green-500 h-full w-16 flex justify-center items-center text-white text-3xl rounded-tr-lg rounded-br-lg"
+                  >
                     <BiSearchAlt2 />
                   </span>
                 </div>
