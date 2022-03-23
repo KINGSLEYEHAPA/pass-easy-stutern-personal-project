@@ -59,10 +59,12 @@ const Dictionary = () => {
                       }}
                       className=" w-1/3 h-full ssm:w-full ssm:h-1/3 p-2 ssm:flex ssm:gap-4"
                     >
-                      <p className="text-lg ssm:text-2xl text-green-500">
+                      <p className="text-lg ssm:text-2xl md:text-3xl lg:text-5xl text-green-500">
                         Welcome
                       </p>
-                      <span className="text-md text-gray-500">/ˈwɛlkəm/</span>
+                      <span className="text-md lg:text-lg text-gray-500">
+                        /ˈwɛlkəm/
+                      </span>
                     </motion.div>
                     <motion.div
                       initial={{ opacity: 0, x: -500 }}

@@ -76,7 +76,11 @@ const PerformanceStats = () => {
                   </span>
                 </div>
               </div>
-              <div className="flex flex-col gap-2 bg-white/30 shadow-lg w-full h-20 md:w-[24rem] md:h-full items-center justify-center p-2">
+              <div className="flex flex-col gap-1 bg-white/30 shadow-lg w-full h-24 md:w-[24rem] md:h-full items-center justify-center p-2">
+                <h2 className="text-lg md:text-xl xl:text-3xl text-green-500">
+                  UTME-2019
+                </h2>
+
                 <h2 className="text-md md:text-lg xl:text-2xl text-green-500">
                   Record Time:{" "}
                 </h2>
@@ -129,7 +133,10 @@ const PerformanceStats = () => {
                   </span>
                 </div>
               </div>
-              <div className="flex flex-col gap-2 bg-white/30 shadow-lg w-full h-20 md:w-[24rem] md:h-full items-center justify-center p-2 md:space-y-4">
+              <div className="flex flex-col gap-1 bg-white/30 shadow-lg w-full h-24 md:w-[24rem] md:h-full items-center justify-center p-2 md:space-y-4">
+                <h2 className="text-lg md:text-xl xl:text-3xl text-green-500">
+                  POST-UTME-2019
+                </h2>
                 <h2 className="text-md md:text-lg xl:text-2xl text-green-500">
                   Score
                 </h2>
@@ -164,73 +171,73 @@ const PerformanceStats = () => {
               }}
               className="min-h-[30rem] flex flex-col gap-1 mt-1"
             >
-              <div className=" text-md md:text-lg h-16 w-full bg-green-500/50 text-white rounded-md flex justify-between items center px-2">
-                <div className="flex justify-center items-center px-2 md:pl-6">
+              <div className=" text-sm md:text-lg h-16 w-full bg-green-500/50 text-white rounded-md flex justify-between items-center px-1 ssm:px-2">
+                <div className="flex justify-start items-center px-2 md:pl-6 ssm:w-1/5">
                   {" "}
                   <p>S/N</p>
                 </div>
-                <div className="flex justify-center items-center px-2  md:pl-6">
+                <div className="flex justify-start items-center px-2  md:pl-6 ssm:w-1/5">
                   <p>Subject</p>
                 </div>
-                <div className="flex justify-center items-center px-2 md:pl-6">
+                <div className="flex justify-start items-center px-2 md:pl-6 ssm:w-1/5">
                   {" "}
                   <p>Exam&Year</p>
                 </div>
-                <div className="flex justify-center items-center px-2 md:pl-6">
+                <div className="flex justify-start items-center px-2 md:pl-6 ssm:w-1/5">
                   {" "}
                   <p>Score</p>
                 </div>
-                <div className="flex justify-center items-center px-2 md:pl-4">
+                <div className="flex justify-start items-center px-2 md:pl-4 ssm:w-1/5">
                   <p>Comment</p>
                 </div>
               </div>
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 2, type: "tween" }}
-                className=" text-sm md:text-md h-16 w-full bg-green-100/50 text-green-700 rounded-md flex justify-between items center px-2"
+                transition={{ duration: 1.25, type: "tween" }}
+                className=" text-sm md:text-md h-16 w-full bg-green-100/50 text-green-700 rounded-md flex justify-between items-center ssm:px-2 px-1"
               >
-                <div className="flex justify-center items-center px-2 md:pl-6">
+                <div className="flex justify-start items-center px-2 md:pl-6 ssm:w-1/5">
                   {" "}
                   <p>1</p>
                 </div>
-                <div className="flex justify-center items-center px-2  md:pl-6">
+                <div className="flex justify-start items-center px-2  md:pl-6 ssm:w-1/5">
                   <p>Physics</p>
                 </div>
-                <div className="flex justify-center items-center px-2 md:pl-6">
+                <div className="flex justify-start items-center px-2 md:pl-6 ssm:w-1/5">
                   {" "}
-                  <p>UTME&2020</p>
+                  <p>WASSCE&2020</p>
                 </div>
-                <div className="flex justify-center items-center px-2 md:pl-6">
+                <div className="flex justify-start items-center px-2 md:pl-6 ssm:w-1/5">
                   {" "}
                   <p>92%</p>
                 </div>
-                <div className="flex justify-center items-center px-2 md:pl-4">
+                <div className="flex justify-start items-center px-2 md:pl-4 ssm:w-1/5">
                   <p>Excellent</p>
                 </div>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 2, type: "tween" }}
-                className=" text-sm md:text-md h-16 w-full bg-green-100/50 text-green-700 rounded-md flex justify-between items center px-2"
+                transition={{ duration: 1.25, type: "tween" }}
+                className=" text-sm md:text-md h-16 w-full bg-green-100/50 text-green-700 rounded-md flex justify-between items-center px-1 ssm:px-2"
               >
-                <div className="flex justify-center items-center px-2 md:pl-6">
+                <div className="flex justify-start items-center px-2 md:pl-6 ssm:w-1/5">
                   {" "}
                   <p>1</p>
                 </div>
-                <div className="flex justify-center items-center px-2  md:pl-6">
-                  <p>Physics</p>
+                <div className="flex justify-start items-center px-2  md:pl-6 ssm:w-1/5">
+                  <p>Commerce</p>
                 </div>
-                <div className="flex justify-center items-center px-2 md:pl-6">
+                <div className="flex justify-start items-center px-2 md:pl-6 ssm:w-1/5">
                   {" "}
                   <p>UTME&2020</p>
                 </div>
-                <div className="flex justify-center items-center px-2 md:pl-6">
+                <div className="flex justify-start items-center px-2 md:pl-6 ssm:w-1/5">
                   {" "}
                   <p>92%</p>
                 </div>
-                <div className="flex justify-center items-center px-2 md:pl-4">
+                <div className="flex justify-start items-center px-2 md:pl-4 ssm:w-1/5">
                   <p>Excellent</p>
                 </div>
               </motion.div>

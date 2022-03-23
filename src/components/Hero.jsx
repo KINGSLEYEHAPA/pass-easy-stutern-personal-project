@@ -30,8 +30,8 @@ const Hero = () => {
   }, [changeImage]);
   return (
     <div className="w-full h-96 ssm:h-[28rem] md:h-[40rem] lg:h-[45rem] mt-52 lg:mt-[8.5rem]">
-      <div className="h-full w-full bg-green-100/50 relative">
-        <AnimatePresence>
+      <AnimatePresence>
+        <div className="h-full w-full bg-black relative">
           <motion.img
             variants={heroImageVariants}
             initial="hidden"
@@ -41,29 +41,30 @@ const Hero = () => {
             src={changeImage ? mainImage : mainImage_two}
             alt="MainPhoto"
           />
-        </AnimatePresence>
-        <div className="absolute top-0 left-0 w-full h-full bg-white/30 z-10 flex justify-start pl-12 items-center">
-          <div className="w-72 sm:w-80 ssm:w-96 md:w-[30rem] lg:w-[50rem] px-0 md:mb-12">
-            <h4 className="text-xs text-green-800 font-bold ssm:text-md lg:text-lg">
-              GET STARTED WITH UP TO SEVENTEEN SUBJECTS
-            </h4>
-            <h1 className="text-lg text-white ssm:text-2xl md:text-3xl lg:text-5xl">
-              BEST ONLINE EXAM PREPARATION PLATFORM
-            </h1>
-            <p className="mt-6 text-green-300 ssm:text-md  lg:text-xl ">
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-              officia deserunt mollit anim id est laborum. Sed ut perspiciatis
-              unde omnis iste natus error sit voluptatem accusantium doloremque
-              laudantium
-            </p>
-            <Link to="/">
-              <button className="border-green-500 border-2 px-4 py-2 mt-5 text-white text-lg md:text-xl hover:bg-green-500">
-                Get Prepared{" "}
-              </button>
-            </Link>
+
+          <div className="absolute top-0 left-0 w-full h-full bg-white/30 z-10 flex justify-start pl-12 items-center ">
+            <div className="w-80 sm:w-[30rem] ssm:w-[34rem] md:w-[40rem] lg:w-[50rem] px-0 md:mb-12 bg-gray-700/25 px-2 py-1 sm:px-4 sm:py-4 ssm:p-6">
+              <h4 className="text-xs text-green-300 font-bold ssm:text-md lg:text-lg">
+                GET STARTED WITH UP TO SEVENTEEN SUBJECTS
+              </h4>
+              <h1 className="text-lg text-white ssm:text-2xl md:text-3xl lg:text-5xl">
+                BEST ONLINE EXAM PREPARATION PLATFORM
+              </h1>
+              <p className="mt-6 text-green-300 ssm:text-md  lg:text-xl ">
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                qui officia deserunt mollit anim id est laborum. Sed ut
+                perspiciatis unde omnis iste natus error sit voluptatem
+                accusantium doloremque laudantium
+              </p>
+              <Link to="/">
+                <button className="border-green-500 border-2 px-4 py-2 mt-5 text-white text-lg md:text-xl hover:bg-green-500">
+                  Get Prepared{" "}
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
+      </AnimatePresence>
       <div></div>
     </div>
   );
