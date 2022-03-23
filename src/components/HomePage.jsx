@@ -10,8 +10,19 @@ import { Link } from "react-router-dom";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import News from "./News";
+import { useSelector } from "react-redux";
 
 const HomePage = () => {
+  const randomWordDefinition = useSelector(
+    (state) => state.dictionary.randomWord
+  );
+  const isRandomWordError = useSelector(
+    (state) => state.dictionary.isRandomWordError
+  );
+  const randomWordError = useSelector(
+    (state) => state.dictionary.randomWordError
+  );
+
   const controls = useAnimation();
   const { ref, inView } = useInView({
     threshold: 0.1,
@@ -175,68 +186,108 @@ const HomePage = () => {
             Learn a New Word
           </h2>
         </div>
-        <div className="flex h-full  ">
-          <div className="bg-green-500 w-1/2 ssm:w-1/3 h-full p-4 flex flex-col justify-start items-start">
-            <motion.span
-              variants={featureVariants}
-              initial="hidden"
-              animate={controls}
-              transition={{ duration: 2, type: "spring", stiffness: 120 }}
-              className="text-2xl text-green-100"
-            >
-              {" "}
-              Annoy- <span className="text-2xl">/əˈnɔɪ/</span>
-            </motion.span>
+        {!isRandomWordError && (
+          <div className="flex h-full  ">
+            <div className="bg-green-500 w-1/2 ssm:w-1/3 h-full p-4 flex flex-col justify-start items-start">
+              <motion.span
+                variants={featureVariants}
+                initial="hidden"
+                animate={controls}
+                transition={{ duration: 2, type: "spring", stiffness: 120 }}
+                className="text-2xl text-green-100 capitalize"
+              >
+                {" "}
+                {randomWordDefinition ? randomWordDefinition.word : "Annoy"}-
+                <span className="text-2xl">
+                  {randomWordDefinition?.phonetic}
+                </span>
+              </motion.span>
 
-            <div className="mt-4 text-white text-sm">
-              <p className="text-xl text-green-700">Synonyms</p>
-              <p>Bother</p>
-              <p>Bug</p>
-              <p className="text-xl text-green-700">Antonyms</p>
-              <p>Please</p>
+              <div className="mt-4 text-white text-sm">
+                <p className="text-xl text-green-700">Synonyms</p>
+                {randomWordDefinition?.meanings?.[0].synonyms
+                  ?.slice(0, 4)
+                  ?.map((synonym, i) => {
+                    console.log(randomWordDefinition.meanings[0]);
+                    return <p key={i}>{synonym}</p>;
+                  })}
+                {randomWordDefinition?.meanings?.[1].synonyms
+                  ?.slice(0, 4)
+                  ?.map((synonym, i) => {
+                    return <p key={i}>{synonym}</p>;
+                  })}
+
+                <p className="text-xl text-green-700">Antonyms</p>
+                {randomWordDefinition?.meanings?.[0].antonyms
+                  ?.slice(0, 4)
+                  ?.map((antonym, i) => {
+                    return <p key={i}>{antonym}</p>;
+                  })}
+                {randomWordDefinition?.meanings?.[1].antonyms
+                  ?.slice(0, 4)
+                  ?.map((antonym, i) => {
+                    return <p key={i}>{antonym}</p>;
+                  })}
+              </div>
+            </div>
+            <div className="bg-green-500 w-1/2 ssm:w-2/3 h-full p-2">
+              <div className="py-4">
+                <span className="bg-white text-green-500 px-2 py-1 rounded-sm font-bold ">
+                  {randomWordDefinition?.meanings?.[0].partOfSpeech}
+                </span>
+
+                <p className="text-md ssm:text-xl text-white mt-4">
+                  Definition:{" "}
+                  <span className="text-sm ssm:text-lg text-white">
+                    {
+                      randomWordDefinition?.meanings?.[0]?.definitions?.[0]
+                        ?.definition
+                    }
+                  </span>
+                </p>
+                <p className="text-green-700 text-md ssm:text-xl mt-2">
+                  Example:{" "}
+                  <span className="text-white text-sm ssm:text-lg">
+                    {
+                      randomWordDefinition?.meanings?.[0]?.definitions?.[0]
+                        ?.example
+                    }
+                  </span>
+                </p>
+              </div>
+              <div className="py-4">
+                <span className="bg-white text-green-500 px-2 py-1 rounded-sm font-bold ">
+                  {randomWordDefinition?.meanings?.[1].partOfSpeech}
+                </span>
+                <p className="text-md ssm:text-xl text-white mt-4">
+                  Definition:{" "}
+                  <span className="text-sm ssm:text-lg text-white">
+                    {
+                      randomWordDefinition?.meanings?.[1]?.definitions?.[0]
+                        ?.definition
+                    }
+                  </span>
+                </p>
+                <p className="text-green-700 text-md ssm:text-xl mt-2">
+                  Example:{" "}
+                  <span className="text-white text-sm ssm:text-lg">
+                    {
+                      randomWordDefinition?.meanings?.[1]?.definitions?.[0]
+                        ?.example
+                    }
+                  </span>
+                </p>
+              </div>
             </div>
           </div>
-          <div className="bg-green-500 w-1/2 ssm:w-2/3 h-full p-2">
-            <div className="py-4">
-              <span className="bg-white text-green-500 px-2 py-1 rounded-sm font-bold ">
-                Noun
-              </span>
-              <p className="text-md ssm:text-xl text-white mt-4">
-                Definition:{" "}
-                <span className="text-sm ssm:text-lg text-white">
-                  A feeling of discomfort or vexation caused by what one
-                  dislikes.
-                </span>
-              </p>
-              <p className="text-green-700 text-md ssm:text-xl mt-2">
-                Example:{" "}
-                <span className="text-white text-sm ssm:text-lg">
-                  He is annoy
-                </span>
-              </p>
-            </div>
-            <div className="py-4">
-              <span className="bg-white text-green-500 px-2 py-1 rounded-sm font-bold ">
-                Verb
-              </span>
-              <p className="text-md ssm:text-xl text-white mt-4">
-                Definition:{" "}
-                <span className="text-sm ssm:text-lg text-white">
-                  To disturb or irritate, especially by continued or repeated
-                  acts; to bother with unpleasant deeds.
-                </span>
-              </p>
-              <p className="text-green-700 text-md ssm:text-xl mt-2">
-                Example:{" "}
-                <span className="text-white text-sm ssm:text-lg">
-                  Marc loved his sister, but when she annoyed him he wanted to
-                  switch her off.
-                </span>
-              </p>
-            </div>
+        )}
+        {isRandomWordError && (
+          <div className="flex justify-center items-center text-lg text-green-500 mt-16">
+            Could not fetch New word
           </div>
-        </div>
+        )}
       </div>
+
       <News />
       <div className="flex flex-col h-[60rem] sm:h-[55rem] ssm:h-[35rem] ssm:flex ssm:flex-row  bg-gray-100 mt-8">
         <aside className=" h-2/3 ssm:h-full sm:h-[25rem] ssm:w-1/2  flex flex-col p-4 ">

@@ -1,15 +1,43 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { motion, AnimatePresence } from "framer-motion";
 import dictionarySvg from "../assets/img/dictionary-icon.svg";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import {
+  fetchWordError,
+  fetchWordStart,
+  fetchWordSuccess,
+} from "../redux/actions/actionFunctions";
 
 const Dictionary = () => {
-  const [wordSearched, setWordSearched] = useState(true);
+  const [wordSearched, setWordSearched] = useState(false);
+  const [word, setWord] = useState("");
+
   const wordVariants = {
     hidden: { opacity: 0, y: 800 },
     visible: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: 800 },
   };
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const getMeaningOfWord = async (dispatch) => {
+      try {
+        dispatch(fetchWordStart());
+
+        const randomWordMeaning = await axios.get(
+          `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
+        );
+
+        console.log(randomWordMeaning?.data[0]);
+        dispatch(fetchWordSuccess(randomWordMeaning?.data[0]));
+      } catch (err) {
+        dispatch(fetchWordError(err.message));
+      }
+    };
+  }, [dispatch]);
+
   return (
     <div className="mt-52 lg:mt-[8.5rem] flex flex-col justify-start items-center min-h-[30rem] bg-green-100 px-0 py-4 gap-6">
       <AnimatePresence>

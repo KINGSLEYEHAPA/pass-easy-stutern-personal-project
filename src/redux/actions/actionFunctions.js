@@ -15,6 +15,17 @@ export const fetchRandomWordError = (error) => ({
   type: actionTypes.GET_RANDOM_WORD_MEANING_ERROR,
   payload: error,
 });
+export const fetchWordStart = () => ({
+  type: actionTypes.GET_SEARCH_WORD_START,
+});
+export const fetchWordSuccess = (data) => ({
+  type: actionTypes.GET_SEARCH_WORD_SUCCESS,
+  payload: data,
+});
+export const fetchWordError = (error) => ({
+  type: actionTypes.GET_SEARCH_WORD_ERROR,
+  payload: error,
+});
 
 var randomWords = require("random-words");
 
@@ -26,7 +37,9 @@ export const getMeaningOfRandomWord = async (dispatch) => {
       `https://api.dictionaryapi.dev/api/v2/entries/en/${randomWords()}`
     );
 
-    console.log(randomWordMeaning);
+    console.log(randomWordMeaning?.data[0]);
     dispatch(fetchRandomWordSuccess(randomWordMeaning?.data[0]));
-  } catch (err) {}
+  } catch (err) {
+    dispatch(fetchRandomWordError(err.message));
+  }
 };
