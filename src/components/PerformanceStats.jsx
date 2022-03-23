@@ -147,7 +147,50 @@ const PerformanceStats = () => {
           )}
         </AnimatePresence>
         <AnimatePresence exitBeforeEnter>
-          {selected === 2 && <div className="">The third section</div>}
+          {selected === 2 && (
+            <motion.div className="min-h-[30rem] flex flex-col gap-1 mt-1">
+              <div className=" text-md md:text-lg h-16 w-full bg-green-500/50 text-white rounded-md flex justify-between items center px-2">
+                <div className="flex justify-center items-center px-2 md:pl-6">
+                  {" "}
+                  <p>S/N</p>
+                </div>
+                <div className="flex justify-center items-center px-2  md:pl-6">
+                  <p>Subject</p>
+                </div>
+                <div className="flex justify-center items-center px-2 md:pl-6">
+                  {" "}
+                  <p>Exam&Year</p>
+                </div>
+                <div className="flex justify-center items-center px-2 md:pl-6">
+                  {" "}
+                  <p>Score</p>
+                </div>
+                <div className="flex justify-center items-center px-2 md:pl-4">
+                  <p>Comment</p>
+                </div>
+              </div>
+              <div className=" text-sm md:text-md h-16 w-full bg-green-100/50 text-green-700 rounded-md flex justify-between items center px-2">
+                <div className="flex justify-center items-center px-2 md:pl-6">
+                  {" "}
+                  <p>1</p>
+                </div>
+                <div className="flex justify-center items-center px-2  md:pl-6">
+                  <p>Physics</p>
+                </div>
+                <div className="flex justify-center items-center px-2 md:pl-6">
+                  {" "}
+                  <p>UTME&2020</p>
+                </div>
+                <div className="flex justify-center items-center px-2 md:pl-6">
+                  {" "}
+                  <p>92%</p>
+                </div>
+                <div className="flex justify-center items-center px-2 md:pl-4">
+                  <p>Excellent</p>
+                </div>
+              </div>
+            </motion.div>
+          )}
         </AnimatePresence>
       </div>
     </div>
