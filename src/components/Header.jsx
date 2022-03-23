@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { MdClose } from "react-icons/md";
 import { RiMailFill } from "react-icons/ri";
 import { BsTelephoneFill } from "react-icons/bs";
 import Search from "./Search";
+import { useDispatch } from "react-redux";
+import { getMeaningOfRandomWord } from "../redux/actions/actionFunctions";
 
 const Header = () => {
   const [subMenu, setSubMenu] = useState(true);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getMeaningOfRandomWord);
+  }, [dispatch]);
   return (
     <div className="fixed top-0 z-50 w-full">
       <div className="w-full h-32 lg:h-14 bg-white flex flex-col lg:flex-row justify-center items-center lg:gap-0 ">
