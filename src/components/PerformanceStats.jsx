@@ -148,7 +148,22 @@ const PerformanceStats = () => {
         </AnimatePresence>
         <AnimatePresence exitBeforeEnter>
           {selected === 2 && (
-            <motion.div className="min-h-[30rem] flex flex-col gap-1 mt-1">
+            <motion.div
+              initial={{ opacity: 0, x: -1000, scale: 0 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{
+                duration: 1.5,
+                type: "spring",
+                stiffness: 120,
+              }}
+              exit={{
+                x: -1000,
+                scale: 0,
+                opacity: 0,
+                transition: { duration: 0.5 },
+              }}
+              className="min-h-[30rem] flex flex-col gap-1 mt-1"
+            >
               <div className=" text-md md:text-lg h-16 w-full bg-green-500/50 text-white rounded-md flex justify-between items center px-2">
                 <div className="flex justify-center items-center px-2 md:pl-6">
                   {" "}
@@ -169,7 +184,12 @@ const PerformanceStats = () => {
                   <p>Comment</p>
                 </div>
               </div>
-              <div className=" text-sm md:text-md h-16 w-full bg-green-100/50 text-green-700 rounded-md flex justify-between items center px-2">
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 2, type: "tween" }}
+                className=" text-sm md:text-md h-16 w-full bg-green-100/50 text-green-700 rounded-md flex justify-between items center px-2"
+              >
                 <div className="flex justify-center items-center px-2 md:pl-6">
                   {" "}
                   <p>1</p>
@@ -188,7 +208,32 @@ const PerformanceStats = () => {
                 <div className="flex justify-center items-center px-2 md:pl-4">
                   <p>Excellent</p>
                 </div>
-              </div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 2, type: "tween" }}
+                className=" text-sm md:text-md h-16 w-full bg-green-100/50 text-green-700 rounded-md flex justify-between items center px-2"
+              >
+                <div className="flex justify-center items-center px-2 md:pl-6">
+                  {" "}
+                  <p>1</p>
+                </div>
+                <div className="flex justify-center items-center px-2  md:pl-6">
+                  <p>Physics</p>
+                </div>
+                <div className="flex justify-center items-center px-2 md:pl-6">
+                  {" "}
+                  <p>UTME&2020</p>
+                </div>
+                <div className="flex justify-center items-center px-2 md:pl-6">
+                  {" "}
+                  <p>92%</p>
+                </div>
+                <div className="flex justify-center items-center px-2 md:pl-4">
+                  <p>Excellent</p>
+                </div>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
