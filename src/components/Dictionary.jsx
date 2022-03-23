@@ -3,7 +3,7 @@ import { BiSearchAlt2 } from "react-icons/bi";
 import { motion, AnimatePresence } from "framer-motion";
 import dictionarySvg from "../assets/img/dictionary-icon.svg";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   fetchWordError,
   fetchWordStart,
@@ -11,7 +11,10 @@ import {
 } from "../redux/actions/actionFunctions";
 
 const Dictionary = () => {
-  const [wordSearched, setWordSearched] = useState(true);
+  const wordDefinition = useSelector(
+    (state) => state.dictionary.wordDefinition
+  );
+  const [wordSearched, setWordSearched] = useState(false);
   const [word, setWord] = useState("");
   const [wordForSearch, setWordForSearch] = useState("");
 
@@ -29,7 +32,9 @@ const Dictionary = () => {
     e.preventDefault();
     setWordForSearch(word);
     setWordSearched(true);
+    setWord("");
   };
+  console.log(wordForSearch);
 
   useEffect(() => {
     const getMeaningOfWord = async (dispatch) => {
@@ -46,7 +51,9 @@ const Dictionary = () => {
         dispatch(fetchWordError(err.message));
       }
     };
-  }, [dispatch]);
+
+    dispatch(getMeaningOfWord);
+  }, [dispatch, wordForSearch]);
 
   return (
     <div className="mt-52 lg:mt-[8.5rem] flex flex-col justify-start items-center min-h-[30rem] bg-green-100 px-0 py-4 gap-6">
@@ -69,7 +76,7 @@ const Dictionary = () => {
                     <input
                       value={word}
                       onChange={handleSearch}
-                      className="w-full h-full outline-none px-3  text-xl bg-gray-100 text-green-700 placeholder:text-green-300 rounded-tl-lg rounded-bl-lg  "
+                      className="w-full h-full outline-none px-3   text-xl bg-gray-100 text-green-700 placeholder:text-green-300 rounded-tl-lg rounded-bl-lg  "
                       type="text"
                       placeholder="Search for a Word..."
                       required
@@ -107,11 +114,11 @@ const Dictionary = () => {
                       }}
                       className=" w-1/3 h-full ssm:w-full ssm:h-1/3 p-2 ssm:flex ssm:gap-4"
                     >
-                      <p className="text-lg ssm:text-2xl md:text-3xl lg:text-5xl text-green-500">
-                        Welcome
+                      <p className="text-lg ssm:text-2xl md:text-3xl lg:text-5xl text-green-500 capitalize">
+                        {wordDefinition?.word}
                       </p>
                       <span className="text-md lg:text-lg text-gray-500">
-                        /ˈwɛlkəm/
+                        {wordDefinition?.phonetic}
                       </span>
                     </motion.div>
                     <motion.div
@@ -123,12 +130,30 @@ const Dictionary = () => {
                       <p className="text-sm ssm:text-lg text-white border-b-2 border-white py-0 px-0 inline-block mb-2">
                         Synonyms
                       </p>
-                      <p className="text-sm ssm:text-md text-green-700">
-                        Welcome
-                      </p>
-                      <p className="text-sm ssm:text-md text-green-700">
-                        Welcome
-                      </p>
+                      {wordDefinition?.meanings?.[0]?.synonyms
+                        ?.slice(0, 4)
+                        ?.map((synonym, i) => {
+                          return (
+                            <p
+                              key={i}
+                              className="text-sm ssm:text-md text-green-700"
+                            >
+                              {synonym}
+                            </p>
+                          );
+                        })}
+                      {wordDefinition?.meanings?.[1]?.synonyms
+                        ?.slice(0, 4)
+                        ?.map((synonym, i) => {
+                          return (
+                            <p
+                              key={i}
+                              className="text-sm ssm:text-md text-green-700"
+                            >
+                              {synonym}
+                            </p>
+                          );
+                        })}
                     </motion.div>
                     <motion.div
                       initial={{ opacity: 0, x: 500 }}
@@ -139,12 +164,30 @@ const Dictionary = () => {
                       <p className="text-sm ssm:text-lg text-white border-b-2 border-white py-0 px-0 inline-block mb-2">
                         Antonyms
                       </p>
-                      <p className="text-sm ssm:text-md text-green-700">
-                        Welcome
-                      </p>
-                      <p className="text-sm ssm:text-md text-green-700">
-                        Welcome
-                      </p>
+                      {wordDefinition?.meanings?.[0]?.antonyms
+                        ?.slice(0, 4)
+                        ?.map((antonym, i) => {
+                          return (
+                            <p
+                              key={i}
+                              className="text-sm ssm:text-md text-green-700"
+                            >
+                              {antonym}
+                            </p>
+                          );
+                        })}
+                      {wordDefinition?.meanings?.[1]?.antonyms
+                        ?.slice(0, 4)
+                        ?.map((antonym, i) => {
+                          return (
+                            <p
+                              key={i}
+                              className="text-sm ssm:text-md text-green-700"
+                            >
+                              {antonym}
+                            </p>
+                          );
+                        })}
                     </motion.div>
                   </div>
                 </div>
@@ -156,19 +199,24 @@ const Dictionary = () => {
                     className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl rounded-lg "
                   >
                     <p className="px-2 py-1 bg-green-700 inline-block rounded-md text-white mb-2">
-                      Noun
+                      {wordDefinition?.meanings?.[0]?.partOfSpeech}
                     </p>
                     <p className="text-green-700">
                       Definition:{" "}
                       <span>
-                        The act of greeting someone’s arrival, especially by
-                        saying "Welcome!"; reception.
+                        {
+                          wordDefinition?.meanings?.[0]?.definitions?.[0]
+                            ?.definition
+                        }
                       </span>
                     </p>
                     <p className="text-green-700">
                       Example:{" "}
                       <span>
-                        We entered the house and found a ready welcome.
+                        {
+                          wordDefinition?.meanings?.[0]?.definitions?.[0]
+                            ?.example
+                        }
                       </span>
                     </p>
                   </motion.div>
@@ -179,18 +227,25 @@ const Dictionary = () => {
                     className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl rounded-lg"
                   >
                     <p className="px-2 py-1 bg-green-700 inline-block rounded-md text-white mb-2">
-                      Adjective
+                      {wordDefinition?.meanings?.[1]?.partOfSpeech}
                     </p>
                     <p className="text-green-700">
                       Definition:{" "}
                       <span>
-                        Whose arrival is a cause of joy; received with gladness;
-                        admitted willingly to the house, entertainment, or
-                        company.
+                        {
+                          wordDefinition?.meanings?.[1]?.definitions?.[0]
+                            ?.definition
+                        }
                       </span>
                     </p>
                     <p className="text-green-700">
-                      Example: <span>Refugees welcome in London!</span>
+                      Example:{" "}
+                      <span>
+                        {
+                          wordDefinition?.meanings?.[1]?.definitions?.[0]
+                            ?.example
+                        }
+                      </span>
                     </p>
                   </motion.div>
                 </div>
@@ -202,19 +257,24 @@ const Dictionary = () => {
                     className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl rounded-lg"
                   >
                     <p className="px-2 py-1 bg-green-700 inline-block rounded-md text-white mb-2">
-                      Noun
+                      {wordDefinition?.meanings?.[2]?.partOfSpeech}
                     </p>
                     <p className="text-green-700">
                       Definition:{" "}
                       <span>
-                        The act of greeting someone’s arrival, especially by
-                        saying "Welcome!"; reception.
+                        {
+                          wordDefinition?.meanings?.[2]?.definitions?.[0]
+                            ?.definition
+                        }
                       </span>
                     </p>
                     <p className="text-green-700">
                       Example:{" "}
                       <span>
-                        We entered the house and found a ready welcome.
+                        {
+                          wordDefinition?.meanings?.[2]?.definitions?.[0]
+                            ?.example
+                        }
                       </span>
                     </p>
                   </motion.div>
@@ -225,18 +285,25 @@ const Dictionary = () => {
                     className=" w-1/2 h-full ssm:w-full ssm:h-1/2 p-2 bg-green-300 shadow-xl rounded-lg"
                   >
                     <p className="px-2 py-1 bg-green-700 inline-block rounded-md text-white mb-2">
-                      Adjective
+                      {wordDefinition?.meanings?.[3]?.partOfSpeech}
                     </p>
                     <p className="text-green-700">
                       Definition:{" "}
                       <span>
-                        Whose arrival is a cause of joy; received with gladness;
-                        admitted willingly to the house, entertainment, or
-                        company.
+                        {
+                          wordDefinition?.meanings?.[3]?.definitions?.[0]
+                            ?.definition
+                        }
                       </span>
                     </p>
                     <p className="text-green-700  ">
-                      Example: <span>Refugees welcome in London!</span>
+                      Example:{" "}
+                      <span>
+                        {
+                          wordDefinition?.meanings?.[3]?.definitions?.[0]
+                            ?.example
+                        }
+                      </span>
                     </p>
                   </motion.div>
                 </div>
