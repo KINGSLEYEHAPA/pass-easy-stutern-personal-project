@@ -68,7 +68,7 @@ const HomePage = () => {
               past questions that help you to master..
             </p>
           </div>
-          <Link to="/">
+          <Link to="/quiz">
             <div className="flex justify-start items-center gap-2 mt-3 hover:gap-4">
               {" "}
               <p className="text-green-500 font-bold">Practice Now</p>{" "}
@@ -100,7 +100,7 @@ const HomePage = () => {
               several past questions that help you to master..
             </p>
           </div>
-          <Link to="/">
+          <Link to="/quiz">
             <div className="flex justify-start items-center gap-2 mt-3 hover:gap-4">
               {" "}
               <p className="text-green-500 font-bold">Practice Now</p>{" "}
@@ -132,7 +132,7 @@ const HomePage = () => {
               several past questions that help you to master..
             </p>
           </div>
-          <Link to="/">
+          <Link to="/quiz">
             <div className="flex justify-start items-center gap-2 mt-3 hover:gap-4">
               {" "}
               <p className="text-green-500 font-bold">Practice Now</p>{" "}
@@ -168,7 +168,7 @@ const HomePage = () => {
               words...
             </p>
           </div>
-          <Link to="/">
+          <Link to="/quiz">
             <div className="flex justify-start items-center gap-2 mt-9 hover:gap-4">
               {" "}
               <p className="text-green-500 font-bold">Practice Now</p>{" "}
@@ -205,25 +205,25 @@ const HomePage = () => {
 
               <div className="mt-4 text-white text-sm">
                 <p className="text-xl text-green-700">Synonyms</p>
-                {randomWordDefinition?.meanings?.[0].synonyms
+                {randomWordDefinition?.meanings?.[0]?.synonyms
                   ?.slice(0, 4)
                   ?.map((synonym, i) => {
                     console.log(randomWordDefinition.meanings[0]);
                     return <p key={i}>{synonym}</p>;
                   })}
-                {randomWordDefinition?.meanings?.[1].synonyms
+                {randomWordDefinition?.meanings?.[1]?.synonyms
                   ?.slice(0, 4)
                   ?.map((synonym, i) => {
                     return <p key={i}>{synonym}</p>;
                   })}
 
                 <p className="text-xl text-green-700">Antonyms</p>
-                {randomWordDefinition?.meanings?.[0].antonyms
+                {randomWordDefinition?.meanings?.[0]?.antonyms
                   ?.slice(0, 4)
                   ?.map((antonym, i) => {
                     return <p key={i}>{antonym}</p>;
                   })}
-                {randomWordDefinition?.meanings?.[1].antonyms
+                {randomWordDefinition?.meanings?.[1]?.antonyms
                   ?.slice(0, 4)
                   ?.map((antonym, i) => {
                     return <p key={i}>{antonym}</p>;
@@ -233,7 +233,7 @@ const HomePage = () => {
             <div className="bg-green-500 w-1/2 ssm:w-2/3 h-full p-2">
               <div className="py-4">
                 <span className="bg-white text-green-500 px-2 py-1 rounded-sm font-bold ">
-                  {randomWordDefinition?.meanings?.[0].partOfSpeech}
+                  {randomWordDefinition?.meanings?.[0]?.partOfSpeech}
                 </span>
 
                 <p className="text-md ssm:text-xl text-white mt-4">
@@ -257,7 +257,7 @@ const HomePage = () => {
               </div>
               <div className="py-4">
                 <span className="bg-white text-green-500 px-2 py-1 rounded-sm font-bold ">
-                  {randomWordDefinition?.meanings?.[1].partOfSpeech}
+                  {randomWordDefinition?.meanings?.[1]?.partOfSpeech}
                 </span>
                 <p className="text-md ssm:text-xl text-white mt-4">
                   Definition:{" "}

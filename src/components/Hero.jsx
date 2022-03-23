@@ -56,7 +56,7 @@ const Hero = () => {
                 perspiciatis unde omnis iste natus error sit voluptatem
                 accusantium doloremque laudantium
               </p>
-              <Link to="/">
+              <Link to="/quiz">
                 <button className="border-green-500 border-2 px-4 py-2 mt-5 text-white text-lg md:text-xl hover:bg-green-500">
                   Get Prepared{" "}
                 </button>
