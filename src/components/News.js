@@ -1,9 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const News = () => {
   const [width, setWidth] = useState(0);
+  const latestNews = useSelector((state) => state.news.latestNews);
   const carousel = useRef(null);
   useEffect(() => {
     console.log(carousel.current.scrollWidth, carousel.current.offsetWidth);
@@ -20,32 +22,41 @@ const News = () => {
       <motion.div
         drag="x"
         dragConstraints={{ right: 0, left: -width }}
-        className=" bg-green-100 p-2 w-full flex gap-1 mt-2 px-2"
+        className=" bg-green-100 p-2 w-full flex gap-2 mt-2 px-2"
       >
-        <div className="bg-gray-100 h-72 min-w-[20rem] ">
-          <img
-            className="w-full h-2/3 pointer-events-none"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3BsnxtyM161gr7oMXaII2SVx0qYLaO3siFw&usqp=CAU"
-            alt="News"
-          />
-          <Link to="/news">
-            <div className="flex flex-col justify-start items-center space-y-2 px-4">
-              {" "}
-              <h3 className="text-xl text-green-500">The Headline</h3>{" "}
-              <p className="text-md text-green-800">
-                l;ksfk lkdfsf jkfhs jhsfs jjfss kjsfdsj jksdfs jksfhfs jsff
-                jkhsfsj jnbsfsh
-              </p>
-            </div>
-          </Link>
-        </div>
-        <div className="bg-gray-600 h-72 min-w-[20rem]  text-white">2</div>
+        {latestNews?.map((newsItem, index) => {
+          return (
+            <Link to={`${newsItem.title}`} key={index} className=" ">
+              <div className="bg-gray-100 h-72 min-w-[20rem] rounded-lg  ">
+                <img
+                  className="w-full h-2/3 rounded-tr-lg rounded-tl-lg pointer-events-none"
+                  src={
+                    newsItem?.media
+                      ? newsItem?.media
+                      : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3BsnxtyM161gr7oMXaII2SVx0qYLaO3siFw&usqp=CAU"
+                  }
+                  alt="News"
+                />
+
+                <div className="flex flex-col justify-center items-center  px-2 bg-green-500 h-1/3 ">
+                  {" "}
+                  <h3 className=" text-md ssm:text-lg text-white">
+                    {newsItem?.title
+                      ? newsItem?.title.slice(0, 80)
+                      : "ASUU and travails of Nigerian education"}
+                  </h3>{" "}
+                </div>
+              </div>
+            </Link>
+          );
+        })}
+        {/* <div className="bg-gray-600 h-72 min-w-[20rem]  text-white">2</div>
         <div className="bg-gray-600 h-72 min-w-[20rem]  text-white">3</div>
         <div className="bg-gray-600 h-72 min-w-[20rem]  text-white">4</div>
         <div className="bg-gray-600 h-72 min-w-[20rem]  text-white">5</div>
         <div className="bg-gray-600 h-72 min-w-[20rem]  text-white">6</div>
         <div className="bg-gray-600 h-72 min-w-[20rem]  text-white">7</div>
-        <div className="bg-gray-600 h-72 min-w-[20rem]  text-white">8</div>
+        <div className="bg-gray-600 h-72 min-w-[20rem]  text-white">8</div> */}
       </motion.div>
     </motion.div>
   );
