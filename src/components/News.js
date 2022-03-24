@@ -26,10 +26,14 @@ const News = () => {
       >
         {latestNews?.map((newsItem, index) => {
           return (
-            <Link to={`${newsItem.title}`} key={index} className=" ">
+            <Link
+              to={`/news/${newsItem.title}`}
+              key={index}
+              className=" pointer-events-none"
+            >
               <div className="bg-gray-100 h-72 min-w-[20rem] rounded-lg  ">
                 <img
-                  className="w-full h-2/3 rounded-tr-lg rounded-tl-lg pointer-events-none"
+                  className="w-full h-2/3 rounded-tr-lg rounded-tl-lg  "
                   src={
                     newsItem?.media
                       ? newsItem?.media
@@ -38,7 +42,7 @@ const News = () => {
                   alt="News"
                 />
 
-                <div className="flex flex-col justify-center items-center  px-2 bg-green-500 h-1/3 ">
+                <div className="flex flex-col justify-center items-center  px-2 bg-green-500 h-1/3 pointer-events-auto">
                   {" "}
                   <h3 className=" text-md ssm:text-lg text-white">
                     {newsItem?.title

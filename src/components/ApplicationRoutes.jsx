@@ -17,7 +17,7 @@ const ApplicationRoutes = () => {
           <Routes>
             <Route path="/" element={<App />}>
               <Route index element={<HomePage />} />
-              <Route path=":news" element={<NewsItem />} />
+              <Route path="/news/:news" element={<NewsItem />} />
               <Route path="/dictionary" element={<Dictionary />} />
               <Route path="/performance" element={<PerformanceStats />} />
               <Route path="*" element={<ErrorPage />} />
