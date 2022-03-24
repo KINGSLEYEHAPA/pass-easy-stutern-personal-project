@@ -64,7 +64,7 @@ var options = {
     page: "1",
   },
   headers: {
-    "x-api-key": "8UsobjqL9yw3pUvyYViILCdvtL0wjDsuZOpJL0pF02",
+    "x-api-key": "8UsobjqL9yw3pUvyYViILCdvtL0wjDsuZOpJL0pF",
   },
 };
 export const getNewsData = async (dispatch) => {

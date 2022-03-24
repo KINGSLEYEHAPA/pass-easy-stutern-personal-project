@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 const News = () => {
   const [width, setWidth] = useState(0);
   const latestNews = useSelector((state) => state.news.latestNews);
+  console.log(latestNews);
   const carousel = useRef(null);
   useEffect(() => {
     console.log(carousel.current.scrollWidth, carousel.current.offsetWidth);
@@ -26,32 +27,30 @@ const News = () => {
       >
         {latestNews?.map((newsItem, index) => {
           return (
-            <Link
-              to={`/news/${newsItem.title}`}
+            <div
+              className="bg-gray-100 h-72 min-w-[20rem] rounded-lg "
               key={index}
-              className=" pointer-events-none"
             >
-              <div className="bg-gray-100 h-72 min-w-[20rem] rounded-lg  ">
-                <img
-                  className="w-full h-2/3 rounded-tr-lg rounded-tl-lg  "
-                  src={
-                    newsItem?.media
-                      ? newsItem?.media
-                      : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3BsnxtyM161gr7oMXaII2SVx0qYLaO3siFw&usqp=CAU"
-                  }
-                  alt="News"
-                />
-
-                <div className="flex flex-col justify-center items-center  px-2 bg-green-500 h-1/3 pointer-events-auto">
+              <img
+                className="w-full h-2/3 rounded-tr-lg rounded-tl-lg pointer-events-none  "
+                src={
+                  newsItem?.media
+                    ? newsItem?.media
+                    : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3BsnxtyM161gr7oMXaII2SVx0qYLaO3siFw&usqp=CAU"
+                }
+                alt="News"
+              />
+              <Link to={`/news/${newsItem.title}`}>
+                <div className="flex flex-col justify-center items-center  px-2 bg-green-500 h-1/3 ">
                   {" "}
-                  <h3 className=" text-md ssm:text-lg text-white">
+                  <h3 className=" text-md ssm:text-lg text-white pointer-events-auto">
                     {newsItem?.title
                       ? newsItem?.title.slice(0, 80)
                       : "ASUU and travails of Nigerian education"}
                   </h3>{" "}
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           );
         })}
         {/* <div className="bg-gray-600 h-72 min-w-[20rem]  text-white">2</div>
