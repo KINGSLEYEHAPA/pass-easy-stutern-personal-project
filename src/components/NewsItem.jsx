@@ -23,7 +23,7 @@ const NewsItem = () => {
         </div>
       </div>
       <div className="flex flex-col ssm:flex-row justify-center items-center p-4 pb-20 gap-10">
-        <div className=" w-full ssm:w-1/2 h-[25rem] rounded-lg ">
+        <div className=" w-full ssm:w-[30rem] h-[22rem] ssm:h-[28rem] lg:h-[32rem] lg:w-[35rem] xl:w-[45rem] rounded-lg ">
           <img
             className="w-full h-full rounded-lg "
             src={
@@ -44,7 +44,7 @@ const NewsItem = () => {
           <div className="flex  justify-start items-center w-full gap-3 ">
             {" "}
             <p className="text-sm ssm:text-md md:text-lg lg:text-xl mb-4 mt-2 text-green-700 font-bold">
-              {oneNewsItem?.author}
+              Author: {oneNewsItem?.author}
             </p>{" "}
             <p className="text-sm ssm:text-md md:text-lg lg:text-xl mb-4 mt-2 text-green-700 font-bold">
               {" "}
