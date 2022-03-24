@@ -26,6 +26,17 @@ export const fetchWordError = (error) => ({
   type: actionTypes.GET_SEARCH_WORD_ERROR,
   payload: error,
 });
+export const fetchNewsStart = () => ({
+  type: actionTypes.GET_NEWS_DATA_START,
+});
+export const fetchNewsSuccess = (data) => ({
+  type: actionTypes.GET_NEWS_DATA_SUCCESS,
+  payload: data,
+});
+export const fetchNewsError = (error) => ({
+  type: actionTypes.GET_NEWS_DATA_ERROR,
+  payload: error,
+});
 
 var randomWords = require("random-words");
 
@@ -41,5 +52,31 @@ export const getMeaningOfRandomWord = async (dispatch) => {
     dispatch(fetchRandomWordSuccess(randomWordMeaning?.data[0]));
   } catch (err) {
     dispatch(fetchRandomWordError(err.message));
+  }
+};
+
+const url = "https://api.newscatcherapi.com/v2/search";
+var options = {
+  params: {
+    q: "Nigerian education",
+    lang: "en",
+    sort_by: "relevancy",
+    page: "1",
+  },
+  headers: {
+    "x-api-key": "8UsobjqL9yw3pUvyYViILCdvtL0wjDsuZOpJL0pF02",
+  },
+};
+export const getNewsData = async (dispatch) => {
+  try {
+    dispatch(fetchNewsStart());
+
+    const newsResponse = await axios.get(url, options);
+
+    console.log(newsResponse);
+    dispatch(fetchNewsSuccess(newsResponse?.data?.articles));
+  } catch (err) {
+    console.log(err.message);
+    dispatch(fetchNewsError(err.message));
   }
 };

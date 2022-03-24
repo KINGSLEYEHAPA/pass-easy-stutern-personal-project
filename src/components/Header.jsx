@@ -6,13 +6,17 @@ import { RiMailFill } from "react-icons/ri";
 import { BsTelephoneFill } from "react-icons/bs";
 import Search from "./Search";
 import { useDispatch } from "react-redux";
-import { getMeaningOfRandomWord } from "../redux/actions/actionFunctions";
+import {
+  getMeaningOfRandomWord,
+  getNewsData,
+} from "../redux/actions/actionFunctions";
 
 const Header = () => {
   const [subMenu, setSubMenu] = useState(true);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getMeaningOfRandomWord);
+    dispatch(getNewsData);
   }, [dispatch]);
   return (
     <div className="fixed top-0 z-50 w-full">
