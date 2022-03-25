@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { MdQuiz } from "react-icons/md";
+import { useSelector } from "react-redux";
 
 const QuizPlatform = () => {
+  const searchedSubject = useSelector(
+    (state) => state.question.userSearchedSubject
+  );
   const [dummyOption, setDummyOptions] = useState({
     examType: ["UTME", "WASSCE", "POST-UTME"],
     examYear: ["2010", "2011", "2013", "2018"],
@@ -26,6 +30,11 @@ const QuizPlatform = () => {
       "mathematics",
     ],
   });
+
+  const indexOfSubject = dummyOption.subjects.findIndex((subject) => {
+    return searchedSubject === subject;
+  });
+  console.log(indexOfSubject);
   return (
     <div className="mt-52 lg:mt-[8.5rem] bg-green-100 min-h-[30rem] w-full p-4">
       <div className="bg-green-300 h-full w-full rounded-xl p-2 flex flex-col gap-1">
@@ -44,7 +53,12 @@ const QuizPlatform = () => {
               <option className="capitalize ">Select a Subject</option>
               {dummyOption.subjects.map((item, i) => {
                 return (
-                  <option key={i} value={item} className="capitalize">
+                  <option
+                    key={i}
+                    value={item}
+                    selected={i === indexOfSubject ? "selected" : ""}
+                    className="capitalize"
+                  >
                     {item}
                   </option>
                 );
@@ -73,7 +87,7 @@ const QuizPlatform = () => {
             </select>
           </div>
           <div className="bg-green-500 w-full h-1/5 ssm:h-1/3 flex justify-center items-center">
-            <button className="bg-green-700 px-12 ssm:px-16 py-3 text-green-100 font-bold rounded-md text-md ssm:text-xl">
+            <button className="bg-green-700 px-12 ssm:px-16 py-3 text-green-100 font-bold rounded-md text-md ssm:text-xl outline-none">
               Start Quiz
             </button>
           </div>

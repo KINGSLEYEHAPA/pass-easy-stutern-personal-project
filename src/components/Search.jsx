@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import actionTypes from "../redux/actions/actionTypes";
 
 const Search = () => {
@@ -9,10 +10,12 @@ const Search = () => {
     setSearchedSubject(e.target.value);
   };
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const subjectForQuiz = (e) => {
     e.preventDefault();
     dispatch({ type: actionTypes.SEARCHED_SUBJECT, payload: searchedSubject });
     setSearchedSubject("");
+    navigate("/quiz");
   };
   return (
     <div className="flex justify-center items-center h-full w-full ">
