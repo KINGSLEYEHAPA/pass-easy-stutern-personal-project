@@ -8,6 +8,7 @@ import HomePage from "./HomePage";
 import NewsItem from "./NewsItem";
 import PerformanceStats from "./PerformanceStats";
 import store from "../redux/store";
+import QuizPlatform from "./QuizPlatform";
 
 const ApplicationRoutes = () => {
   return (
@@ -19,6 +20,7 @@ const ApplicationRoutes = () => {
               <Route index element={<HomePage />} />
               <Route path="/news/:news" element={<NewsItem />} />
               <Route path="/dictionary" element={<Dictionary />} />
+              <Route path="/quiz" element={<QuizPlatform />} />
               <Route path="/performance" element={<PerformanceStats />} />
               <Route path="*" element={<ErrorPage />} />
             </Route>
