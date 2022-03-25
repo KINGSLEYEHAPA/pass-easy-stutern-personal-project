@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { MdQuiz } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import actionTypes from "../redux/actions/actionTypes";
+import QuizModal from "./QuizModal";
 
 const QuizPlatform = () => {
   const [showSubjectBox, setShowSubjectBox] = useState(false);
@@ -121,18 +122,19 @@ const QuizPlatform = () => {
         <div className="absolute top-[30%] left-[40%] w-72 h-40 bg-green-700 z-20 shadow-xl rounded-md p-2 flex justify-center items-center">
           <div className="flex justify-center items-center ">
             {showSubjectBoxContent && (
-              <p className="text-md text-green-100">
+              <p className="text-md text-green-100 font-bold">
                 Please Select Year and Exam Type.
               </p>
             )}
             {!showSubjectBoxContent && (
-              <p className="text-md text-green-100">
+              <p className="text-md text-green-100 font-bold">
                 Subject does not exist! <br /> Kindly select another Subject.
               </p>
             )}
           </div>
         </div>
       )}
+      <QuizModal />
     </div>
   );
 };
