@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdQuiz } from "react-icons/md";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import actionTypes from "../redux/actions/actionTypes";
 
 const QuizPlatform = () => {
+  const [showSubjectBox, setShowSubjectBox] = useState(false);
+  const [showSubjectBoxContent, setShowSubjectBoxContent] = useState(true);
   const searchedSubject = useSelector(
     (state) => state.question.userSearchedSubject
   );
@@ -28,15 +31,29 @@ const QuizPlatform = () => {
       "commerce",
       "english",
       "mathematics",
+      "CRK",
     ],
   });
 
   const indexOfSubject = dummyOption.subjects.findIndex((subject) => {
-    return searchedSubject === subject;
+    return searchedSubject.toLowerCase() === subject.toLowerCase();
   });
-  console.log(indexOfSubject);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (searchedSubject !== "") {
+      setShowSubjectBox(true);
+    }
+    if (searchedSubject !== null && indexOfSubject === -1) {
+      setShowSubjectBoxContent(false);
+    }
+
+    setTimeout(() => {
+      setShowSubjectBox(false);
+    }, 3000);
+    // dispatch({ type: actionTypes.SEARCHED_SUBJECT, payload: "" });
+  }, [searchedSubject]);
   return (
-    <div className="mt-52 lg:mt-[8.5rem] bg-green-100 min-h-[30rem] w-full p-4">
+    <div className="mt-52 lg:mt-[8.5rem] bg-green-100 min-h-[30rem] w-full p-4 relative">
       <div className="bg-green-300 h-full w-full rounded-xl p-2 flex flex-col gap-1">
         {" "}
         <div className="h-16  md:w-full bg-green-700 flex justify-between items-center px-2">
@@ -59,7 +76,7 @@ const QuizPlatform = () => {
                     selected={i === indexOfSubject ? "selected" : ""}
                     className="capitalize"
                   >
-                    {item}
+                    {item.toUpperCase()}
                   </option>
                 );
               })}
@@ -98,6 +115,22 @@ const QuizPlatform = () => {
           </div>
         </div>
       </div>
+      {showSubjectBox && (
+        <div className="absolute top-[30%] left-[40%] w-72 h-40 bg-green-700 z-20 shadow-xl rounded-md p-2 flex justify-center items-center">
+          <div className="flex justify-center items-center ">
+            {showSubjectBoxContent && (
+              <p className="text-md text-green-100">
+                Please Select Year and Exam Type.
+              </p>
+            )}
+            {!showSubjectBoxContent && (
+              <p className="text-md text-green-100">
+                Subject does not exist! <br /> Kindly select another Subject.
+              </p>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
