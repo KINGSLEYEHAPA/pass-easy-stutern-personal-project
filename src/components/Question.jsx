@@ -15,7 +15,13 @@ const Question = () => {
           <strong>Q:</strong> What is the IUPAC Name of H2SO4?
         </p>
       </div>
-      <div className="w-full h-3/6 bg-green-300"></div>
+      <div className="w-full h-3/6 bg-green-200">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
       <div className="w-full h-1/6 bg-green-300"></div>
     </div>
   );
