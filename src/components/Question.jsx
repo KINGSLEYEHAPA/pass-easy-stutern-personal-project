@@ -16,11 +16,46 @@ const Question = () => {
         </p>
       </div>
       <div className="w-full h-3/6 bg-green-200">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div className="w-full p-4 flex justify-start items-center gap-2 hover:bg-gray-300 h-1/5 cursor-pointer">
+          {" "}
+          <div className="px-3 py-1  ">
+            {" "}
+            <input type="radio" />{" "}
+          </div>
+          <p>This is the choice 1</p>{" "}
+        </div>
+        <div className="w-full p-4 flex justify-start items-center gap-2 hover:bg-gray-300 h-1/5 cursor-pointer">
+          {" "}
+          <div className="px-3 py-1  ">
+            {" "}
+            <input type="radio" />{" "}
+          </div>
+          <p>This is the choice 1</p>{" "}
+        </div>
+        <div className="w-full p-4 flex justify-start items-center gap-2 hover:bg-gray-300 h-1/5 cursor-pointer">
+          {" "}
+          <div className="px-3 py-1  ">
+            {" "}
+            <input type="radio" />{" "}
+          </div>
+          <p>This is the choice 1</p>{" "}
+        </div>
+        <div className="w-full p-4 flex justify-start items-center gap-2 hover:bg-gray-300 h-1/5 cursor-pointer">
+          {" "}
+          <div className="px-3 py-1 ">
+            {" "}
+            <input type="radio" />{" "}
+          </div>
+          <p>This is the choice 1</p>{" "}
+        </div>
+        <div className="w-full p-4 flex justify-start items-center gap-2 hover:bg-gray-300 h-1/5 cursor-pointer">
+          {" "}
+          <div className="px-3 py-1  ">
+            {" "}
+            <input type="radio" />{" "}
+          </div>
+          <p>This is the choice 1</p>{" "}
+        </div>
       </div>
       <div className="w-full h-1/6 bg-green-300"></div>
     </div>
