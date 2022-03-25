@@ -1,5 +1,6 @@
 import React from "react";
 import End from "./End";
+import PerformanceSheet from "./PerformanceSheet";
 import Question from "./Question";
 
 const QuizModal = () => {
@@ -12,6 +13,7 @@ const QuizModal = () => {
         <div className="w-80 h-80 sm:w-[30rem] sm:h-80 ssm:[34rem] md:w-[40rem] md:h-[25rem] mt-10 bg-green-100 rounded-lg p-1 shadow-xl">
           {false && <Question />}
           {true && <End />}
+          {true && <PerformanceSheet />}
         </div>
       </div>
     </div>
