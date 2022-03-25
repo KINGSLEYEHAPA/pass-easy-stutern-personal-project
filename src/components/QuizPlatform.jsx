@@ -43,8 +43,10 @@ const QuizPlatform = () => {
     if (searchedSubject !== "") {
       setShowSubjectBox(true);
     }
-    if (searchedSubject !== null && indexOfSubject === -1) {
+    if (searchedSubject !== "" && indexOfSubject === -1) {
       setShowSubjectBoxContent(false);
+    } else {
+      setShowSubjectBoxContent(true);
     }
 
     setTimeout(() => {
