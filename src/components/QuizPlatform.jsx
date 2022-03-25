@@ -134,7 +134,7 @@ const QuizPlatform = () => {
           </div>
         </div>
       )}
-      <QuizModal />
+      {<QuizModal />}
     </div>
   );
 };

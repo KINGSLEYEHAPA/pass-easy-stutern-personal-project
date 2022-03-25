@@ -1,4 +1,5 @@
 import React from "react";
+import End from "./End";
 import Question from "./Question";
 
 const QuizModal = () => {
@@ -9,7 +10,8 @@ const QuizModal = () => {
       </div>
       <div className="w-full h-5/6 flex justify-center items-center">
         <div className="w-80 h-80 sm:w-[30rem] sm:h-80 ssm:[34rem] md:w-[40rem] md:h-[25rem] mt-10 bg-green-100 rounded-lg p-1 shadow-xl">
-          <Question />
+          {false && <Question />}
+          {true && <End />}
         </div>
       </div>
     </div>
