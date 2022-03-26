@@ -85,21 +85,20 @@ const QuizPlatform = () => {
               })}
             </select>
             <select className="w-56 h-7 bg-green-300 text-white outline-none px-2 text-md rounded cursor-pointer">
-              <option className="capitalize">Select Year</option>
-              {dummyOption.examYear.map((item, i) => {
+              <option className="capitalize">Exam Type</option>
+              {dummyOption.examType.map((item, i) => {
                 return (
-                  <option key={i} value={item} className="capitalize">
+                  <option value={item} key={i} className="capitalize">
                     {item}
                   </option>
                 );
               })}
             </select>
-
             <select className="w-56 h-7 bg-green-300 text-white outline-none px-2 text-md rounded cursor-pointer">
-              <option className="capitalize">Exam Type</option>
-              {dummyOption.examType.map((item, i) => {
+              <option className="capitalize">Select Year</option>
+              {dummyOption.examYear.map((item, i) => {
                 return (
-                  <option value={item} key={i} className="capitalize">
+                  <option key={i} value={item} className="capitalize">
                     {item}
                   </option>
                 );
@@ -134,7 +133,7 @@ const QuizPlatform = () => {
           </div>
         </div>
       )}
-      {<QuizModal />}
+      {false && <QuizModal />}
     </div>
   );
 };
