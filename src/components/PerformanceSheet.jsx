@@ -14,7 +14,10 @@ const PerformanceSheet = ({ onClose, results, data }) => {
       <div className="overflow-y-auto  overflow-hidden scrollbar-hide w-full h-full">
         <div className="w-full h-6 flex justify-end items-center p-2">
           {" "}
-          <span className="text-2xl text-green-100 font-bold">
+          <span
+            className="text-2xl text-green-100 font-bold cursor-pointer"
+            onClick={onClose}
+          >
             <AiOutlineClose />
           </span>
         </div>

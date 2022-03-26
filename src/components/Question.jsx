@@ -28,6 +28,7 @@ const Question = ({
     if (selected === "") {
       return setError("Please select one option!");
     }
+
     onAnswerUpdate((prevState) => [
       ...prevState,
       { q: data.question, a: selected },
@@ -52,7 +53,7 @@ const Question = ({
         </div>
       </div>
       <div className="w-full h-1/6  p-4 bg-green-300">
-        <p className="text-sm sm:text-md text-green-700">
+        <p className="text-sm sm:text-md ssm:text-xl text-green-700">
           <strong>Q:</strong> {data.question}
         </p>
       </div>
