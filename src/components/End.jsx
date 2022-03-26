@@ -25,8 +25,11 @@ const End = ({
       <div className="w-full h-5/6 flex justify-center items-center">
         <div className="w-5/6 h-4/6 bg-green-200 rounded p-4 md:pl-10 flex justify-center items-start ">
           <p className="mt-12 text-sm ssm:text-lg lg:text-xl text-green-500">
-            You scored {correctAnswers} of {data.length}{" "}
-            <strong>{Math.floor((correctAnswers / data.length) * 100)}%</strong>{" "}
+            You scored {correctAnswers} out of {data.length}
+            <strong>
+              {" "}
+              ({Math.floor((correctAnswers / data.length) * 100)}%)
+            </strong>{" "}
             in the <strong>Chemistry-UTME-2019</strong> quiz,You finished the
             quiz in <strong>{formatTime(time)}</strong>
           </p>{" "}

@@ -10,9 +10,10 @@ const Question = ({
 }) => {
   const [selected, setSelected] = useState("");
   const [error, setError] = useState("");
-  const choiceWrapper = useRef();
+  const choiceWrapper = useRef(null);
   const changeHandler = (e) => {
     setSelected(e.target.value);
+
     if (error) {
       setError("");
     }
@@ -71,7 +72,11 @@ const Question = ({
             </div>
           );
         })}
-        {error && <div className="">{error}</div>}
+        {error && (
+          <div className=" w-full md:w-1/2 ml-24 py-1 text-gray-500">
+            {error}
+          </div>
+        )}
       </div>
       <div className="w-full h-1/6 bg-green-300 flex justify-center items-center">
         <button

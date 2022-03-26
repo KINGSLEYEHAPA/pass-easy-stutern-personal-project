@@ -1,6 +1,5 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { AiOutlineClose } from "react-icons/ai";
 import { formatTime } from "../utilities";
 
 const PerformanceSheet = ({ onClose, results, data, time }) => {
@@ -11,20 +10,20 @@ const PerformanceSheet = ({ onClose, results, data, time }) => {
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 2, type: "spring" }}
       exit={{ x: -500, opacity: 0 }}
-      className="absolute top-0 left-0 z-50 w-[22.4rem] ssm:w-[23rem] h-[45rem] bg-green-500 shadow-2xl p-3"
+      className="absolute top-0 left-0 z-50 w-[22.4rem] ssm:w-[23rem] h-full bg-green-500 shadow-2xl p-3"
     >
       <div className="overflow-y-auto  overflow-hidden scrollbar-hide w-full h-full">
-        <div className="w-full h-6 flex justify-end items-center p-2">
+        <div className="w-full h-6 flex justify-end items-center p-2 bg-green-700 pt-4">
           {" "}
           <span
-            className="text-2xl text-green-100 font-bold cursor-pointer"
+            className="text-md text-green-100 font-bold cursor-pointer"
             onClick={onClose}
           >
-            <AiOutlineClose />
+            Close
           </span>
         </div>
-        <header className="w-full  h-24 flex flex-col items-center justify-start border-b-2 border-green-100 text-green-100 p-2 ">
-          <h4 className="text-2xl">Your Scoresheet</h4>
+        <header className="w-full  h-24 flex flex-col items-center justify-start border-b-2 border-green-100 text-green-100 p-2 bg-green-700 ">
+          <h4 className="text-xl">Your Scoresheet</h4>
           <p>Chemistry UTME 2015 </p>
           <p className="text-gray-300">{today}</p>
         </header>
@@ -44,7 +43,8 @@ const PerformanceSheet = ({ onClose, results, data, time }) => {
               >
                 <p className="text-white">
                   {" "}
-                  <strong className="text-green-700">Q:</strong> {result.q}
+                  <strong className="text-green-700">Q{i + 1}:</strong>{" "}
+                  {result.q}
                 </p>
                 <div
                   className={
