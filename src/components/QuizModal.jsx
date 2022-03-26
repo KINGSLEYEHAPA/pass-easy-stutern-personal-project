@@ -69,6 +69,7 @@ const QuizModal = ({ setQuizStart }) => {
                 onClose={() => setShowPerformanceSheet(false)}
                 results={answers}
                 data={quizData.data}
+                time={time}
               />
             )}
           </AnimatePresence>

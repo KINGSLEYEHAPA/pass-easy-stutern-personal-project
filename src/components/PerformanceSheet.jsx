@@ -1,8 +1,9 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AiOutlineClose } from "react-icons/ai";
+import { formatTime } from "../utilities";
 
-const PerformanceSheet = ({ onClose, results, data }) => {
+const PerformanceSheet = ({ onClose, results, data, time }) => {
   return (
     <motion.div
       initial={{ opacity: 0, x: -500 }}
@@ -27,93 +28,43 @@ const PerformanceSheet = ({ onClose, results, data }) => {
           <p className="text-gray-300">26 mar 2022</p>
         </header>
         <section className="min-h-[30rem] w-full mt-5 space-y-2">
-          <motion.div
-            initial={{ x: -500, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, type: "spring", stiffness: 30 }}
-            className="bg-green-300 p-2"
-          >
-            <p className="text-white">
-              {" "}
-              <strong>Q:</strong> What is the IUPAC Name of H2SO4?
-            </p>
-            <div className=" text-green-700">
-              <p> this is the correct answer</p>
-            </div>
-            <div className="bg-white p-2">
-              {" "}
-              <p>this is your answer</p>
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ x: -500, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{
-              duration: 0.8,
-              type: "spring",
-              stiffness: 30,
-              delay: 0.5,
-            }}
-            className="bg-green-300 p-2"
-          >
-            <p className="text-white">
-              {" "}
-              <strong>Q:</strong> What is the IUPAC Name of H2SO4?
-            </p>
-            <div className=" text-green-700">
-              <p> this is the correct answer</p>
-            </div>
-            <div className="bg-green-800 text-white p-2">
-              {" "}
-              <p>this is your answer</p>
-            </div>
-          </motion.div>
-          <div className="bg-green-300 p-2">
-            <p className="text-white">
-              {" "}
-              <strong>Q:</strong> What is the IUPAC Name of H2SO4?
-            </p>
-            <div className=" text-green-700">
-              <p> this is the correct answer</p>
-            </div>
-            <div className="bg-white p-2">
-              {" "}
-              <p>this is your answer</p>
-            </div>
-          </div>
-          <div className="bg-green-300 p-2">
-            <p className="text-white">
-              {" "}
-              <strong>Q:</strong> What is the IUPAC Name of H2SO4?
-            </p>
-            <div className=" text-green-700">
-              <p> this is the correct answer</p>
-            </div>
-            <div className="bg-white p-2">
-              {" "}
-              <p>this is your answer</p>
-            </div>
-          </div>
-          <div className="bg-green-300 p-2">
-            <p className="text-white">
-              {" "}
-              <strong>Q:</strong> What is the IUPAC Name of H2SO4?
-            </p>
-            <div className=" text-green-700">
-              <p> this is the correct answer</p>
-            </div>
-            <div className="bg-white p-2">
-              {" "}
-              <p>this is your answer</p>
-            </div>
-          </div>
+          {results.map((result, i) => {
+            return (
+              <motion.div
+                initial={{ x: -500, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8, type: "spring", stiffness: 30 }}
+                className="bg-green-300 p-2"
+              >
+                <p className="text-white">
+                  {" "}
+                  <strong className="text-green-700">Q:</strong> {result.q}
+                </p>
+                <div
+                  className={
+                    result.a === data[i].answer
+                      ? "bg-green-700 text-white p-2"
+                      : "bg-red-500 text-white p-2"
+                  }
+                >
+                  <p>Your Answer: {result.a}</p>
+                </div>
+                {result.a !== data[i].answer && (
+                  <div className="bg-white p-2">
+                    {" "}
+                    <p>Correct Answer: {data[i].answer}</p>
+                  </div>
+                )}
+              </motion.div>
+            );
+          })}
         </section>
         <div className="w-full h-32 bg-white p-5">
           {" "}
           <p className="text-green-500">
-            You answered <strong>36 out of 40</strong> questions and you
-            finished this quiz in
-            <strong> 4mins 25secs.</strong>
+            You answered <strong>** out of {results.length}</strong> questions
+            and you finished this quiz in
+            <strong> {formatTime(time)}</strong>
           </p>{" "}
         </div>
       </div>
