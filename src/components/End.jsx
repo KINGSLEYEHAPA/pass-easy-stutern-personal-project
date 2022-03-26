@@ -1,7 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { formatTime } from "../utilities";
 
-const End = ({ time, results, data, onRetry, onAnswersCheck }) => {
+const End = ({
+  time,
+  results,
+  data,
+  onRetry,
+  onAnswersCheck,
+  setQuizStart,
+}) => {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   useEffect(() => {
     let correct = 0;
@@ -26,7 +33,10 @@ const End = ({ time, results, data, onRetry, onAnswersCheck }) => {
         </div>
       </div>
       <div className="w-full h-1/6 flex justify-center items-center gap-5">
-        <button className="bg-green-700 px-4 ssm:px-8 py-1 text-green-100 rounded md:rounded-md text-sm  text-md ssm:text-lg outline-none">
+        <button
+          onClick={() => setQuizStart(false)}
+          className="bg-green-700 px-4 ssm:px-8 py-1 text-green-100 rounded md:rounded-md text-sm  text-md ssm:text-lg outline-none"
+        >
           Quiz
         </button>
         <button

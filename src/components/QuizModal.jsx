@@ -7,7 +7,7 @@ import Start from "./Start";
 import { quizData } from "../dummyData";
 let interval;
 
-const QuizModal = () => {
+const QuizModal = ({ setQuizStart }) => {
   const [step, setStep] = useState(1);
   const [activeQuestion, setActiveQuestion] = useState(0);
   const [answers, setAnswers] = useState([]);
@@ -60,6 +60,7 @@ const QuizModal = () => {
               onAnswersCheck={() => setShowPerformanceSheet(true)}
               time={time}
               onRetry={resetClickHandler}
+              setQuizStart={setQuizStart}
             />
           )}
           <AnimatePresence>

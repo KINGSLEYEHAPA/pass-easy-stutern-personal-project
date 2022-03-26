@@ -141,7 +141,7 @@ const QuizPlatform = () => {
           </div>
         </div>
       )}
-      {quizStart && <QuizModal />}
+      {quizStart && <QuizModal setQuizStart={setQuizStart} />}
     </div>
   );
 };
