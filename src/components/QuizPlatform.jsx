@@ -133,7 +133,7 @@ const QuizPlatform = () => {
           </div>
         </div>
       )}
-      {false && <QuizModal />}
+      {true && <QuizModal />}
     </div>
   );
 };

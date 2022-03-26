@@ -58,7 +58,7 @@ const Question = () => {
         </div>
       </div>
       <div className="w-full h-1/6 bg-green-300 flex justify-center items-center">
-        <button className="bg-green-700 px-6 ssm:px-8 py-1 text-green-100 font-bold rounded md:rounded-md text-md ssm:text-xl outline-none">
+        <button className="bg-green-700 px-6 ssm:px-8 py-1 text-green-100  rounded md:rounded-md text-md ssm:text-xl outline-none">
           Next
         </button>
       </div>

@@ -1,9 +1,10 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { AiOutlineClose } from "react-icons/ai";
 
 const PerformanceSheet = () => {
   return (
-    <AnimatePresence>
+    <AnimatePresence exitBeforeEnter>
       <motion.div
         initial={{ opacity: 0, x: -500 }}
         animate={{ opacity: 1, x: 0 }}
@@ -12,6 +13,12 @@ const PerformanceSheet = () => {
         className="absolute top-0 left-0 z-100 w-[22.4rem] ssm:w-[23rem] h-[45rem] bg-green-500 shadow-2xl p-3"
       >
         <div className="overflow-y-auto  overflow-hidden scrollbar-hide w-full h-full">
+          <div className="w-full h-6 flex justify-end items-center p-2">
+            {" "}
+            <span className="text-2xl text-green-100 font-bold">
+              <AiOutlineClose />
+            </span>
+          </div>
           <header className="w-full  h-24 flex flex-col items-center justify-start border-b-2 border-green-100 text-green-100 p-2">
             <h4 className="text-2xl">Your Scoresheet</h4>
             <p>Chemistry UTME 2015 </p>
