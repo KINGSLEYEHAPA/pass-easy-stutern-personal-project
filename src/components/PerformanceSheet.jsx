@@ -11,117 +11,79 @@ const PerformanceSheet = () => {
             <p>Chemistry UTME 2015 </p>
             <p className="text-gray-300">26 mar 2022</p>
           </header>
-          <section className="min-h-[50rem] w-full ">
-            <div>
-              <p>
+          <section className="min-h-[30rem] w-full mt-5">
+            <div className="bg-green-300 p-2">
+              <p className="text-white">
                 {" "}
                 <strong>Q:</strong> What is the IUPAC Name of H2SO4?
               </p>
-              <div>
-                <p>this is you answer</p>
+              <div className=" text-green-700">
+                <p> this is the correct answer</p>
               </div>
-              <div>
+              <div className="bg-white p-2">
                 {" "}
-                <p>this is the correct answer</p>
+                <p>this is your answer</p>
               </div>
             </div>
-            <div>
-              <p>
+            <div className="bg-green-300 p-2">
+              <p className="text-white">
                 {" "}
                 <strong>Q:</strong> What is the IUPAC Name of H2SO4?
               </p>
-              <div>
-                <p>this is you answer</p>
+              <div className=" text-green-700">
+                <p> this is the correct answer</p>
               </div>
-              <div>
+              <div className="bg-green-800 text-white p-2">
                 {" "}
-                <p>this is the correct answer</p>
+                <p>this is your answer</p>
               </div>
             </div>
-            <div>
-              <p>
+            <div className="bg-green-300 p-2">
+              <p className="text-white">
                 {" "}
                 <strong>Q:</strong> What is the IUPAC Name of H2SO4?
               </p>
-              <div>
-                <p>this is you answer</p>
+              <div className=" text-green-700">
+                <p> this is the correct answer</p>
               </div>
-              <div>
+              <div className="bg-white p-2">
                 {" "}
-                <p>this is the correct answer</p>
+                <p>this is your answer</p>
               </div>
             </div>
-            <div>
-              <p>
+            <div className="bg-green-300 p-2">
+              <p className="text-white">
                 {" "}
                 <strong>Q:</strong> What is the IUPAC Name of H2SO4?
               </p>
-              <div>
-                <p>this is you answer</p>
+              <div className=" text-green-700">
+                <p> this is the correct answer</p>
               </div>
-              <div>
+              <div className="bg-white p-2">
                 {" "}
-                <p>this is the correct answer</p>
+                <p>this is your answer</p>
               </div>
             </div>
-            <div>
-              <p>
+            <div className="bg-green-300 p-2">
+              <p className="text-white">
                 {" "}
                 <strong>Q:</strong> What is the IUPAC Name of H2SO4?
               </p>
-              <div>
-                <p>this is you answer</p>
+              <div className=" text-green-700">
+                <p> this is the correct answer</p>
               </div>
-              <div>
+              <div className="bg-white p-2">
                 {" "}
-                <p>this is the correct answer</p>
-              </div>
-            </div>
-            <div>
-              <p>
-                {" "}
-                <strong>Q:</strong> What is the IUPAC Name of H2SO4?
-              </p>
-              <div>
-                <p>this is you answer</p>
-              </div>
-              <div>
-                {" "}
-                <p>this is the correct answer</p>
-              </div>
-            </div>
-            <div>
-              <p>
-                {" "}
-                <strong>Q:</strong> What is the IUPAC Name of H2SO4?
-              </p>
-              <div>
-                <p>this is you answer</p>
-              </div>
-              <div>
-                {" "}
-                <p>this is the correct answer</p>
-              </div>
-            </div>
-            <div>
-              <p>
-                {" "}
-                <strong>Q:</strong> What is the IUPAC Name of H2SO4?
-              </p>
-              <div>
-                <p>this is you answer</p>
-              </div>
-              <div>
-                {" "}
-                <p>this is the correct answer</p>
+                <p>this is your answer</p>
               </div>
             </div>
           </section>
-          <div>
+          <div className="w-full h-32 bg-white p-5">
             {" "}
-            <p>
-              You answer 36 out of 40 questions and you finished this quiz in
-              4mins 25secs
+            <p className="text-green-500">
+              You answered <strong>36 out of 40</strong> questions and you
+              finished this quiz in
+              <strong> 4mins 25secs.</strong>
             </p>{" "}
           </div>
         </div>
