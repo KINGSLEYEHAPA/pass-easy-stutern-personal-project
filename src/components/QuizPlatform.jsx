@@ -7,6 +7,7 @@ import QuizModal from "./QuizModal";
 const QuizPlatform = () => {
   const [showSubjectBox, setShowSubjectBox] = useState(false);
   const [showSubjectBoxContent, setShowSubjectBoxContent] = useState(true);
+  const [quizStart, setQuizStart] = useState(false);
   const searchedSubject = useSelector(
     (state) => state.question.userSearchedSubject
   );
@@ -55,6 +56,10 @@ const QuizPlatform = () => {
     }, 3000);
     // dispatch({ type: actionTypes.SEARCHED_SUBJECT, payload: "" });
   }, [searchedSubject]);
+
+  const startQuiz = () => {
+    setQuizStart(true);
+  };
   return (
     <div className="mt-52 lg:mt-[8.5rem] bg-green-100 min-h-[30rem] w-full p-4 relative">
       <div className="bg-green-300 h-full w-full rounded-xl p-2 flex flex-col gap-1">
@@ -106,7 +111,10 @@ const QuizPlatform = () => {
             </select>
           </div>
           <div className="bg-green-500 w-full h-1/5 ssm:h-1/3 flex justify-center items-center">
-            <button className="bg-green-700 px-12 ssm:px-16 py-3 text-green-100 font-bold rounded-md text-md ssm:text-xl outline-none">
+            <button
+              onClick={startQuiz}
+              className="bg-green-700 px-12 ssm:px-16 py-3 text-green-100 font-bold rounded-md text-md ssm:text-xl outline-none"
+            >
               Start Quiz
             </button>
           </div>
