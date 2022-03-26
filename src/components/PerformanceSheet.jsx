@@ -10,7 +10,7 @@ const PerformanceSheet = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 2, type: "spring" }}
         exit={{ x: -500, opacity: 0 }}
-        className="absolute top-0 left-0 z-100 w-[22.4rem] ssm:w-[23rem] h-[45rem] bg-green-500 shadow-2xl p-3"
+        className="absolute top-0 left-0 z-50 w-[22.4rem] ssm:w-[23rem] h-[45rem] bg-green-500 shadow-2xl p-3"
       >
         <div className="overflow-y-auto  overflow-hidden scrollbar-hide w-full h-full">
           <div className="w-full h-6 flex justify-end items-center p-2">
