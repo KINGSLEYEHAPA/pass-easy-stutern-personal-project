@@ -4,6 +4,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { formatTime } from "../utilities";
 
 const PerformanceSheet = ({ onClose, results, data, time }) => {
+  const today = new Date().toDateString();
   return (
     <motion.div
       initial={{ opacity: 0, x: -500 }}
@@ -22,18 +23,23 @@ const PerformanceSheet = ({ onClose, results, data, time }) => {
             <AiOutlineClose />
           </span>
         </div>
-        <header className="w-full  h-24 flex flex-col items-center justify-start border-b-2 border-green-100 text-green-100 p-2">
+        <header className="w-full  h-24 flex flex-col items-center justify-start border-b-2 border-green-100 text-green-100 p-2 ">
           <h4 className="text-2xl">Your Scoresheet</h4>
           <p>Chemistry UTME 2015 </p>
-          <p className="text-gray-300">26 mar 2022</p>
+          <p className="text-gray-300">{today}</p>
         </header>
         <section className="min-h-[30rem] w-full mt-5 space-y-2">
           {results.map((result, i) => {
             return (
               <motion.div
-                initial={{ x: -500, opacity: 0 }}
+                initial={{ x: i % 2 === 0 ? -500 : 500, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.8, type: "spring", stiffness: 30 }}
+                transition={{
+                  duration: 0.5,
+                  type: "spring",
+                  stiffness: 30,
+                  delay: i * 0.5,
+                }}
                 className="bg-green-300 p-2"
               >
                 <p className="text-white">
@@ -59,7 +65,7 @@ const PerformanceSheet = ({ onClose, results, data, time }) => {
             );
           })}
         </section>
-        <div className="w-full h-32 bg-white p-5">
+        <div className="w-full h-32 bg-green-200 p-5">
           {" "}
           <p className="text-green-500">
             You answered <strong>** out of {results.length}</strong> questions
