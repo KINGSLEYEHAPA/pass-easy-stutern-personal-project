@@ -66,7 +66,12 @@ const Question = ({
               key={i}
             >
               <div className="px-3 py-1  ">
-                <input type="radio" value={choice} onChange={changeHandler} />
+                <input
+                  type="radio"
+                  value={choice}
+                  onChange={changeHandler}
+                  name="answer"
+                />
               </div>
               <p>{choice}</p>
             </div>
