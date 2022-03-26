@@ -1,3 +1,4 @@
+import { AnimatePresence } from "framer-motion";
 import React, { useState, useEffect } from "react";
 import End from "./End";
 import PerformanceSheet from "./PerformanceSheet";
@@ -7,7 +8,7 @@ let interval;
 
 const QuizModal = () => {
   const [step, setStep] = useState(1);
-  const [activeQuestion, setActiveQuestion] = useState(0);
+  const [activeQuestion, setActiveQuestion] = useState(1);
   const [answers, setAnswers] = useState([]);
   const [showPerformanceSheet, setShowPerformanceSheet] = useState(false);
   const [time, setTime] = useState(0);
@@ -19,10 +20,12 @@ const QuizModal = () => {
       </div>
       <div className="w-full h-5/6 flex justify-center items-center">
         <div className="w-80 h-80 sm:w-[30rem] sm:h-80 ssm:[34rem] md:w-[40rem] md:h-[25rem] mt-10 bg-green-100 rounded-lg p-1 shadow-xl">
-          {true && <Question />}
-          {false && <End />}
-          {false && <PerformanceSheet />}
-          {false && <Start />}
+          {step === 2 && <Question />}
+          {step === 3 && <End />}
+          <AnimatePresence>
+            {showPerformanceSheet && <PerformanceSheet />}
+          </AnimatePresence>
+          {step === 1 && <Start />}
         </div>
       </div>
     </div>
