@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const Start = () => {
+const Start = ({ onQuizStartHandler }) => {
   return (
     <div className="absolute top-[40%] left-[40%] bg-green-500 h-40 w-72 shadow-xl rounded-lg flex flex-col justify-center items-center">
       <div className="w-[2rem] h-[2rem] bg-green-700  rounded-full flex justify-center items-center relative">
@@ -12,7 +12,12 @@ const Start = () => {
         ></motion.span>
       </div>
       <p className="text-2xl text-green-100">Good luck!!</p>
-      <button className="px-6 py-1 bg-green-100 mt-6 rounded">Go</button>
+      <button
+        onClick={onQuizStartHandler}
+        className="px-6 py-1 bg-green-800 mt-6 rounded text-green-100"
+      >
+        Go
+      </button>
     </div>
   );
 };

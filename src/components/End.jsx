@@ -1,6 +1,6 @@
 import React from "react";
 
-const End = () => {
+const End = ({ time, results, data, onRetry, onAnswersCheck }) => {
   return (
     <div className="w-full h-full bg-green-300">
       <div className="w-full h-5/6 flex justify-center items-center">
