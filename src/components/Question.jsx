@@ -32,6 +32,7 @@ const Question = ({
       ...prevState,
       { q: data.question, a: selected },
     ]);
+
     setSelected("");
     if (activeQuestion < numberOfQuestions - 1) {
       onSetActiveQuestion(activeQuestion + 1);
@@ -39,6 +40,7 @@ const Question = ({
       onSetStep(3);
     }
   };
+  console.log(selected);
 
   return (
     <div className="w-full h-full bg-green-700 rounded-lg">
