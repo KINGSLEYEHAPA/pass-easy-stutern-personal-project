@@ -12,10 +12,13 @@ const End = ({
   onAnswersCheck,
   setQuizStart,
   quizInfo,
-  onSetSendResult,
+  sendResult,
 }) => {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [score, setScore] = useState(0);
+  const sessionScore = Math.floor((correctAnswers / data.length) * 100);
+  const today = new Date().toDateString();
+
   const dispatch = useDispatch();
   useEffect(() => {
     let correct = 0;
@@ -29,6 +32,24 @@ const End = ({
     dispatch({ type: actionTypes.CORRECT_ANSWERS, payload: correct });
     setScore(Math.floor((correctAnswers / data.length) * 100));
   }, [correctAnswers]);
+
+  const performanceInfo = {
+    subject: quizInfo.examName,
+    type: quizInfo.examType,
+    year: quizInfo.examYear,
+    score: sessionScore,
+    duration: time,
+    date: today,
+    comment: "",
+  };
+  useEffect(() => {
+    if (sendResult) {
+      dispatch({
+        type: actionTypes.SEND_QUIZ_RESULT,
+        payload: performanceInfo,
+      });
+    }
+  }, [sendResult, dispatch]);
 
   return (
     <AnimatePresence exitBeforeEnter>

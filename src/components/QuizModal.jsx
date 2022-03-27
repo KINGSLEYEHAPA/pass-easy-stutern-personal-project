@@ -33,6 +33,7 @@ const QuizModal = ({ setQuizStart, quizInfo }) => {
     setAnswers([]);
     setStep(2);
     setTime(0);
+    setSendResult(false);
     setShowPerformanceSheet(false);
     interval = setInterval(() => {
       setTime((prevTime) => prevTime + 1);
@@ -67,6 +68,7 @@ const QuizModal = ({ setQuizStart, quizInfo }) => {
               onRetry={resetClickHandler}
               setQuizStart={setQuizStart}
               quizInfo={quizInfo}
+              sendResult={sendResult}
             />
           )}
           <AnimatePresence>
@@ -77,7 +79,6 @@ const QuizModal = ({ setQuizStart, quizInfo }) => {
                 data={quizData.data}
                 time={time}
                 quizInfo={quizInfo}
-                sendResult={sendResult}
               />
             )}
           </AnimatePresence>

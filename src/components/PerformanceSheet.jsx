@@ -18,25 +18,6 @@ const PerformanceSheet = ({
   );
   const sessionScore = Math.floor((correctAnswers / data.length) * 100);
 
-  const dispatch = useDispatch();
-  const performanceInfo = {
-    subject: quizInfo.examName,
-    type: quizInfo.examType,
-    year: quizInfo.examYear,
-    score: sessionScore,
-    duration: time,
-    date: today,
-    comment: "",
-  };
-
-  useEffect(() => {
-    if (sendResult) {
-      dispatch({
-        type: actionTypes.SEND_QUIZ_RESULT,
-        payload: performanceInfo,
-      });
-    }
-  }, [sendResult, dispatch]);
   return (
     <motion.div
       initial={{ opacity: 0, x: -500 }}
