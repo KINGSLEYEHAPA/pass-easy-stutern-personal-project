@@ -1,5 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import actionTypes from "../redux/actions/actionTypes";
 import { formatTime } from "../utilities";
 
 const End = ({
@@ -11,6 +13,7 @@ const End = ({
   setQuizStart,
 }) => {
   const [correctAnswers, setCorrectAnswers] = useState(0);
+  const dispatch = useDispatch();
   useEffect(() => {
     let correct = 0;
     results.forEach((result, index) => {
@@ -19,6 +22,7 @@ const End = ({
       }
     });
     setCorrectAnswers(correct);
+    dispatch({ type: actionTypes.CORRECT_ANSWERS, payload: correct });
   }, []);
 
   return (

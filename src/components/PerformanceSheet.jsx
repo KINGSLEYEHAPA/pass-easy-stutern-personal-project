@@ -1,9 +1,13 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { formatTime } from "../utilities";
+import { useSelector } from "react-redux";
 
 const PerformanceSheet = ({ onClose, results, data, time }) => {
   const today = new Date().toDateString();
+  const correctAnswers = useSelector(
+    (state) => state.performance.correctAnswersPerSession
+  );
   return (
     <motion.div
       initial={{ opacity: 0, x: -500 }}
@@ -68,8 +72,11 @@ const PerformanceSheet = ({ onClose, results, data, time }) => {
         <div className="w-full h-32 bg-green-200 p-5">
           {" "}
           <p className="text-green-500">
-            You answered <strong>** out of {results.length}</strong> questions
-            and you finished this quiz in
+            You answered{" "}
+            <strong>
+              {correctAnswers} out of {results.length}
+            </strong>{" "}
+            questions and you finished this quiz in
             <strong> {formatTime(time)}</strong>
           </p>{" "}
         </div>
