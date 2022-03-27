@@ -19,6 +19,19 @@ const End = ({
   const sessionScore = Math.floor((correctAnswers / data.length) * 100);
   const today = new Date().toDateString();
 
+  let commentOnScore;
+  if (sessionScore >= 90) {
+    commentOnScore = "Superb";
+  } else if (sessionScore >= 70 && sessionScore < 90) {
+    commentOnScore = "Excellent";
+  } else if (sessionScore >= 60 && sessionScore < 70) {
+    commentOnScore = "You did well";
+  } else if (sessionScore >= 40 && sessionScore < 60) {
+    commentOnScore = "Average Performance";
+  } else if (sessionScore < 40) {
+    commentOnScore = "You did not Perform well";
+  }
+
   const dispatch = useDispatch();
   useEffect(() => {
     let correct = 0;
@@ -40,7 +53,7 @@ const End = ({
     score: sessionScore,
     duration: time,
     date: today,
-    comment: "",
+    comment: commentOnScore,
   };
   useEffect(() => {
     if (sendResult) {

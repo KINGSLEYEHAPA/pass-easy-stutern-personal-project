@@ -4,10 +4,13 @@ import perfLogo from "../assets/img/performance.jfif";
 import MenuItem from "./MenuItem";
 import { BsFillStarFill, BsTrophyFill } from "react-icons/bs";
 import { BiTimer } from "react-icons/bi";
+import { useSelector } from "react-redux";
 
 const PerformanceStats = () => {
   const [selected, setSelected] = useState(0);
   const statsTab = ["Best Quiz Time", "Best Score", "Rankings"];
+  const performanceData = useSelector((state) => state.performance.quizResults);
+  console.log(performanceData);
   return (
     <div className="mt-52 lg:mt-[8.5rem] bg-green-100 min-h-[30rem] w-full p-4">
       <div className="bg-green-300 h-full w-full rounded-xl p-2 flex flex-col gap-1">
