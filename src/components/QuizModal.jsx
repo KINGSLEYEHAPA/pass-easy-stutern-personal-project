@@ -8,6 +8,7 @@ import { quizData } from "../dummyData";
 let interval;
 
 const QuizModal = ({ setQuizStart, quizInfo }) => {
+  const [sendResult, setSendResult] = useState(false);
   const [step, setStep] = useState(1);
   const [activeQuestion, setActiveQuestion] = useState(0);
   const [answers, setAnswers] = useState([]);
@@ -23,6 +24,7 @@ const QuizModal = ({ setQuizStart, quizInfo }) => {
   useEffect(() => {
     if (step === 3) {
       clearInterval(interval);
+      setSendResult(true);
     }
   }, [step]);
 
@@ -75,6 +77,7 @@ const QuizModal = ({ setQuizStart, quizInfo }) => {
                 data={quizData.data}
                 time={time}
                 quizInfo={quizInfo}
+                sendResult={sendResult}
               />
             )}
           </AnimatePresence>

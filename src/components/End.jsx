@@ -12,6 +12,7 @@ const End = ({
   onAnswersCheck,
   setQuizStart,
   quizInfo,
+  onSetSendResult,
 }) => {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [score, setScore] = useState(0);
@@ -24,9 +25,9 @@ const End = ({
       }
     });
     setCorrectAnswers(correct);
-    setScore(Math.floor((correctAnswers / data.length) * 100));
+
     dispatch({ type: actionTypes.CORRECT_ANSWERS, payload: correct });
-    dispatch({ type: actionTypes.SEND_SCORE, payload: score });
+    setScore(Math.floor((correctAnswers / data.length) * 100));
   }, [correctAnswers]);
 
   return (

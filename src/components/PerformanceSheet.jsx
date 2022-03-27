@@ -1,16 +1,42 @@
 import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { formatTime } from "../utilities";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import actionTypes from "../redux/actions/actionTypes";
 
-const PerformanceSheet = ({ onClose, results, data, time, quizInfo }) => {
+const PerformanceSheet = ({
+  onClose,
+  results,
+  data,
+  time,
+  quizInfo,
+  sendResult,
+}) => {
   const today = new Date().toDateString();
   const correctAnswers = useSelector(
     (state) => state.performance.correctAnswersPerSession
   );
-  const sessionScore = useSelector(
-    (state) => state.performance.scorePerSession
-  );
+  const sessionScore = Math.floor((correctAnswers / data.length) * 100);
+
+  const dispatch = useDispatch();
+  const performanceInfo = {
+    subject: quizInfo.examName,
+    type: quizInfo.examType,
+    year: quizInfo.examYear,
+    score: sessionScore,
+    duration: time,
+    date: today,
+    comment: "",
+  };
+
+  useEffect(() => {
+    if (sendResult) {
+      dispatch({
+        type: actionTypes.SEND_QUIZ_RESULT,
+        payload: performanceInfo,
+      });
+    }
+  }, [sendResult, dispatch]);
   return (
     <motion.div
       initial={{ opacity: 0, x: -500 }}
@@ -81,7 +107,7 @@ const PerformanceSheet = ({ onClose, results, data, time, quizInfo }) => {
             <strong>
               {correctAnswers} out of {results.length}
             </strong>{" "}
-            questions ({sessionScore}) and you finished this quiz in
+            questions ({sessionScore}%) and you finished this quiz in
             <strong> {formatTime(time)}</strong>
           </p>{" "}
         </div>
