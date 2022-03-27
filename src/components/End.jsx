@@ -11,8 +11,10 @@ const End = ({
   onRetry,
   onAnswersCheck,
   setQuizStart,
+  quizInfo,
 }) => {
   const [correctAnswers, setCorrectAnswers] = useState(0);
+  const [score, setScore] = useState(0);
   const dispatch = useDispatch();
   useEffect(() => {
     let correct = 0;
@@ -22,8 +24,10 @@ const End = ({
       }
     });
     setCorrectAnswers(correct);
+    setScore(Math.floor((correctAnswers / data.length) * 100));
     dispatch({ type: actionTypes.CORRECT_ANSWERS, payload: correct });
-  }, []);
+    dispatch({ type: actionTypes.SEND_SCORE, payload: score });
+  }, [correctAnswers]);
 
   return (
     <AnimatePresence exitBeforeEnter>
@@ -38,12 +42,11 @@ const End = ({
           <div className="w-5/6 h-4/6 bg-green-200 rounded p-4 md:pl-10 flex justify-center items-start ">
             <p className="mt-12 text-sm ssm:text-lg lg:text-xl text-green-500">
               You scored {correctAnswers} out of {data.length}
+              <strong> ({score}%)</strong> in the{" "}
               <strong>
-                {" "}
-                ({Math.floor((correctAnswers / data.length) * 100)}%)
+                {quizInfo.examName}-{quizInfo.examType}-{quizInfo.examYear}
               </strong>{" "}
-              in the <strong>Chemistry-UTME-2019</strong> quiz,You finished the
-              quiz in <strong>{formatTime(time)}</strong>
+              quiz,You finished the quiz in <strong>{formatTime(time)}</strong>
             </p>{" "}
           </div>
         </div>

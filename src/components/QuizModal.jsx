@@ -7,7 +7,7 @@ import Start from "./Start";
 import { quizData } from "../dummyData";
 let interval;
 
-const QuizModal = ({ setQuizStart }) => {
+const QuizModal = ({ setQuizStart, quizInfo }) => {
   const [step, setStep] = useState(1);
   const [activeQuestion, setActiveQuestion] = useState(0);
   const [answers, setAnswers] = useState([]);
@@ -31,6 +31,7 @@ const QuizModal = ({ setQuizStart }) => {
     setAnswers([]);
     setStep(2);
     setTime(0);
+    setShowPerformanceSheet(false);
     interval = setInterval(() => {
       setTime((prevTime) => prevTime + 1);
     }, 1000);
@@ -39,7 +40,9 @@ const QuizModal = ({ setQuizStart }) => {
   return (
     <div className="absolute top-0 left-0 z-30 w-full h-full bg-green-500/70">
       <div className="w-full h-1/6 bg-green-700 flex items-center justify-start">
-        <h2 className="px-4 text-green-100 text-xl">Chemistry Quiz-Live</h2>
+        <h2 className="px-4 text-green-100 text-xl">
+          {quizInfo.examName} Quiz-Live
+        </h2>
       </div>
       <div className="w-full h-5/6 flex justify-center items-center">
         <div className="w-80 h-80 sm:w-[30rem] sm:h-80 ssm:[34rem] md:w-[40rem] md:h-[25rem] mt-10 bg-green-100 rounded-lg p-1 shadow-xl flex justify-center items-center">
@@ -61,6 +64,7 @@ const QuizModal = ({ setQuizStart }) => {
               time={time}
               onRetry={resetClickHandler}
               setQuizStart={setQuizStart}
+              quizInfo={quizInfo}
             />
           )}
           <AnimatePresence>
@@ -70,6 +74,7 @@ const QuizModal = ({ setQuizStart }) => {
                 results={answers}
                 data={quizData.data}
                 time={time}
+                quizInfo={quizInfo}
               />
             )}
           </AnimatePresence>

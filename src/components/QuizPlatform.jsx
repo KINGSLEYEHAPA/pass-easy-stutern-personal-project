@@ -11,6 +11,11 @@ const QuizPlatform = () => {
   const searchedSubject = useSelector(
     (state) => state.question.userSearchedSubject
   );
+  const quizInfo = {
+    examName: "Physics",
+    examType: "WASSCE",
+    examYear: "2008",
+  };
   const [dummyOption, setDummyOptions] = useState({
     examType: ["UTME", "WASSCE", "POST-UTME"],
     examYear: ["2010", "2011", "2013", "2018"],
@@ -141,7 +146,9 @@ const QuizPlatform = () => {
           </div>
         </div>
       )}
-      {quizStart && <QuizModal setQuizStart={setQuizStart} />}
+      {quizStart && (
+        <QuizModal setQuizStart={setQuizStart} quizInfo={quizInfo} />
+      )}
     </div>
   );
 };

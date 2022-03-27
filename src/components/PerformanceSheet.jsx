@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { formatTime } from "../utilities";
 import { useSelector } from "react-redux";
 
-const PerformanceSheet = ({ onClose, results, data, time }) => {
+const PerformanceSheet = ({ onClose, results, data, time, quizInfo }) => {
   const today = new Date().toDateString();
   const correctAnswers = useSelector(
     (state) => state.performance.correctAnswersPerSession
+  );
+  const sessionScore = useSelector(
+    (state) => state.performance.scorePerSession
   );
   return (
     <motion.div
@@ -28,7 +31,9 @@ const PerformanceSheet = ({ onClose, results, data, time }) => {
         </div>
         <header className="w-full  h-24 flex flex-col items-center justify-start border-b-2 border-green-100 text-green-100 p-2 bg-green-700 ">
           <h4 className="text-xl">Your Scoresheet</h4>
-          <p>Chemistry UTME 2015 </p>
+          <p>
+            {quizInfo.examName} {quizInfo.examType} {quizInfo.examYear}{" "}
+          </p>
           <p className="text-gray-300">{today}</p>
         </header>
         <section className="min-h-[30rem] w-full mt-5 space-y-2">
@@ -76,7 +81,7 @@ const PerformanceSheet = ({ onClose, results, data, time }) => {
             <strong>
               {correctAnswers} out of {results.length}
             </strong>{" "}
-            questions and you finished this quiz in
+            questions ({sessionScore}) and you finished this quiz in
             <strong> {formatTime(time)}</strong>
           </p>{" "}
         </div>

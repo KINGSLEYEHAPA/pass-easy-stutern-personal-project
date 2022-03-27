@@ -94,7 +94,7 @@ const Question = ({
                 translateX: [10, -10, 10, -10, 10, -10, 10, -10, 0],
               }}
               transition={{ duration: 1 }}
-              className=" w-full md:w-1/2 ml-24 py-1 text-gray-500"
+              className=" w-full md:w-1/2 ml-24 py-1 text-red-500 font-bold"
             >
               {error}
             </motion.div>
