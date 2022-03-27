@@ -87,9 +87,17 @@ const Question = ({
           })}
 
           {error && (
-            <div className=" w-full md:w-1/2 ml-24 py-1 text-gray-500">
+            <motion.div
+              initial={{ opacity: 0.5, translateX: -10 }}
+              animate={{
+                opacity: 1,
+                translateX: [10, -10, 10, -10, 10, -10, 10, -10, 0],
+              }}
+              transition={{ duration: 1 }}
+              className=" w-full md:w-1/2 ml-24 py-1 text-gray-500"
+            >
               {error}
-            </div>
+            </motion.div>
           )}
         </div>
         <div className="w-full h-1/6 bg-green-300 flex justify-center items-center">
