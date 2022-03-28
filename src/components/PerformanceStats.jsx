@@ -204,9 +204,17 @@ const PerformanceStats = () => {
               {bestScoreSort.map((score, i) => {
                 return (
                   <motion.div
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1.25, type: "tween" }}
+                    initial={{
+                      opacity: 0,
+                      scale: 0,
+                      x: i % 2 === 0 ? 500 : -500,
+                    }}
+                    animate={{ opacity: 1, scale: 1, x: 0 }}
+                    transition={{
+                      duration: 1.25,
+                      type: "tween",
+                      delay: i * 0.5,
+                    }}
                     className=" text-sm md:text-md h-16 w-full bg-green-100/50 text-green-700 rounded-md flex justify-between items-center ssm:px-2 px-1"
                     key={i}
                   >
