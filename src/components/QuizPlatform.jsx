@@ -11,7 +11,11 @@ const QuizPlatform = () => {
   const [quizStart, setQuizStart] = useState(false);
   const [listedSubjects, setListedSubjects] = useState([]);
   const [listedYears, setListedYears] = useState();
-  const [selectedSubject, setSelectedSubject] = useState([]);
+  const [selectedSubject, setSelectedSubject] = useState("");
+  const [selectedYear, setSelectedYear] = useState("");
+  const [selectedExamType, setSelectedExamType] = useState("");
+  const [startCall, setStartCall] = useState(false);
+  const [queryError, setQueryError] = useState(false);
 
   const searchedSubject = useSelector(
     (state) => state.question.userSearchedSubject
@@ -21,33 +25,9 @@ const QuizPlatform = () => {
     examType: "WASSCE",
     examYear: "2003",
   };
-  const [dummyOption, setDummyOptions] = useState({
-    examType: ["UTME", "WASSCE", "POST-UTME"],
-    examYear: ["2010", "2011", "2013", "2018"],
-    subjects: [
-      "commerce",
-      "english",
-      "mathematics",
-      "commerce",
-      "english",
-      "mathematics",
-      "commerce",
-      "english",
-      "mathematics",
-      "commerce",
-      "english",
-      "mathematics",
-      "commerce",
-      "english",
-      "mathematics",
-      "commerce",
-      "english",
-      "mathematics",
-      "CRK",
-    ],
-  });
+  const examOptions = ["WASSCE", "UTME", "POST-UTME"];
 
-  const indexOfSubject = dummyOption.subjects.findIndex((subject) => {
+  const indexOfSubject = Object.values(listedSubjects)?.findIndex((subject) => {
     return searchedSubject.toLowerCase() === subject.toLowerCase();
   });
   const dispatch = useDispatch();
@@ -91,8 +71,45 @@ const QuizPlatform = () => {
     getAllSupportedSubjects();
   }, [selectedSubject]);
 
+  useEffect(() => {
+    const quizUrl = `https://questions.aloc.com.ng/api/v2/m?subject=${selectedSubject}&year=${selectedYear}&type=${selectedExamType}`;
+    const quizOptions = {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        AccessToken: "",
+      },
+    };
+    const getQuiz = async () => {
+      dispatch({ type: actionTypes.GET_QUESTION_QUIZ_START });
+      try {
+        const quizResponse = await axios.get(quizUrl, quizOptions);
+        console.log(quizResponse);
+        dispatch({
+          type: actionTypes.GET_QUESTION_QUIZ_SUCCESS,
+          payload: quizResponse,
+        });
+      } catch (err) {
+        dispatch({
+          type: actionTypes.GET_QUESTION_QUIZ_ERROR,
+          payload: err.message,
+        });
+      }
+    };
+
+    startCall && getQuiz();
+  }, [startCall]);
+
   const startQuiz = () => {
-    setQuizStart(true);
+    if (selectedExamType !== "" && selectedYear !== "" && selectedYear !== "") {
+      setStartCall(true);
+      setQuizStart(true);
+    } else {
+      setQueryError(true);
+      setTimeout(() => {
+        setQueryError(false);
+      }, 3000);
+    }
   };
   return (
     <div className="mt-52 lg:mt-[8.5rem] bg-green-100 min-h-[30rem] w-full p-4 relative">
@@ -126,9 +143,12 @@ const QuizPlatform = () => {
                 );
               })}
             </select>
-            <select className="w-56 h-7 bg-green-300 text-white outline-none px-2 text-md rounded cursor-pointer">
+            <select
+              className="w-56 h-7 bg-green-300 text-white outline-none px-2 text-md rounded cursor-pointer"
+              onChange={(e) => setSelectedExamType(e.target.value)}
+            >
               <option className="capitalize">Exam Type</option>
-              {dummyOption.examType.map((item, i) => {
+              {examOptions.map((item, i) => {
                 return (
                   <option value={item} key={i} className="capitalize">
                     {item}
@@ -136,7 +156,10 @@ const QuizPlatform = () => {
                 );
               })}
             </select>
-            <select className="w-56 h-7 bg-green-300 text-white outline-none px-2 text-md rounded cursor-pointer">
+            <select
+              className="w-56 h-7 bg-green-300 text-white outline-none px-2 text-md rounded cursor-pointer"
+              onChange={(e) => setSelectedYear(e.target.value)}
+            >
               <option className="capitalize">Select Year</option>
               {listedYears?.map((item, i) => {
                 return (
@@ -179,7 +202,17 @@ const QuizPlatform = () => {
         </div>
       )}
       {quizStart && (
-        <QuizModal setQuizStart={setQuizStart} quizInfo={quizInfo} />
+        <QuizModal
+          setQuizStart={setQuizStart}
+          quizInfo={quizInfo}
+          setStartCall={setStartCall}
+        />
+      )}
+      {queryError && (
+        <div className="absolute top-[40%] left-[40%] bg-green-700 w-72 h-40 flex justify-center text-green-100 rounded-lg items-center">
+          {" "}
+          <p> Please Select Quiz Options</p>
+        </div>
       )}
     </div>
   );

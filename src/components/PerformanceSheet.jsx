@@ -55,6 +55,7 @@ const PerformanceSheet = ({
                   stiffness: 30,
                   delay: i * 0.5,
                 }}
+                key={i}
                 className="bg-green-300 p-2"
               >
                 <p className="text-white">

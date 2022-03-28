@@ -7,7 +7,7 @@ import Start from "./Start";
 import { quizData } from "../dummyData";
 let interval;
 
-const QuizModal = ({ setQuizStart, quizInfo }) => {
+const QuizModal = ({ setQuizStart, quizInfo, setStartCall }) => {
   const [sendResult, setSendResult] = useState(false);
   const [step, setStep] = useState(1);
   const [activeQuestion, setActiveQuestion] = useState(0);
@@ -17,6 +17,8 @@ const QuizModal = ({ setQuizStart, quizInfo }) => {
 
   const quizStartHandler = () => {
     setStep(2);
+    setStartCall(false);
+
     interval = setInterval(() => {
       setTime((prevTime) => prevTime + 1);
     }, 1000);
