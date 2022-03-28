@@ -5,12 +5,19 @@ import MenuItem from "./MenuItem";
 import { BsFillStarFill, BsTrophyFill } from "react-icons/bs";
 import { BiTimer } from "react-icons/bi";
 import { useSelector } from "react-redux";
+import { formatTime } from "../utilities";
 
 const PerformanceStats = () => {
   const [selected, setSelected] = useState(0);
   const statsTab = ["Best Quiz Time", "Best Score", "Rankings"];
   const performanceData = useSelector((state) => state.performance.quizResults);
-  console.log(performanceData);
+
+  const bestScoreSort = [...performanceData].sort((a, b) => b.score - a.score);
+
+  const bestTimeSort = [...performanceData].sort(
+    (a, b) => a.duration - b.duration
+  );
+
   return (
     <div className="mt-52 lg:mt-[8.5rem] bg-green-100 min-h-[30rem] w-full p-4">
       <div className="bg-green-300 h-full w-full rounded-xl p-2 flex flex-col gap-1">
@@ -59,7 +66,7 @@ const PerformanceStats = () => {
             >
               <div className="flex gap-2 bg-white/30 shadow-lg w-full h-20 md:w-[22rem] md:h-full items-center justify-center">
                 <h2 className="text-md md:text-lg xl:text-3xl text-green-500">
-                  Chemistry
+                  {bestTimeSort?.[0]?.subject}
                 </h2>{" "}
                 <div className="flex items-center gap-1 pt-1 md:pt-1 xl:pt-2">
                   <span className="text-green-700 md:text-lg xl:text-xl ">
@@ -81,21 +88,21 @@ const PerformanceStats = () => {
               </div>
               <div className="flex flex-col gap-1 bg-white/30 shadow-lg w-full h-24 md:w-[24rem] md:h-full items-center justify-center p-2">
                 <h2 className="text-lg md:text-xl xl:text-3xl text-green-500">
-                  UTME-2019
+                  {bestTimeSort?.[0]?.type}- {bestTimeSort?.[0]?.year}
                 </h2>
 
                 <h2 className="text-md md:text-lg xl:text-2xl text-green-500">
                   Record Time:{" "}
                 </h2>
                 <h2 className="text-md md:text-md xl:text-xl text-green-700">
-                  4minutes 59seconds
+                  {formatTime(bestTimeSort?.[0]?.duration)}
                 </h2>
               </div>
               <div className="flex flex-col gap-4 bg-white/30 shadow-lg w-full h-28  md:w-[20rem] lg:w-[26rem] md:h-full items-center justify-center">
                 <span className="text-6xl text-green-700 lg:text-8xl">
                   <BiTimer />
                 </span>
-                <p className="text-green-500">Tuesday 22 Mar 2022</p>
+                <p className="text-green-500"> {bestTimeSort?.[0]?.date}</p>
               </div>
             </motion.div>
           )}
@@ -116,7 +123,7 @@ const PerformanceStats = () => {
             >
               <div className="flex gap-2 bg-white/30 shadow-lg w-full h-20 md:w-[22rem] md:h-full items-center justify-center">
                 <h2 className="text-md md:text-lg xl:text-3xl text-green-500">
-                  Mathematics
+                  {bestScoreSort?.[0]?.subject}
                 </h2>{" "}
                 <div className="flex items-center gap-1 pt-1 md:pt-1 xl:pt-2">
                   <span className="text-green-700 md:text-lg xl:text-xl ">
@@ -138,20 +145,20 @@ const PerformanceStats = () => {
               </div>
               <div className="flex flex-col gap-1 bg-white/30 shadow-lg w-full h-24 md:w-[24rem] md:h-full items-center justify-center p-2 md:space-y-4">
                 <h2 className="text-lg md:text-xl xl:text-3xl text-green-500">
-                  POST-UTME-2019
+                  {bestScoreSort?.[0]?.type}- {bestScoreSort?.[0]?.year}
                 </h2>
                 <h2 className="text-md md:text-lg xl:text-2xl text-green-500">
                   Score
                 </h2>
                 <h2 className="text-lg md:text-3xl xl:text-6xl text-green-700">
-                  87%
+                  {bestScoreSort?.[0]?.score}%
                 </h2>
               </div>
               <div className="flex flex-col gap-4 bg-white/30 shadow-lg w-full h-28  md:w-[20rem] lg:w-[26rem] md:h-full items-center justify-center">
                 <span className="text-6xl text-green-700 lg:text-8xl">
                   <BsTrophyFill />
                 </span>
-                <p className="text-green-500">Tuesday 22 Mar 2022</p>
+                <p className="text-green-500"> {bestScoreSort?.[0]?.date}</p>
               </div>
             </motion.div>
           )}
@@ -194,32 +201,40 @@ const PerformanceStats = () => {
                   <p>Comment</p>
                 </div>
               </div>
-              <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1.25, type: "tween" }}
-                className=" text-sm md:text-md h-16 w-full bg-green-100/50 text-green-700 rounded-md flex justify-between items-center ssm:px-2 px-1"
-              >
-                <div className="flex justify-start items-center px-2 md:pl-6 ssm:w-1/5">
-                  {" "}
-                  <p>1</p>
-                </div>
-                <div className="flex justify-start items-center px-2  md:pl-6 ssm:w-1/5">
-                  <p>Physics</p>
-                </div>
-                <div className="flex justify-start items-center px-2 md:pl-6 ssm:w-1/5">
-                  {" "}
-                  <p>WASSCE&2020</p>
-                </div>
-                <div className="flex justify-start items-center px-2 md:pl-6 ssm:w-1/5">
-                  {" "}
-                  <p>92%</p>
-                </div>
-                <div className="flex justify-start items-center px-2 md:pl-4 ssm:w-1/5">
-                  <p>Excellent</p>
-                </div>
-              </motion.div>
-              <motion.div
+              {bestScoreSort.map((score, i) => {
+                return (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1.25, type: "tween" }}
+                    className=" text-sm md:text-md h-16 w-full bg-green-100/50 text-green-700 rounded-md flex justify-between items-center ssm:px-2 px-1"
+                    key={i}
+                  >
+                    <div className="flex justify-start items-center px-2 md:pl-6 ssm:w-1/5">
+                      {" "}
+                      <p>{i + 1}</p>
+                    </div>
+                    <div className="flex justify-start items-center px-2  md:pl-6 ssm:w-1/5">
+                      <p> {score?.subject}</p>
+                    </div>
+                    <div className="flex justify-start items-center px-2 md:pl-6 ssm:w-1/5">
+                      {" "}
+                      <p>
+                        {score?.type}&{score?.year}
+                      </p>
+                    </div>
+                    <div className="flex justify-start items-center px-2 md:pl-6 ssm:w-1/5">
+                      {" "}
+                      <p>{score?.score}%</p>
+                    </div>
+                    <div className="flex justify-start items-center px-2 md:pl-4 ssm:w-1/5">
+                      <p>{score?.comment}</p>
+                    </div>
+                  </motion.div>
+                );
+              })}
+
+              {/* <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.25, type: "tween" }}
@@ -243,7 +258,7 @@ const PerformanceStats = () => {
                 <div className="flex justify-start items-center px-2 md:pl-4 ssm:w-1/5">
                   <p>Excellent</p>
                 </div>
-              </motion.div>
+              </motion.div> */}
             </motion.div>
           )}
         </AnimatePresence>

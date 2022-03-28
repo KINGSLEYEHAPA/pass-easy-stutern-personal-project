@@ -25,11 +25,11 @@ const End = ({
   } else if (sessionScore >= 70 && sessionScore < 90) {
     commentOnScore = "Excellent";
   } else if (sessionScore >= 60 && sessionScore < 70) {
-    commentOnScore = "You did well";
+    commentOnScore = "Just Okay";
   } else if (sessionScore >= 40 && sessionScore < 60) {
-    commentOnScore = "Average Performance";
+    commentOnScore = "Average";
   } else if (sessionScore < 40) {
-    commentOnScore = "You did not Perform well";
+    commentOnScore = "Poor";
   }
 
   const dispatch = useDispatch();
