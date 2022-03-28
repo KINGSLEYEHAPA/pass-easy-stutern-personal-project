@@ -13,7 +13,10 @@ const NewsItem = () => {
   console.log(oneNewsItem);
 
   return (
-    <div className="mt-52 lg:mt-[8.5rem] flex flex-col justify-start items-center bg-green-100">
+    <div
+      className="mt-52 lg:mt-[8.5rem] flex flex-col justify-start items-center bg-green-100"
+      id="news"
+    >
       <div className="flex  justify-between items-center h-20 bg-green-700 w-full p-2">
         <div className="flex gap-2 ">
           <span className="text-green-800 mt-1 text-lg ssm:text-2xl">

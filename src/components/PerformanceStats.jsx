@@ -213,7 +213,7 @@ const PerformanceStats = () => {
                     transition={{
                       duration: 1.25,
                       type: "tween",
-                      delay: i * 0.25,
+                      delay: i * 0.4,
                     }}
                     className=" text-sm md:text-md h-16 w-full bg-green-100/50 text-green-700 rounded-md flex justify-between items-center ssm:px-2 px-1"
                     key={i}

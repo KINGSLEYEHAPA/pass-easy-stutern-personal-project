@@ -29,7 +29,7 @@ const End = ({
   } else if (sessionScore >= 40 && sessionScore < 60) {
     commentOnScore = "Average";
   } else if (sessionScore < 40) {
-    commentOnScore = "Poor";
+    commentOnScore = "Try Again";
   }
 
   const dispatch = useDispatch();

@@ -12,9 +12,9 @@ const QuizPlatform = () => {
     (state) => state.question.userSearchedSubject
   );
   const quizInfo = {
-    examName: "Physics",
+    examName: "Commerce",
     examType: "WASSCE",
-    examYear: "2008",
+    examYear: "2003",
   };
   const [dummyOption, setDummyOptions] = useState({
     examType: ["UTME", "WASSCE", "POST-UTME"],

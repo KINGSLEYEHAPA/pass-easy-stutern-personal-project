@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import { AnimatePresence, motion } from "framer-motion";
 import { MdClose } from "react-icons/md";
 import { RiMailFill } from "react-icons/ri";
@@ -88,9 +89,17 @@ const Header = () => {
             <Link to="/performance">
               <li className="hover:text-white">PERFORMANCE</li>
             </Link>
-            <Link to="/">
-              <li className="hover:text-white">NEWS</li>
-            </Link>
+            <ScrollLink
+              to="news"
+              spy={true}
+              smooth={true}
+              offset={-300}
+              duration={1000}
+            >
+              <Link to="/">
+                <li className="hover:text-white">NEWS</li>
+              </Link>
+            </ScrollLink>
           </ul>{" "}
         </div>
 
@@ -123,7 +132,18 @@ const Header = () => {
                 PERFORMANCE
               </Link>
             </li>
-            <li className="hover:text-white">NEWS</li>
+            <li className="hover:text-white">
+              <ScrollLink
+                onClick={() => setSubMenu(true)}
+                to="news"
+                spy={true}
+                smooth={true}
+                offset={-300}
+                duration={1000}
+              >
+                <Link to="/">NEWS</Link>
+              </ScrollLink>
+            </li>
           </ul>{" "}
         </div>
         <AnimatePresence>

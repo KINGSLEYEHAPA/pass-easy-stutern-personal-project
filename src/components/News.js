@@ -18,6 +18,7 @@ const News = () => {
       ref={carousel}
       whileTap={{ cursor: "grabbing" }}
       className="overflow-hidden cursor-grab min-w-full"
+      id="news"
     >
       <h2 className="text-2xl md:text-4xl text-green-500 ml-4">News</h2>
       <motion.div
