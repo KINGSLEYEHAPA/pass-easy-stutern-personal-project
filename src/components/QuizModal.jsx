@@ -5,9 +5,12 @@ import PerformanceSheet from "./PerformanceSheet";
 import Question from "./Question";
 import Start from "./Start";
 import { quizData } from "../dummyData";
+import { useSelector } from "react-redux";
 let interval;
 
 const QuizModal = ({ setQuizStart, quizInfo, setStartCall }) => {
+  const quizDataServer = useSelector((state) => state.question.quizData);
+  console.log(quizDataServer);
   const [sendResult, setSendResult] = useState(false);
   const [step, setStep] = useState(1);
   const [activeQuestion, setActiveQuestion] = useState(0);
@@ -45,17 +48,23 @@ const QuizModal = ({ setQuizStart, quizInfo, setStartCall }) => {
   return (
     <div className="absolute top-0 left-0 z-30 w-full h-full bg-green-500/70">
       <div className="w-full h-1/6 bg-green-700 flex items-center justify-start">
-        <h2 className="px-4 text-green-100 text-xl">
-          {quizInfo.examName} Quiz-Live
+        <h2 className="px-4 text-green-100 text-xl capitalize">
+          {quizDataServer?.data?.subject} Quiz-Live
         </h2>
       </div>
       <div className="w-full h-5/6 flex justify-center items-center">
         <div className="w-80 h-80 sm:w-[30rem] sm:h-80 ssm:[34rem] md:w-[40rem] md:h-[25rem] mt-10 bg-green-100 rounded-lg p-1 shadow-xl flex justify-center items-center">
           {step === 2 && (
             <Question
-              data={quizData.data[activeQuestion]}
+              data={
+                quizDataServer.data.data !== null &&
+                quizDataServer?.data?.data?.[activeQuestion]
+              }
               onAnswerUpdate={setAnswers}
-              numberOfQuestions={quizData.data.length}
+              numberOfQuestions={
+                quizDataServer.data.data !== null &&
+                quizDataServer?.data?.data?.length
+              }
               activeQuestion={activeQuestion}
               onSetActiveQuestion={setActiveQuestion}
               onSetStep={setStep}
@@ -64,7 +73,9 @@ const QuizModal = ({ setQuizStart, quizInfo, setStartCall }) => {
           {step === 3 && (
             <End
               results={answers}
-              data={quizData.data}
+              data={
+                quizDataServer.data.data !== null && quizDataServer?.data?.data
+              }
               onAnswersCheck={() => setShowPerformanceSheet(true)}
               time={time}
               onRetry={resetClickHandler}
@@ -78,7 +89,7 @@ const QuizModal = ({ setQuizStart, quizInfo, setStartCall }) => {
               <PerformanceSheet
                 onClose={() => setShowPerformanceSheet(false)}
                 results={answers}
-                data={quizData.data}
+                data={quizDataServer?.data?.data}
                 time={time}
                 quizInfo={quizInfo}
               />

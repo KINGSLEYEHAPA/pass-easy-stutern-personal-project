@@ -36,14 +36,14 @@ const End = ({
   useEffect(() => {
     let correct = 0;
     results.forEach((result, index) => {
-      if (result.a === data[index].answer) {
+      if (result.a === data?.[index].answer) {
         correct++;
       }
     });
     setCorrectAnswers(correct);
 
     dispatch({ type: actionTypes.CORRECT_ANSWERS, payload: correct });
-    setScore(Math.floor((correctAnswers / data.length) * 100));
+    setScore(Math.floor((correctAnswers / data?.length) * 100));
   }, [correctAnswers]);
 
   const performanceInfo = {
@@ -76,7 +76,7 @@ const End = ({
         <div className="w-full h-5/6 flex justify-center items-center">
           <div className="w-5/6 h-4/6 bg-green-200 rounded p-4 md:pl-10 flex justify-center items-start ">
             <p className="mt-12 text-sm ssm:text-lg lg:text-xl text-green-500">
-              You scored {correctAnswers} out of {data.length}
+              You scored {correctAnswers} out of {data?.length}
               <strong> ({score}%)</strong> in the{" "}
               <strong>
                 {quizInfo.examName}-{quizInfo.examType}-{quizInfo.examYear}

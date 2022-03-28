@@ -33,7 +33,7 @@ const Question = ({
 
     onAnswerUpdate((prevState) => [
       ...prevState,
-      { q: data.question, a: selected },
+      { q: data?.question, a: selected },
     ]);
 
     setSelected("");
@@ -43,7 +43,8 @@ const Question = ({
       onSetStep(3);
     }
   };
-  console.log(selected);
+
+  const option = data?.option;
 
   return (
     <AnimatePresence exitBeforeEnter>
@@ -54,37 +55,38 @@ const Question = ({
         exit={{ opacity: 0 }}
         className="w-full h-full bg-green-700 rounded-lg"
       >
-        <div className="w-full h-1/6">
+        <div className="w-full h-0.5/6">
           <div className="w-full h-full flex justify-center items-center border-b-2 border-green-100">
-            <h4 className="text-sm sm:text-lg lg:text-2xl text-green-100">
+            <h4 className="text-sm sm:text-lg lg:text-xl text-green-100">
               Question {activeQuestion + 1} of {numberOfQuestions}
             </h4>
           </div>
         </div>
-        <div className="w-full h-1/6  p-4 bg-green-300">
-          <p className="text-sm sm:text-md ssm:text-xl text-green-700">
-            <strong>Q:</strong> {data.question}
+        <div className="w-full min-h-[6.3rem]  p-4 bg-green-300">
+          <p className="text-xs sm:text-sm ssm:text-md text-green-700">
+            <strong>Q:</strong> {data?.question}
           </p>
         </div>
         <div className="w-full h-3/6 bg-green-200" ref={choiceWrapper}>
-          {data.choices.map((choice, i) => {
-            return (
-              <div
-                className="w-full p-4 flex justify-start items-center gap-2 hover:bg-gray-200 h-1/5 cursor-pointer"
-                key={i}
-              >
-                <div className="px-3 py-1  ">
-                  <input
-                    type="radio"
-                    value={choice}
-                    onChange={changeHandler}
-                    name="answer"
-                  />
+          {data !== null &&
+            Object.entries(option).map((choice, i) => {
+              return (
+                <div
+                  className="w-full text-sm p-4 flex justify-start items-center gap-2 hover:bg-gray-200 h-1/5 cursor-pointer"
+                  key={i}
+                >
+                  <div className="px-3 py-1   ">
+                    <input
+                      type="radio"
+                      value={choice[0]}
+                      onChange={changeHandler}
+                      name="answer"
+                    />
+                  </div>
+                  <p>{choice[1]}</p>
                 </div>
-                <p>{choice}</p>
-              </div>
-            );
-          })}
+              );
+            })}
 
           {error && (
             <motion.div

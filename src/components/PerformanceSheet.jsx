@@ -16,7 +16,8 @@ const PerformanceSheet = ({
   const correctAnswers = useSelector(
     (state) => state.performance.correctAnswersPerSession
   );
-  const sessionScore = Math.floor((correctAnswers / data.length) * 100);
+  const sessionScore = Math.floor((correctAnswers / data?.length) * 100);
+  console.log(data?.[1]?.option);
 
   return (
     <motion.div
@@ -38,7 +39,7 @@ const PerformanceSheet = ({
         </div>
         <header className="w-full  h-24 flex flex-col items-center justify-start border-b-2 border-green-100 text-green-100 p-2 bg-green-700 ">
           <h4 className="text-xl">Your Scoresheet</h4>
-          <p>
+          <p className="capitalize">
             {quizInfo.examName} {quizInfo.examType} {quizInfo.examYear}{" "}
           </p>
           <p className="text-gray-300">{today}</p>
@@ -65,17 +66,24 @@ const PerformanceSheet = ({
                 </p>
                 <div
                   className={
-                    result.a === data[i].answer
+                    result.a === data?.[i]?.answer
                       ? "bg-green-700 text-white p-2"
                       : "bg-red-500 text-white p-2"
                   }
                 >
                   <p>Your Answer: {result.a}</p>
                 </div>
-                {result.a !== data[i].answer && (
+                {result.a !== data?.[i]?.answer && (
                   <div className="bg-white p-2">
                     {" "}
-                    <p>Correct Answer: {data[i].answer}</p>
+                    <p>
+                      Correct Answer:{" "}
+                      {Object.entries(data?.[i]?.option).filter(
+                        (item, index) => {
+                          return data[i].answer === item[0] ? item[1] : "";
+                        }
+                      )}
+                    </p>
                   </div>
                 )}
               </motion.div>

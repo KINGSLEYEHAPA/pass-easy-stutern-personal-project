@@ -10,7 +10,7 @@ const QuizPlatform = () => {
   const [showSubjectBoxContent, setShowSubjectBoxContent] = useState(true);
   const [quizStart, setQuizStart] = useState(false);
   const [listedSubjects, setListedSubjects] = useState([]);
-  const [listedYears, setListedYears] = useState();
+  const [listedYears, setListedYears] = useState([]);
   const [selectedSubject, setSelectedSubject] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
   const [selectedExamType, setSelectedExamType] = useState("");
@@ -21,9 +21,9 @@ const QuizPlatform = () => {
     (state) => state.question.userSearchedSubject
   );
   const quizInfo = {
-    examName: "Commerce",
-    examType: "WASSCE",
-    examYear: "2003",
+    examName: selectedSubject,
+    examType: selectedExamType,
+    examYear: selectedYear,
   };
   const examOptions = ["WASSCE", "UTME", "POST-UTME"];
 
@@ -67,8 +67,10 @@ const QuizPlatform = () => {
         console.log(listedYears);
       } catch (err) {}
     };
-    getSupportedYearsForSubject();
+
     getAllSupportedSubjects();
+
+    selectedSubject !== "" && getSupportedYearsForSubject();
   }, [selectedSubject]);
 
   useEffect(() => {
@@ -77,7 +79,7 @@ const QuizPlatform = () => {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        AccessToken: "",
+        AccessToken: "ALOC-801ca18de1a99d035944",
       },
     };
     const getQuiz = async () => {
@@ -135,7 +137,7 @@ const QuizPlatform = () => {
                   <option
                     key={i}
                     value={item}
-                    selected={i === indexOfSubject ? "selected" : ""}
+                    selected={i === indexOfSubject ? true : ""}
                     className="capitalize"
                   >
                     {item.toUpperCase()}
