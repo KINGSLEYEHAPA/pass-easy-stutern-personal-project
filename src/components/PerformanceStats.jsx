@@ -181,7 +181,7 @@ const PerformanceStats = () => {
               }}
               className="min-h-[30rem] flex flex-col gap-1 mt-1"
             >
-              <div className=" text-sm md:text-lg h-16 w-full bg-green-500/50 text-white rounded-md flex justify-between items-center px-1 ssm:px-2">
+              <div className=" text-sm md:text-lg h-16 w-full bg-green-500/50 text-white rounded-md flex justify-between items-center px-1 ssm:px-2 font-bold">
                 <div className="flex justify-start items-center px-2 md:pl-6 ssm:w-1/5">
                   {" "}
                   <p>S/N</p>
@@ -213,7 +213,7 @@ const PerformanceStats = () => {
                     transition={{
                       duration: 1.25,
                       type: "tween",
-                      delay: i * 0.5,
+                      delay: i * 0.25,
                     }}
                     className=" text-sm md:text-md h-16 w-full bg-green-100/50 text-green-700 rounded-md flex justify-between items-center ssm:px-2 px-1"
                     key={i}
@@ -233,7 +233,7 @@ const PerformanceStats = () => {
                     </div>
                     <div className="flex justify-start items-center px-2 md:pl-6 ssm:w-1/5">
                       {" "}
-                      <p>{score?.score}%</p>
+                      <p className="font-bold">{score?.score}%</p>
                     </div>
                     <div className="flex justify-start items-center px-2 md:pl-4 ssm:w-1/5">
                       <p>{score?.comment}</p>
