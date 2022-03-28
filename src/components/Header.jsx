@@ -96,9 +96,7 @@ const Header = () => {
               offset={-300}
               duration={1000}
             >
-              <Link to="/">
-                <li className="hover:text-white">NEWS</li>
-              </Link>
+              <li className="hover:text-white">NEWS</li>
             </ScrollLink>
           </ul>{" "}
         </div>
@@ -141,7 +139,7 @@ const Header = () => {
                 offset={-300}
                 duration={1000}
               >
-                <Link to="/">NEWS</Link>
+                NEWS
               </ScrollLink>
             </li>
           </ul>{" "}

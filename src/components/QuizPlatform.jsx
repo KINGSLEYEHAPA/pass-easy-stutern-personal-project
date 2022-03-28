@@ -3,11 +3,16 @@ import { MdQuiz } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import actionTypes from "../redux/actions/actionTypes";
 import QuizModal from "./QuizModal";
+import axios from "axios";
 
 const QuizPlatform = () => {
   const [showSubjectBox, setShowSubjectBox] = useState(false);
   const [showSubjectBoxContent, setShowSubjectBoxContent] = useState(true);
   const [quizStart, setQuizStart] = useState(false);
+  const [listedSubjects, setListedSubjects] = useState([]);
+  const [listedYears, setListedYears] = useState();
+  const [selectedSubject, setSelectedSubject] = useState([]);
+
   const searchedSubject = useSelector(
     (state) => state.question.userSearchedSubject
   );
@@ -61,6 +66,30 @@ const QuizPlatform = () => {
     }, 3000);
     // dispatch({ type: actionTypes.SEARCHED_SUBJECT, payload: "" });
   }, [searchedSubject]);
+  useEffect(() => {
+    const getAllSupportedSubjects = async () => {
+      try {
+        const subjectResponse = await axios.get(
+          " https://questions.aloc.com.ng/api/metrics/list-subjects"
+        );
+        console.log(subjectResponse);
+        setListedSubjects(subjectResponse?.data?.data);
+      } catch (err) {}
+    };
+
+    const getSupportedYearsForSubject = async () => {
+      try {
+        const yearResponse = await axios.get(
+          `https://questions.aloc.com.ng/api/metrics/years-available-for/${selectedSubject}`
+        );
+        console.log(yearResponse);
+        setListedYears(yearResponse?.data?.data);
+        console.log(listedYears);
+      } catch (err) {}
+    };
+    getSupportedYearsForSubject();
+    getAllSupportedSubjects();
+  }, [selectedSubject]);
 
   const startQuiz = () => {
     setQuizStart(true);
@@ -79,9 +108,12 @@ const QuizPlatform = () => {
         </div>
         <div className="w-full h-64 bg-green-500 flex flex-col gap-1 ">
           <div className=" w-full h-2/3 ssm:h-1/3 flex flex-col ssm:flex-row gap-3 ssm:gap-2 p-6  ssm:justify-between items-center border-b-2 border-green-700 px-24">
-            <select className="w-56 h-7 bg-green-300 text-white outline-none px-2 text-md rounded cursor-pointer">
+            <select
+              className="w-56 h-7 bg-green-300 text-white outline-none px-2 text-md rounded cursor-pointer"
+              onChange={(e) => setSelectedSubject(e.target.value)}
+            >
               <option className="capitalize ">Select a Subject</option>
-              {dummyOption.subjects.map((item, i) => {
+              {Object.values(listedSubjects)?.map((item, i) => {
                 return (
                   <option
                     key={i}
@@ -106,10 +138,10 @@ const QuizPlatform = () => {
             </select>
             <select className="w-56 h-7 bg-green-300 text-white outline-none px-2 text-md rounded cursor-pointer">
               <option className="capitalize">Select Year</option>
-              {dummyOption.examYear.map((item, i) => {
+              {listedYears?.map((item, i) => {
                 return (
-                  <option key={i} value={item} className="capitalize">
-                    {item}
+                  <option key={i} value={item.examyear} className="capitalize">
+                    {item.examyear}
                   </option>
                 );
               })}
