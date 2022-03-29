@@ -205,7 +205,6 @@ const HomePage = () => {
                 {randomWordDefinition?.meanings?.[0]?.synonyms
                   ?.slice(0, 4)
                   ?.map((synonym, i) => {
-                    console.log(randomWordDefinition.meanings[0]);
                     return <p key={i}>{synonym}</p>;
                   })}
                 {randomWordDefinition?.meanings?.[1]?.synonyms
