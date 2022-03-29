@@ -212,8 +212,9 @@ const PerformanceStats = () => {
                     animate={{ opacity: 1, scale: 1, x: 0 }}
                     transition={{
                       duration: 1.25,
-                      type: "tween",
                       delay: i * 0.4,
+                      type: "spring",
+                      stiffness: 100,
                     }}
                     className=" text-sm md:text-md h-16 w-full bg-green-100/50 text-green-700 rounded-md flex justify-between items-center ssm:px-2 px-1"
                     key={i}
