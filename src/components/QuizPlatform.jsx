@@ -196,9 +196,9 @@ const QuizPlatform = () => {
         />
       )}
       {queryError && (
-        <div className="absolute top-[40%] left-[40%] bg-green-700 w-72 h-40 flex justify-center text-green-100 rounded-lg items-center">
+        <div className="absolute md:top-[30%] md:left-[35%]  top-[20%] left-[32%]  sm:top-[25%] sm:left-[32%]   ssm:top-[30%] ssm:left-[30%] bg-green-700 w-56 h-32 ssm:w-72 ssm:h-40 flex justify-center text-green-100 rounded-lg items-center">
           {" "}
-          <p> Please Select Quiz Options</p>
+          <p className="text-sm ssm:text-lg"> Please Select Quiz Options</p>
         </div>
       )}
     </div>
