@@ -45,7 +45,6 @@ const Dictionary = () => {
           `https://api.dictionaryapi.dev/api/v2/entries/en/${wordForSearch}`
         );
 
-        console.log(randomWordMeaning?.data[0]);
         dispatch(fetchWordSuccess(randomWordMeaning?.data[0]));
       } catch (err) {
         dispatch(fetchWordError(err.message));
