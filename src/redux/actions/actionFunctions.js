@@ -73,10 +73,8 @@ export const getNewsData = async (dispatch) => {
 
     const newsResponse = await axios.get(url, options);
 
-    console.log(newsResponse);
     dispatch(fetchNewsSuccess(newsResponse?.data?.articles));
   } catch (err) {
-    console.log(err.message);
     dispatch(fetchNewsError(err.message));
   }
 };
