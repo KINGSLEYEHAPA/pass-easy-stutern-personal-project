@@ -9,7 +9,7 @@ let interval;
 
 const QuizModal = ({ setQuizStart, quizInfo, setStartCall }) => {
   const quizDataServer = useSelector((state) => state.question.quizData);
-  console.log(quizDataServer);
+  // console.log(quizDataServer);
   const [sendResult, setSendResult] = useState(false);
   const [step, setStep] = useState(1);
   const [activeQuestion, setActiveQuestion] = useState(0);

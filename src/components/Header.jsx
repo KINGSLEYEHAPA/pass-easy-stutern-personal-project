@@ -89,15 +89,6 @@ const Header = () => {
             <Link to="/performance">
               <li className="hover:text-white">PERFORMANCE</li>
             </Link>
-            <ScrollLink
-              to="news"
-              spy={true}
-              smooth={true}
-              offset={-300}
-              duration={1000}
-            >
-              <li className="hover:text-white">NEWS</li>
-            </ScrollLink>
           </ul>{" "}
         </div>
 
@@ -129,18 +120,6 @@ const Header = () => {
               <Link onClick={() => setSubMenu(true)} to="/performance">
                 PERFORMANCE
               </Link>
-            </li>
-            <li className="hover:text-white">
-              <ScrollLink
-                onClick={() => setSubMenu(true)}
-                to="news"
-                spy={true}
-                smooth={true}
-                offset={-300}
-                duration={1000}
-              >
-                NEWS
-              </ScrollLink>
             </li>
           </ul>{" "}
         </div>

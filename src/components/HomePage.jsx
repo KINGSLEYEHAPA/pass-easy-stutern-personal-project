@@ -168,7 +168,7 @@ const HomePage = () => {
               words...
             </p>
           </div>
-          <Link to="/quiz">
+          <Link to="/dictionary">
             <div className="flex justify-start items-center gap-2 mt-9 hover:gap-4">
               {" "}
               <p className="text-green-500 font-bold">Practice Now</p>{" "}
