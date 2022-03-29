@@ -68,6 +68,9 @@ const Question = ({
         </div>
         <div className="w-full min-h-[6.3rem]  p-4 bg-green-300">
           <p className="text-xs sm:text-sm ssm:text-md text-green-700">
+            {data?.section}
+          </p>
+          <p className="text-xs sm:text-sm ssm:text-md text-green-700">
             <strong>Q:</strong> {data?.question}
           </p>
         </div>
