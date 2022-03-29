@@ -87,7 +87,7 @@ const PerformanceStats = () => {
                 </div>
               </div>
               <div className="flex flex-col gap-1 bg-white/30 shadow-lg w-full h-24 md:w-[24rem] md:h-full items-center justify-center p-2">
-                <h2 className="text-lg md:text-xl xl:text-3xl text-green-500">
+                <h2 className="text-lg md:text-xl xl:text-3xl text-green-500 capitalize">
                   {bestTimeSort?.[0]?.examtype}-{bestTimeSort?.[0]?.year}
                 </h2>
 
@@ -144,7 +144,7 @@ const PerformanceStats = () => {
                 </div>
               </div>
               <div className="flex flex-col gap-1 bg-white/30 shadow-lg w-full h-24 md:w-[24rem] md:h-full items-center justify-center p-2 md:space-y-4">
-                <h2 className="text-lg md:text-xl xl:text-3xl text-green-500">
+                <h2 className="text-lg md:text-xl xl:text-3xl text-green-500 capitalize">
                   {bestScoreSort?.[0]?.examtype}-{bestScoreSort?.[0]?.year}
                 </h2>
                 <h2 className="text-md md:text-lg xl:text-2xl text-green-500">

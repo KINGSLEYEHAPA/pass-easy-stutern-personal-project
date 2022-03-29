@@ -10,7 +10,6 @@ const NewsItem = () => {
   let oneNewsItem = latestNews?.find((news) => {
     return news.title === params.news;
   });
-  console.log(oneNewsItem);
 
   return (
     <div className="mt-52 lg:mt-[8.5rem] flex flex-col justify-start items-center bg-green-100">

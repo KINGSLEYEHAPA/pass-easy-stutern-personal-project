@@ -6,13 +6,12 @@ import { useSelector } from "react-redux";
 const News = () => {
   const [width, setWidth] = useState(0);
   const latestNews = useSelector((state) => state.news.latestNews);
-  console.log(latestNews);
+
   const carousel = useRef(null);
   useEffect(() => {
-    console.log(carousel.current.scrollWidth, carousel.current.offsetWidth);
     setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
   }, []);
-  console.log(width);
+
   return (
     <motion.div
       ref={carousel}

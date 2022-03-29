@@ -19,9 +19,6 @@ const HomePage = () => {
   const isRandomWordError = useSelector(
     (state) => state.dictionary.isRandomWordError
   );
-  const randomWordError = useSelector(
-    (state) => state.dictionary.randomWordError
-  );
 
   const controls = useAnimation();
   const { ref, inView } = useInView({
@@ -296,9 +293,10 @@ const HomePage = () => {
               About PassEasy
             </h2>
             <p className="text-sm ssm:text-lg text-green-700 mt-5">
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-              officia deserunt mollit anim id est laborum. Sed ut perspiciatis
-              unde omnis iste natus error sit voluptatem accusantium.
+              This Web Portal help the Students to test their knowledge and rank
+              their level of performance based on test attempted. Practice quiz
+              question on Wassce,Utme and Post-Utme and make it easy to the
+              University. Take a look at our statistics
             </p>
           </div>
           <div className="flex flex-col gap-1">

@@ -7,25 +7,28 @@ import ErrorPage from "./ErrorPage";
 import HomePage from "./HomePage";
 import NewsItem from "./NewsItem";
 import PerformanceStats from "./PerformanceStats";
-import store from "../redux/store";
+import { store, persistor } from "../redux/store";
 import QuizPlatform from "./QuizPlatform";
+import { PersistGate } from "redux-persist/integration/react";
 
 const ApplicationRoutes = () => {
   return (
     <div>
       <Provider store={store}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<App />}>
-              <Route index element={<HomePage />} />
-              <Route path="/news/:news" element={<NewsItem />} />
-              <Route path="/dictionary" element={<Dictionary />} />
-              <Route path="/quiz" element={<QuizPlatform />} />
-              <Route path="/performance" element={<PerformanceStats />} />
-              <Route path="*" element={<ErrorPage />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
+        <PersistGate loading={null} persistor={persistor}>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<App />}>
+                <Route index element={<HomePage />} />
+                <Route path="/news/:news" element={<NewsItem />} />
+                <Route path="/dictionary" element={<Dictionary />} />
+                <Route path="/quiz" element={<QuizPlatform />} />
+                <Route path="/performance" element={<PerformanceStats />} />
+                <Route path="*" element={<ErrorPage />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </PersistGate>
       </Provider>
     </div>
   );

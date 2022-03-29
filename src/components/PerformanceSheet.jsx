@@ -15,7 +15,6 @@ const PerformanceSheet = ({
     (state) => state.performance.correctAnswersPerSession
   );
   const sessionScore = Math.floor((correctAnswers / data?.length) * 100);
-  console.log(data?.[1]?.option);
 
   return (
     <motion.div

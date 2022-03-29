@@ -48,7 +48,7 @@ const QuizPlatform = () => {
         const subjectResponse = await axios.get(
           " https://questions.aloc.com.ng/api/metrics/list-subjects"
         );
-        console.log(subjectResponse);
+
         setListedSubjects(subjectResponse?.data?.data);
       } catch (err) {}
     };
@@ -58,9 +58,8 @@ const QuizPlatform = () => {
         const yearResponse = await axios.get(
           `https://questions.aloc.com.ng/api/metrics/years-available-for/${selectedSubject}`
         );
-        console.log(yearResponse);
+
         setListedYears(yearResponse?.data?.data);
-        console.log(listedYears);
       } catch (err) {}
     };
 
