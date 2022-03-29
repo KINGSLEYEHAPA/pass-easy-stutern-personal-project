@@ -9,7 +9,7 @@ let interval;
 
 const QuizModal = ({ setQuizStart, quizInfo, setStartCall }) => {
   const quizDataServer = useSelector((state) => state.question.quizData);
-  // console.log(quizDataServer);
+
   const [sendResult, setSendResult] = useState(false);
   const [step, setStep] = useState(1);
   const [activeQuestion, setActiveQuestion] = useState(0);
@@ -43,16 +43,24 @@ const QuizModal = ({ setQuizStart, quizInfo, setStartCall }) => {
       setTime((prevTime) => prevTime + 1);
     }, 1000);
   };
+  const cancelQuiz = () => {
+    setAnswers([]);
+    setSendResult(false);
+    clearInterval(interval);
+    setQuizStart(false);
+  };
 
   return (
     <div className="absolute top-0 left-0 z-30 w-full h-full bg-green-500/70">
       <div className="w-full h-1/6 bg-green-700 flex items-center justify-start">
         <h2 className="px-4 text-green-100 text-xl capitalize">
-          {quizDataServer?.data?.subject} Quiz-Live
+          {quizDataServer?.data?.subject}-
+          {quizDataServer?.data?.data?.[0].examtype}-
+          {quizDataServer?.data?.data?.[0].examyear} Quiz-Live
         </h2>
       </div>
       <div className="w-full h-5/6 flex justify-center items-center">
-        <div className="w-80 h-80 sm:w-[30rem] sm:h-80 ssm:[34rem] md:w-[40rem] md:h-[25rem] mt-10 bg-green-100 rounded-lg p-1 shadow-xl flex justify-center items-center">
+        <div className="w-5/6 h-6/7 sm:w-[30rem] sm:h-[19.75rem]  ssm:h-[20rem] md:w-[40rem] md:h-[25rem] mt-10 bg-green-100 rounded-lg p-1 shadow-xl flex justify-center items-center">
           {step === 2 && (
             <Question
               data={
@@ -67,6 +75,7 @@ const QuizModal = ({ setQuizStart, quizInfo, setStartCall }) => {
               activeQuestion={activeQuestion}
               onSetActiveQuestion={setActiveQuestion}
               onSetStep={setStep}
+              cancelQuiz={cancelQuiz}
             />
           )}
           {step === 3 && (

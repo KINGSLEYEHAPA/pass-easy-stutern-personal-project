@@ -49,6 +49,7 @@ const End = ({
   const performanceInfo = {
     subject: quizInfo.examName,
     year: quizInfo.examYear,
+    examtype: data?.[1]?.examtype,
     score: sessionScore,
     duration: time,
     date: today,
@@ -70,15 +71,15 @@ const End = ({
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
         exit={{ opacity: 0 }}
-        className="w-full h-full bg-green-300"
+        className="w-full h-full bg-green-300 flex flex-col gap-4 p-4 "
       >
-        <div className="w-full h-5/6 flex justify-center items-center">
-          <div className="w-5/6 h-4/6 bg-green-200 rounded p-4 md:pl-10 flex justify-center items-start ">
+        <div className="w-full h-4/6 flex justify-center items-center">
+          <div className="w-full h-full  md:w-5/6 md:h-4/6 bg-green-200 rounded p-4 md:pl-10 flex justify-center items-start ">
             <p className="mt-12 text-sm ssm:text-lg lg:text-xl text-green-500">
               You scored {correctAnswers} out of {data?.length}
               <strong> ({score}%)</strong> in the{" "}
-              <strong>
-                {quizInfo.examName}-{quizInfo.examYear}
+              <strong className="capitalize">
+                {quizInfo.examName}-{data?.[1]?.examtype}-{quizInfo.examYear}
               </strong>{" "}
               quiz,You finished the quiz in <strong>{formatTime(time)}</strong>
             </p>{" "}
@@ -101,7 +102,7 @@ const End = ({
             onClick={onAnswersCheck}
             className="bg-green-700 px-4 ssm:px-8 py-1 text-green-100  rounded md:rounded-md text-sm  text-md ssm:text-lg outline-none"
           >
-            See Answers
+            Answers
           </button>
         </div>
       </motion.div>
