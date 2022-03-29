@@ -7,7 +7,7 @@ import Start from "./Start";
 import { useSelector } from "react-redux";
 let interval;
 
-const QuizModal = ({ setQuizStart, quizInfo, setStartCall }) => {
+const QuizModal = ({ setQuizStart, quizInfo, setStartCall, onRestartQuiz }) => {
   const quizDataServer = useSelector((state) => state.question.quizData);
 
   const [sendResult, setSendResult] = useState(false);
@@ -103,7 +103,12 @@ const QuizModal = ({ setQuizStart, quizInfo, setStartCall }) => {
               />
             )}
           </AnimatePresence>
-          {step === 1 && <Start onQuizStartHandler={quizStartHandler} />}
+          {step === 1 && (
+            <Start
+              onQuizStartHandler={quizStartHandler}
+              onRestartQuiz={onRestartQuiz}
+            />
+          )}
         </div>
       </div>
     </div>

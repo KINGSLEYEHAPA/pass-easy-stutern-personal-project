@@ -2,8 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 
-const Start = ({ onQuizStartHandler }) => {
+const Start = ({ onQuizStartHandler, onRestartQuiz }) => {
   const questionLoading = useSelector((state) => state.question.isLoading);
+  const questionGetErrorState = useSelector((state) => state.question.isError);
+  const questionGetError = useSelector((state) => state.question.error);
   return (
     <div className=" bg-green-500 h-32 w-60 ssm:h-40 ssm:w-72 shadow-xl rounded-lg flex flex-col justify-center items-center">
       {questionLoading && (
@@ -15,18 +17,29 @@ const Start = ({ onQuizStartHandler }) => {
           ></motion.span>
         </div>
       )}
-      {!questionLoading && (
+      {!questionLoading && !questionGetErrorState && (
         <p className="text-lg ssm:text-2xl text-green-100">Good luck!!</p>
       )}
       {questionLoading && (
         <p className="text-lg ssm:text-2xl text-green-100">Ready?</p>
       )}
-      {!questionLoading && (
+      {!questionLoading && !questionGetErrorState && (
         <button
           onClick={onQuizStartHandler}
           className="px-6 py-1 bg-green-800 mt-6 rounded text-green-100 text-xs ssm:text-lg ssm:px-10"
         >
           Go
+        </button>
+      )}
+      {!questionLoading && questionGetErrorState && (
+        <p className="text-sm ssm:text-md text-green-100">{questionGetError}</p>
+      )}
+      {!questionLoading && questionGetErrorState && (
+        <button
+          onClick={onRestartQuiz}
+          className="px-6 py-1 bg-green-800 mt-6 rounded text-green-100 text-xs ssm:text-lg ssm:px-10"
+        >
+          Retry
         </button>
       )}
     </div>

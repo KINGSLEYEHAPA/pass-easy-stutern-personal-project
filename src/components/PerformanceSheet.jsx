@@ -38,7 +38,7 @@ const PerformanceSheet = ({
         <header className="w-full  h-24 flex flex-col items-center justify-start border-b-2 border-green-100 text-green-100 p-2 bg-green-700 ">
           <h4 className="text-xl">Your Scoresheet</h4>
           <p className="capitalize">
-            {quizInfo.examName} {quizInfo.examYear}{" "}
+            {quizInfo.examName}-{data?.[0]?.examtype} {quizInfo.examYear}{" "}
           </p>
           <p className="text-gray-300">{today}</p>
         </header>
