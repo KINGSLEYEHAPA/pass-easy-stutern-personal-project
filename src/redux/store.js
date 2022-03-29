@@ -9,7 +9,7 @@ const persistConfig = {
   //3
   key: "root",
   storage: storage,
-  whitelist: ["question", "performance"],
+  whitelist: ["question", "performance", "news"],
 };
 const persistedReducer = persistReducer(persistConfig, rootReducer); //4-persist the root reducer with persistconfig
 

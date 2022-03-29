@@ -325,9 +325,9 @@ const HomePage = () => {
             </div>
           </div>
         </aside>
-        <aside className=" h-[18rem] sm:h-[35rem] ssm:h-full ssm:w-1/2">
+        <aside className=" h-[18rem] sm:h-[35rem] ssm:h-full ssm:w-1/2 ssm:mr-4">
           <img
-            className="w-full h-full ssm:h-[21rem] lg:h-4/5 shadow-xl rounded-xl"
+            className="w-full h-full ssm:h-[21rem] lg:h-4/5 shadow-xl rounded-xl "
             src={pastQuestions}
             alt="Student"
           />

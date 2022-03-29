@@ -14,10 +14,17 @@ import {
 
 const Header = () => {
   const [subMenu, setSubMenu] = useState(true);
+  const [newDay, setNewDay] = useState("");
   const dispatch = useDispatch();
+  const newDate = new Date().toDateString();
+
+  useEffect(() => {
+    setNewDay(newDate);
+    dispatch(getNewsData);
+  }, [newDay]);
+
   useEffect(() => {
     dispatch(getMeaningOfRandomWord);
-    dispatch(getNewsData);
   }, [dispatch]);
   return (
     <div className="fixed top-0 z-50 w-full">
