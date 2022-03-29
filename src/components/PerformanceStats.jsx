@@ -65,7 +65,7 @@ const PerformanceStats = () => {
               className="bg-green-100 w-full h-[20.5rem] md:h-[22rem] flex flex-col md:flex md:flex-row items-center justify-center gap-2 md:gap-10 p-4"
             >
               <div className="flex gap-2 bg-white/30 shadow-lg w-full h-20 md:w-[22rem] md:h-full items-center justify-center">
-                <h2 className="text-md md:text-lg xl:text-3xl text-green-500">
+                <h2 className="text-md md:text-lg xl:text-3xl text-green-500 capitalize">
                   {bestTimeSort?.[0]?.subject}
                 </h2>{" "}
                 <div className="flex items-center gap-1 pt-1 md:pt-1 xl:pt-2">
@@ -88,7 +88,7 @@ const PerformanceStats = () => {
               </div>
               <div className="flex flex-col gap-1 bg-white/30 shadow-lg w-full h-24 md:w-[24rem] md:h-full items-center justify-center p-2">
                 <h2 className="text-lg md:text-xl xl:text-3xl text-green-500">
-                  {bestTimeSort?.[0]?.type}- {bestTimeSort?.[0]?.year}
+                  Exam Year-{bestTimeSort?.[0]?.year}
                 </h2>
 
                 <h2 className="text-md md:text-lg xl:text-2xl text-green-500">
@@ -122,7 +122,7 @@ const PerformanceStats = () => {
               className="bg-green-100 w-full h-[20.5rem] md:h-[22rem] flex flex-col md:flex md:flex-row items-center justify-center gap-2 md:gap-10 p-4"
             >
               <div className="flex gap-2 bg-white/30 shadow-lg w-full h-20 md:w-[22rem] md:h-full items-center justify-center">
-                <h2 className="text-md md:text-lg xl:text-3xl text-green-500">
+                <h2 className="text-md md:text-lg xl:text-3xl text-green-500 capitalize">
                   {bestScoreSort?.[0]?.subject}
                 </h2>{" "}
                 <div className="flex items-center gap-1 pt-1 md:pt-1 xl:pt-2">
@@ -145,7 +145,7 @@ const PerformanceStats = () => {
               </div>
               <div className="flex flex-col gap-1 bg-white/30 shadow-lg w-full h-24 md:w-[24rem] md:h-full items-center justify-center p-2 md:space-y-4">
                 <h2 className="text-lg md:text-xl xl:text-3xl text-green-500">
-                  {bestScoreSort?.[0]?.type}- {bestScoreSort?.[0]?.year}
+                  Exam Year-{bestScoreSort?.[0]?.year}
                 </h2>
                 <h2 className="text-md md:text-lg xl:text-2xl text-green-500">
                   Score
@@ -191,7 +191,7 @@ const PerformanceStats = () => {
                 </div>
                 <div className="flex justify-start items-center px-2 md:pl-6 ssm:w-1/5">
                   {" "}
-                  <p>Exam&Year</p>
+                  <p>Exam-Year</p>
                 </div>
                 <div className="flex justify-start items-center px-2 md:pl-6 ssm:w-1/5">
                   {" "}
@@ -222,14 +222,12 @@ const PerformanceStats = () => {
                       {" "}
                       <p>{i + 1}</p>
                     </div>
-                    <div className="flex justify-start items-center px-2  md:pl-6 ssm:w-1/5">
+                    <div className="flex justify-start items-center px-2  md:pl-6 ssm:w-1/5 capitalize">
                       <p> {score?.subject}</p>
                     </div>
                     <div className="flex justify-start items-center px-2 md:pl-6 ssm:w-1/5">
                       {" "}
-                      <p>
-                        {score?.type}&{score?.year}
-                      </p>
+                      <p>{score?.year}</p>
                     </div>
                     <div className="flex justify-start items-center px-2 md:pl-6 ssm:w-1/5">
                       {" "}

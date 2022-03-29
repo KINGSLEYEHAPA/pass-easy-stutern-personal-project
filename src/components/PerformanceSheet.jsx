@@ -1,8 +1,6 @@
-import React, { useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { formatTime } from "../utilities";
-import { useDispatch, useSelector } from "react-redux";
-import actionTypes from "../redux/actions/actionTypes";
+import { useSelector } from "react-redux";
 
 const PerformanceSheet = ({
   onClose,
@@ -40,7 +38,7 @@ const PerformanceSheet = ({
         <header className="w-full  h-24 flex flex-col items-center justify-start border-b-2 border-green-100 text-green-100 p-2 bg-green-700 ">
           <h4 className="text-xl">Your Scoresheet</h4>
           <p className="capitalize">
-            {quizInfo.examName} {quizInfo.examType} {quizInfo.examYear}{" "}
+            {quizInfo.examName} {quizInfo.examYear}{" "}
           </p>
           <p className="text-gray-300">{today}</p>
         </header>

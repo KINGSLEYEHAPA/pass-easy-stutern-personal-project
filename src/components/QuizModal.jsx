@@ -4,7 +4,6 @@ import End from "./End";
 import PerformanceSheet from "./PerformanceSheet";
 import Question from "./Question";
 import Start from "./Start";
-import { quizData } from "../dummyData";
 import { useSelector } from "react-redux";
 let interval;
 

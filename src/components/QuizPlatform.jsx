@@ -13,7 +13,6 @@ const QuizPlatform = () => {
   const [listedYears, setListedYears] = useState([]);
   const [selectedSubject, setSelectedSubject] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
-  const [selectedExamType, setSelectedExamType] = useState("");
   const [startCall, setStartCall] = useState(false);
   const [queryError, setQueryError] = useState(false);
 
@@ -22,10 +21,8 @@ const QuizPlatform = () => {
   );
   const quizInfo = {
     examName: selectedSubject,
-    examType: selectedExamType,
     examYear: selectedYear,
   };
-  const examOptions = ["WASSCE", "UTME", "POST-UTME"];
 
   const indexOfSubject = Object.values(listedSubjects)?.findIndex((subject) => {
     return searchedSubject.toLowerCase() === subject.toLowerCase();
@@ -44,7 +41,6 @@ const QuizPlatform = () => {
     setTimeout(() => {
       setShowSubjectBox(false);
     }, 3000);
-    // dispatch({ type: actionTypes.SEARCHED_SUBJECT, payload: "" });
   }, [searchedSubject]);
   useEffect(() => {
     const getAllSupportedSubjects = async () => {
@@ -74,7 +70,7 @@ const QuizPlatform = () => {
   }, [selectedSubject]);
 
   useEffect(() => {
-    const quizUrl = `https://questions.aloc.com.ng/api/v2/m?subject=${selectedSubject}&year=${selectedYear}&type=${selectedExamType}`;
+    const quizUrl = `https://questions.aloc.com.ng/api/v2/m?subject=${selectedSubject}&year=${selectedYear}`;
     const quizOptions = {
       headers: {
         Accept: "application/json",
@@ -103,7 +99,7 @@ const QuizPlatform = () => {
   }, [startCall]);
 
   const startQuiz = () => {
-    if (selectedExamType !== "" && selectedYear !== "" && selectedYear !== "") {
+    if (selectedYear !== "" && selectedYear !== "") {
       setStartCall(true);
       setQuizStart(true);
     } else {
@@ -126,7 +122,7 @@ const QuizPlatform = () => {
           </div>
         </div>
         <div className="w-full h-64 bg-green-500 flex flex-col gap-1 ">
-          <div className=" w-full h-2/3 ssm:h-1/3 flex flex-col ssm:flex-row gap-3 ssm:gap-2 p-6  ssm:justify-between items-center border-b-2 border-green-700 px-24">
+          <div className=" w-full h-2/3 ssm:h-1/3 flex flex-col ssm:flex-row gap-3 ssm:gap-3 p-6  ssm:justify-between items-center border-b-2 border-green-700 px-24">
             <select
               className="w-56 h-7 bg-green-300 text-white outline-none px-2 text-md rounded cursor-pointer"
               onChange={(e) => setSelectedSubject(e.target.value)}
@@ -145,19 +141,7 @@ const QuizPlatform = () => {
                 );
               })}
             </select>
-            <select
-              className="w-56 h-7 bg-green-300 text-white outline-none px-2 text-md rounded cursor-pointer"
-              onChange={(e) => setSelectedExamType(e.target.value)}
-            >
-              <option className="capitalize">Exam Type</option>
-              {examOptions.map((item, i) => {
-                return (
-                  <option value={item} key={i} className="capitalize">
-                    {item}
-                  </option>
-                );
-              })}
-            </select>
+
             <select
               className="w-56 h-7 bg-green-300 text-white outline-none px-2 text-md rounded cursor-pointer"
               onChange={(e) => setSelectedYear(e.target.value)}
@@ -171,15 +155,16 @@ const QuizPlatform = () => {
                 );
               })}
             </select>
+            <div className="ssm:w-96">
+              <button
+                onClick={startQuiz}
+                className="bg-green-700 px-8 ssm:px-12 py-2 text-green-100 font-bold rounded-md text-md ssm:text-lg outline-none"
+              >
+                Start Quiz
+              </button>
+            </div>
           </div>
-          <div className="bg-green-500 w-full h-1/5 ssm:h-1/3 flex justify-center items-center">
-            <button
-              onClick={startQuiz}
-              className="bg-green-700 px-12 ssm:px-16 py-3 text-green-100 font-bold rounded-md text-md ssm:text-xl outline-none"
-            >
-              Start Quiz
-            </button>
-          </div>
+          <div className="bg-green-500 w-full h-1/5 ssm:h-1/3 flex justify-center items-center"></div>
           <div className="bg-green-100 w-full h-1/5 ssm:h-1/3 flex justify-center items-center">
             <h2 className="text-green-500 text-2xl ssm:text-4xl">
               Take a Quiz....
@@ -192,7 +177,7 @@ const QuizPlatform = () => {
           <div className="flex justify-center items-center ">
             {showSubjectBoxContent && (
               <p className="text-md text-green-100 font-bold">
-                Please Select Year and Exam Type.
+                Please Select Year.
               </p>
             )}
             {!showSubjectBoxContent && (

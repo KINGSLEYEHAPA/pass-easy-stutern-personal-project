@@ -48,7 +48,6 @@ const End = ({
 
   const performanceInfo = {
     subject: quizInfo.examName,
-    type: quizInfo.examType,
     year: quizInfo.examYear,
     score: sessionScore,
     duration: time,
@@ -79,7 +78,7 @@ const End = ({
               You scored {correctAnswers} out of {data?.length}
               <strong> ({score}%)</strong> in the{" "}
               <strong>
-                {quizInfo.examName}-{quizInfo.examType}-{quizInfo.examYear}
+                {quizInfo.examName}-{quizInfo.examYear}
               </strong>{" "}
               quiz,You finished the quiz in <strong>{formatTime(time)}</strong>
             </p>{" "}

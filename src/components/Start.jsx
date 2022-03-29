@@ -15,7 +15,12 @@ const Start = ({ onQuizStartHandler }) => {
           ></motion.span>
         </div>
       )}
-      <p className="text-lg ssm:text-2xl text-green-100">Good luck!!</p>
+      {!questionLoading && (
+        <p className="text-lg ssm:text-2xl text-green-100">Good luck!!</p>
+      )}
+      {questionLoading && (
+        <p className="text-lg ssm:text-2xl text-green-100">Ready?</p>
+      )}
       {!questionLoading && (
         <button
           onClick={onQuizStartHandler}
