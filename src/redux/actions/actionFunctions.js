@@ -48,7 +48,6 @@ export const getMeaningOfRandomWord = async (dispatch) => {
       `https://api.dictionaryapi.dev/api/v2/entries/en/${randomWords()}`
     );
 
-    console.log(randomWordMeaning?.data[0]);
     dispatch(fetchRandomWordSuccess(randomWordMeaning?.data[0]));
   } catch (err) {
     dispatch(fetchRandomWordError(err.message));
