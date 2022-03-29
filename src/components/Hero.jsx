@@ -51,10 +51,9 @@ const Hero = () => {
                 BEST ONLINE EXAM PREPARATION PLATFORM
               </h1>
               <p className="mt-6 text-green-300 ssm:text-md  lg:text-xl ">
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa
-                qui officia deserunt mollit anim id est laborum. Sed ut
-                perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium
+                Pass Easy.The sure Platform to prepare for Exams in Wassce,Utme
+                and Postume. This Online Educational Platform is a Nigerian
+                Student Companion.
               </p>
               <Link to="/quiz">
                 <button className="border-green-500 border-2 px-4 py-2 mt-5 text-white text-lg md:text-xl hover:bg-green-500">
