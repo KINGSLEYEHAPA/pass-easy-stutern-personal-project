@@ -59,7 +59,7 @@ const Dictionary = () => {
     <div className="mt-52 lg:mt-[8.5rem] flex flex-col justify-start items-center min-h-[30rem] bg-green-100 px-0 py-4 gap-6">
       <AnimatePresence>
         <div className=" w-full h-[62rem] ssm:w-full ssm:h-[42rem] bg-green-300 p-2 rounded-lg">
-          <div className="w-full h-full bg-green-100 flex flex-col justify-start items-center gap-2 ">
+          <div className="w-full min-h-0 bg-green-100 flex flex-col justify-start items-center gap-2 ">
             <div className="flex  justify-between items-center h-20 bg-green-700 w-full p-2">
               <div className="flex gap-2">
                 <img className="w-5" src={dictionarySvg} alt="dictionary" />
@@ -92,7 +92,7 @@ const Dictionary = () => {
               </div>
             </div>
             {!wordSearched && (
-              <div className="mt-20">
+              <div className="mt-5 mb-8">
                 {" "}
                 <h2 className="text-green-500 text-4xl mt-10">
                   Learn New Words
