@@ -82,10 +82,14 @@ const Question = ({
             Object.entries(option).map((choice, i) => {
               return (
                 <div
-                  className="w-full text-sm p-4 flex justify-start items-center gap-2 hover:bg-gray-200 h-6 ssm:h-0.5/5 cursor-pointer"
+                  className={
+                    choice[1].length < 20
+                      ? "w-full text-sm p-4 flex justify-start items-center gap-2 hover:bg-gray-200 h-6 ssm:h-0.5/5 cursor-pointer"
+                      : "w-full text-[9px] p-4 flex justify-start items-center gap-2 hover:bg-gray-200 h-6 ssm:h-0.5/5 cursor-pointer"
+                  }
                   key={i}
                 >
-                  <div className="px-3 py-1   ">
+                  <div className="px-2 py-1   ">
                     <input
                       type="radio"
                       value={choice[0]}
