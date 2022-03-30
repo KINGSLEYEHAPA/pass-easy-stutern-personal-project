@@ -1,3 +1,6 @@
+PassEasy- A web application portal that prepares the nigerian student for the university entrance exams.
+I wrote the application with React,Tailwind,React-Redux for state management and Redux Persist for persisting my redux state.This application calls 3 APIs for News,Dictionary and Quiz functionality.The user can search for meaning of words,get recent happenings in the educational sector in the country and take a quiz in up to 17 subjects which can be WASSCE,UTME,POSTUME.The application ranks performance best on the best time,best performance in terms of score and ranks every quiz attempted based on score in the Rankings tab.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
