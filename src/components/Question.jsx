@@ -67,12 +67,15 @@ const Question = ({
           </div>
         </div>
         <div className="w-full min-h-[6.3rem]  p-4 bg-green-300">
-          <p className="text-xs sm:text-sm ssm:text-md text-green-700">
-            {data?.section}
-          </p>
-          <p className="text-xs sm:text-sm ssm:text-md text-green-700">
-            <strong>Q:</strong> {data?.question}
-          </p>
+          <p
+            className="text-xs sm:text-sm ssm:text-md text-green-700"
+            dangerouslySetInnerHTML={{ __html: data?.section }}
+          />
+
+          <p
+            className="text-xs sm:text-sm ssm:text-md text-green-700 font-bold"
+            dangerouslySetInnerHTML={{ __html: data?.question }}
+          />
         </div>
         <div
           className="w-full h-3/6 sm:h-[9.5rem] md:h-[12.25rem] bg-green-200"
@@ -83,9 +86,9 @@ const Question = ({
               return (
                 <div
                   className={
-                    choice[1].length < 20
+                    choice[1].length < 35
                       ? "w-full text-sm p-4 flex justify-start items-center gap-2 hover:bg-gray-200 h-6 ssm:h-0.5/5 cursor-pointer"
-                      : "w-full text-[9px] p-4 flex justify-start items-center gap-2 hover:bg-gray-200 h-6 ssm:h-0.5/5 cursor-pointer"
+                      : "w-full text-[8px] ssm:text-sm p-4 flex justify-start items-center gap-2 hover:bg-gray-200 h-6 ssm:h-0.5/5 cursor-pointer"
                   }
                   key={i}
                 >
