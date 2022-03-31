@@ -10,10 +10,12 @@ import PerformanceStats from "./PerformanceStats";
 import { store, persistor } from "../redux/store";
 import QuizPlatform from "./QuizPlatform";
 import { PersistGate } from "redux-persist/integration/react";
+import Welcome from "./Welcome";
 
 const ApplicationRoutes = () => {
   return (
-    <div>
+    <div className="relative">
+      <Welcome />
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <BrowserRouter>
