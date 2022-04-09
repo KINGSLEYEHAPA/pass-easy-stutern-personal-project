@@ -100,7 +100,7 @@ const PerformanceSheet = ({
         </div>
         <div className="flex justify-end items-center w-full h-8">
           <span
-            className="text-md text-green-100 font-bold cursor-pointer"
+            className="text-md text-green-800 font-bold cursor-pointer"
             onClick={onClose}
           >
             Close
