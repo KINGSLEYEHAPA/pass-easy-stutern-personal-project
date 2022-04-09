@@ -98,6 +98,14 @@ const PerformanceSheet = ({
             <strong> {formatTime(time)}</strong>
           </p>{" "}
         </div>
+        <div className="flex justify-end items-center w-full h-8">
+          <span
+            className="text-md text-green-100 font-bold cursor-pointer"
+            onClick={onClose}
+          >
+            Close
+          </span>
+        </div>
       </div>
     </motion.div>
   );
