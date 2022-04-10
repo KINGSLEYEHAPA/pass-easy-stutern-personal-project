@@ -31,19 +31,19 @@ const Hero = () => {
   return (
     <div className="w-full h-96 ssm:h-[28rem] md:h-[40rem] lg:h-[45rem] mt-52 lg:mt-[8.5rem]">
       <AnimatePresence>
-        <div className="h-full w-full bg-black relative">
+        <div className="h-full w-full bg-black relative overflow-hidden">
           <motion.img
             variants={heroImageVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="w-full h-full"
+            className="w-full h-full object-fill"
             src={changeImage ? mainImage : mainImage_two}
             alt="MainPhoto"
           />
 
           <div className="absolute top-0 left-0 w-full h-full bg-white/30 z-10 flex justify-start pl-12 items-center ">
-            <div className="w-80 sm:w-[30rem] ssm:w-[34rem] md:w-[40rem] lg:w-[50rem] px-0 md:mb-12 bg-gray-700/25 px-2 py-1 sm:px-4 sm:py-4 ssm:p-6">
+            <div className="w-80 sm:w-[30rem] ssm:w-[34rem] md:w-[40rem] lg:w-[50rem]  md:mb-12 bg-gray-700/25 px-2 py-1 sm:px-4 sm:py-4 ssm:p-6">
               <h4 className="text-xs text-green-300 font-bold ssm:text-md lg:text-lg">
                 GET STARTED WITH UP TO SEVENTEEN SUBJECTS
               </h4>

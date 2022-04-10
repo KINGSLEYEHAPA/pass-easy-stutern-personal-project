@@ -27,7 +27,7 @@ const Header = () => {
     dispatch(getMeaningOfRandomWord);
   }, [dispatch]);
   return (
-    <div className="fixed top-0 z-40 w-full">
+    <div className="fixed top-0 z-40 max-w-7xl mx-auto w-full">
       <div className="w-full h-32 lg:h-14 bg-white flex flex-col lg:flex-row justify-center items-center lg:gap-0 ">
         <div className="bg-green-100/30 h-full w-full lg:w-80 flex justify-between items-center  p-4 hover:cursor-pointer border-r-2 border-gray-100">
           <div className="flex justify-center items-center gap-2 hover:text-green-700">

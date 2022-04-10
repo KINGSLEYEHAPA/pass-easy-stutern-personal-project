@@ -14,7 +14,7 @@ import Welcome from "./Welcome";
 
 const ApplicationRoutes = () => {
   return (
-    <div className="relative">
+    <div className="relative max-w-7xl mx-auto">
       <Welcome />
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
