@@ -35,7 +35,7 @@ const NewsItem = () => {
         </div>
         <div className="w-full md:w-1/2 flex flex-col justify-start pt-20 ">
           <div className="flex justify-start items-center ">
-            <h1 className="text-xl ssm:text-2xl md:text-4xl mb-4 text-green-500">
+            <h1 className="text-2xl ssm:text-4xl mb-4 text-green-500">
               {oneNewsItem?.title}
             </h1>{" "}
           </div>
