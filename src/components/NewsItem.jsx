@@ -21,8 +21,8 @@ const NewsItem = () => {
           <h1 className="text-green-100  text-xl ssm:text-2xl">News</h1>
         </div>
       </div>
-      <div className="flex flex-col ssm:flex-row justify-center items-center p-4 pb-20 gap-10">
-        <div className=" w-full ssm:w-[30rem] h-[22rem] ssm:h-[28rem] lg:h-[32rem] lg:w-[35rem] xl:w-[45rem] rounded-lg ">
+      <div className="flex flex-col md:flex-row justify-start items-center p-4 pb-20 gap-10 ">
+        <div className=" w-full md:w-[30rem] h-[22rem] ssm:h-[28rem] lg:h-[28rem] lg:w-[35rem] xl:w-[45rem] rounded-lg ">
           <img
             className="w-full h-full rounded-lg "
             src={
@@ -33,7 +33,7 @@ const NewsItem = () => {
             alt="Main News"
           />
         </div>
-        <div className="w-full ssm:w-1/2 flex flex-col justify-start">
+        <div className="w-full md:w-1/2 flex flex-col justify-start pt-20 ">
           <div className="flex justify-start items-center ">
             <h1 className="text-xl ssm:text-2xl md:text-4xl mb-4 text-green-500">
               {oneNewsItem?.title}

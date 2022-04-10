@@ -31,15 +31,17 @@ const News = () => {
               className="bg-gray-100 h-72 min-w-[20rem] rounded-lg "
               key={index}
             >
-              <img
-                className="w-full h-2/3 rounded-tr-lg rounded-tl-lg pointer-events-none  "
-                src={
-                  newsItem?.media
-                    ? newsItem?.media
-                    : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3BsnxtyM161gr7oMXaII2SVx0qYLaO3siFw&usqp=CAU"
-                }
-                alt="News"
-              />
+              <div className=" h-2/3 w-full overflow-hidden">
+                <img
+                  className="w-full h-full rounded-tr-lg rounded-tl-lg pointer-events-none object-cover "
+                  src={
+                    newsItem?.media
+                      ? newsItem?.media
+                      : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3BsnxtyM161gr7oMXaII2SVx0qYLaO3siFw&usqp=CAU"
+                  }
+                  alt="News"
+                />
+              </div>
               <Link to={`/news/${newsItem.title}`}>
                 <div className="flex flex-col justify-center items-center  px-2 bg-green-500 h-1/3 ">
                   {" "}
