@@ -14,24 +14,26 @@ import Welcome from "./Welcome";
 
 const ApplicationRoutes = () => {
   return (
-    <div className="relative max-w-7xl mx-auto">
+    <div className="relative">
       <Welcome />
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<App />}>
-                <Route index element={<HomePage />} />
-                <Route path="/news/:news" element={<NewsItem />} />
-                <Route path="/dictionary" element={<Dictionary />} />
-                <Route path="/quiz" element={<QuizPlatform />} />
-                <Route path="/performance" element={<PerformanceStats />} />
-                <Route path="*" element={<ErrorPage />} />
-              </Route>
-            </Routes>
-          </BrowserRouter>
-        </PersistGate>
-      </Provider>
+      <div className="relative max-w-7xl mx-auto">
+        <Provider store={store}>
+          <PersistGate loading={null} persistor={persistor}>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<App />}>
+                  <Route index element={<HomePage />} />
+                  <Route path="/news/:news" element={<NewsItem />} />
+                  <Route path="/dictionary" element={<Dictionary />} />
+                  <Route path="/quiz" element={<QuizPlatform />} />
+                  <Route path="/performance" element={<PerformanceStats />} />
+                  <Route path="*" element={<ErrorPage />} />
+                </Route>
+              </Routes>
+            </BrowserRouter>
+          </PersistGate>
+        </Provider>
+      </div>
     </div>
   );
 };
