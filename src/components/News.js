@@ -45,7 +45,7 @@ const News = () => {
               <Link to={`/news/${newsItem.title}`}>
                 <div className="flex flex-col items-center justify-center px-2 bg-white h-1/3 ">
                   {" "}
-                  <h3 className="text-green-700 pointer-events-auto text-md ssm:text-lg">
+                  <h3 className="text-green-700 rounded-bl-lg rounded-br-lg pointer-events-auto text-md ssm:text-lg">
                     {newsItem?.title
                       ? newsItem?.title.slice(0, 80)
                       : "ASUU and travails of Nigerian education"}
