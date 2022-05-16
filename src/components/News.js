@@ -16,14 +16,14 @@ const News = () => {
     <motion.div
       ref={carousel}
       whileTap={{ cursor: "grabbing" }}
-      className="overflow-hidden cursor-grab min-w-full"
+      className="min-w-full overflow-hidden cursor-grab"
       id="news"
     >
-      <h2 className="text-2xl md:text-4xl text-green-500 ml-4">News</h2>
+      <h2 className="ml-4 text-2xl text-green-500 md:text-4xl">News</h2>
       <motion.div
         drag="x"
         dragConstraints={{ right: 0, left: -width }}
-        className=" bg-green-100 p-2 w-full flex gap-2 mt-2 px-2"
+        className="flex w-full gap-2 p-2 px-2 mt-2 bg-green-100 "
       >
         {latestNews?.map((newsItem, index) => {
           return (
@@ -31,9 +31,9 @@ const News = () => {
               className="bg-gray-100 h-72 min-w-[20rem] rounded-lg "
               key={index}
             >
-              <div className=" h-2/3 w-full overflow-hidden">
+              <div className="w-full overflow-hidden h-2/3">
                 <img
-                  className="w-full h-full rounded-tr-lg rounded-tl-lg pointer-events-none object-cover "
+                  className="object-cover w-full h-full rounded-tl-lg rounded-tr-lg pointer-events-none "
                   src={
                     newsItem?.media
                       ? newsItem?.media
@@ -43,9 +43,9 @@ const News = () => {
                 />
               </div>
               <Link to={`/news/${newsItem.title}`}>
-                <div className="flex flex-col justify-center items-center  px-2 bg-green-500 h-1/3 ">
+                <div className="flex flex-col items-center justify-center px-2 bg-white h-1/3 ">
                   {" "}
-                  <h3 className=" text-md ssm:text-lg text-white pointer-events-auto">
+                  <h3 className="text-green-700 pointer-events-auto text-md ssm:text-lg">
                     {newsItem?.title
                       ? newsItem?.title.slice(0, 80)
                       : "ASUU and travails of Nigerian education"}
